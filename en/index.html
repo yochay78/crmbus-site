@@ -5,8 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <link rel="alternate" hreflang="he" href="https://crmbus.com/">
 <link rel="alternate" hreflang="en" href="https://crmbus.com/en/">
+<link rel="alternate" hreflang="de" href="https://crmbus.com/de/">
 <title>CRMBUS WhatsApp Bots</title>
-<meta name="description" content="WhatsApp bots for businesses: instant 24/7 replies, lead qualification and bookings. Quick or official Meta connection, from ₪125 a month.">
+<meta name="description" content="WhatsApp bots for businesses: instant 24/7 replies, lead qualification and bookings. Quick or official Meta connection, from $35 a month.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
 <style>
@@ -14,27 +15,28 @@
   --ground:#F0F5F2; --surface:#FFFFFF; --ink:#0F2A22; --muted:#4A6259; --line:#D5E2DC;
   --accent:#0E7A6D; --accent-ink:#FFFFFF; --accent-text:#0B6E5F; --accent-soft:#DCF1EA; --signal:#128C7E; --pop:#25D366; --pop-ink:#06231A;
   --bubble-in:#FFFFFF; --bubble-out:#D9FDD3; --chat-bg:#EFEAE2; --shadow:0 18px 40px -22px rgba(7,94,84,.4);
-  --hero-bg:#075E54; --hero-ink:#EFFAF6; --hero-muted:#B5D6CF;
+  --hero-bg:#123029; --hero-ink:#EFFAF6; --hero-muted:#B5D6CF;
   --display:"Secular One","Rubik","Arial Hebrew",system-ui,sans-serif;
   --body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  --ground:#0B1512; --surface:#111F1B; --ink:#E4EFEA; --muted:#9BB3AA; --line:#203630;
+  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
   --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --signal:#25D366; --pop:#25D366; --pop-ink:#06231A;
   --bubble-in:#1F2C28; --bubble-out:#005C4B; --chat-bg:#0B141A; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
-  --hero-bg:#06201B; --hero-ink:#EFFAF6; --hero-muted:#A9C9C0;
+  --hero-bg:#102A24; --hero-ink:#EFFAF6; --hero-muted:#A9C9C0;
 }}
 :root[data-theme="dark"]{
-  --ground:#0B1512; --surface:#111F1B; --ink:#E4EFEA; --muted:#9BB3AA; --line:#203630;
+  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
   --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --signal:#25D366; --pop:#25D366; --pop-ink:#06231A;
   --bubble-in:#1F2C28; --bubble-out:#005C4B; --chat-bg:#0B141A; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
-  --hero-bg:#06201B; --hero-ink:#EFFAF6; --hero-muted:#A9C9C0;
+  --hero-bg:#102A24; --hero-ink:#EFFAF6; --hero-muted:#A9C9C0;
 }
 *{box-sizing:border-box}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;margin:0}
 .site{text-align:start}
 .site{--step-label:"שלב"}
 .site[lang="en"]{--step-label:"Step"}
+.site[lang="de"]{--step-label:"Schritt"}
 .wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
 a{color:inherit}
 h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.2;text-wrap:balance;margin:0}
@@ -68,11 +70,19 @@ nav.menu a:hover{color:var(--ink)}
 @media (max-width:860px){nav.menu{display:none}}
 
 /* hero */
-.hero{padding-block:64px 80px;position:relative;overflow:hidden;background:var(--hero-bg);color:var(--hero-ink);isolation:isolate}
-.hero-media{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.55}
-.hero-media::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 50% at 20% 30%,rgba(37,211,102,.20),transparent 70%),radial-gradient(45% 55% at 80% 70%,rgba(18,140,126,.35),transparent 70%);animation:drift 24s ease-in-out infinite alternate}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(4,48,42,.45),rgba(4,40,35,.72))}
+.hero{padding-block:64px 80px;position:relative;background:transparent;color:var(--hero-ink)}
+body{background:var(--hero-bg)}
+main,footer{position:relative;z-index:1}
+main > section:not(.hero):not(.band),footer{background:var(--ground)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) main > section:not(.hero):not(.band),:root:not([data-theme="light"]) footer{background:color-mix(in srgb,var(--ground) 80%,transparent)}:root:not([data-theme="light"]) .band{background:color-mix(in srgb,var(--surface) 84%,transparent)}}
+:root[data-theme="dark"] main > section:not(.hero):not(.band),:root[data-theme="dark"] footer{background:color-mix(in srgb,var(--ground) 80%,transparent)}
+:root[data-theme="dark"] .band{background:color-mix(in srgb,var(--surface) 84%,transparent)}
+.hero-media{position:fixed;inset:0;z-index:0;overflow:hidden;pointer-events:none;background:var(--hero-bg)}
+.hero-media video{width:100%;height:100%;object-fit:cover;opacity:.3}
+@media (max-width:759px),(prefers-reduced-motion:reduce){.hero-media video{display:none}}
+.hero-media::before{content:"";position:absolute;inset:-20%;background:radial-gradient(40% 50% at 20% 30%,rgba(214,140,70,.10),transparent 70%),radial-gradient(45% 55% at 80% 70%,rgba(214,140,70,.05),transparent 70%);animation:drift 24s ease-in-out infinite alternate}
+.hero-media::after{content:"";position:absolute;inset:0;background:linear-gradient(to left,rgba(16,44,37,.985) 0%,rgba(16,44,37,.93) 45%,rgba(16,44,37,.68) 100%)}
+.site[dir="ltr"] .hero-media::after{background:linear-gradient(to right,rgba(16,44,37,.985) 0%,rgba(16,44,37,.93) 45%,rgba(16,44,37,.68) 100%)}
 @keyframes drift{from{transform:translate3d(-3%,-2%,0) scale(1)}to{transform:translate3d(3%,2%,0) scale(1.08)}}
 .hero .lead,.hero .price-note,.hero .ticks{color:var(--hero-muted)}
 .hero .price-note strong{color:var(--hero-ink)}
@@ -214,12 +224,53 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
 /* floating */
 .float-wa{position:fixed;inset-inline-end:18px;bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:30;width:58px;height:58px;border-radius:50%;background:#25D366;display:grid;place-items:center;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
 .float-wa svg{width:30px;height:30px;fill:#fff}
+
+.biz-layer{position:absolute;inset:0;z-index:3;overflow:hidden}
+.biz-chip{position:absolute;display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:14px;background:rgba(18,48,41,.95);border:1px solid rgba(37,211,102,.35);backdrop-filter:blur(6px);color:#EFFAF6;font-size:13px;line-height:1.3;box-shadow:0 10px 30px -12px rgba(0,0,0,.6);opacity:0;transform:translateY(14px) scale(.98);transition:opacity .7s ease,transform .7s ease;white-space:nowrap}
+.biz-chip.on{opacity:1;transform:none}
+.biz-chip i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-size:13px;flex:none;background:rgba(37,211,102,.22);color:#25D366}
+.biz-chip b{display:block;font-weight:600}
+.biz-chip small{display:block;opacity:.7;font-size:11px}
+.biz-chart{position:absolute;bottom:6%;width:42%;height:34%;opacity:.28}
+.site[dir="rtl"] .biz-chart{left:3%}
+.site[dir="ltr"] .biz-chart{right:3%}
+.biz-chart path{fill:none;stroke:url(#bizGrad);stroke-width:2;stroke-linecap:round;stroke-dasharray:1400;stroke-dashoffset:1400;animation:bizDraw 14s ease-in-out infinite}
+.biz-chart .area{fill:url(#bizFill);stroke:none;animation:bizFade 14s ease-in-out infinite;opacity:0}
+@keyframes bizDraw{0%{stroke-dashoffset:1400;opacity:0}8%{opacity:1}55%{stroke-dashoffset:0;opacity:1}85%{stroke-dashoffset:0;opacity:1}100%{stroke-dashoffset:0;opacity:0}}
+@keyframes bizFade{0%,35%{opacity:0}60%,85%{opacity:1}100%{opacity:0}}
+
+.has-vid{position:relative;isolation:isolate;overflow:hidden}
+.sec-video{position:absolute;inset:0;z-index:-1;pointer-events:none}
+.sec-video video{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.5s ease}
+.sec-video.on video{opacity:.16}
+.sec-video::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ground) 0%,transparent 25%,transparent 75%,var(--ground) 100%)}
+.final.has-vid .sec-video.on video{opacity:.22}
+.final.has-vid .sec-video::after{background:linear-gradient(90deg,var(--hero-bg),rgba(0,0,0,0) 50%,var(--hero-bg))}
+.final.has-vid > :not(.sec-video){position:relative}
+@media (max-width:759px),(prefers-reduced-motion:reduce){.sec-video{display:none}}
+@media (prefers-color-scheme:light){:root:not([data-theme="dark"]) main > section .sec-video{display:none}}
+:root[data-theme="light"] main > section .sec-video{display:none}
+
+.phone-col{display:grid;gap:14px;width:100%;max-width:380px;justify-self:center}
+.phone-col .phone{justify-self:stretch}
+.biz-toasts{position:relative;height:60px}
+.biz-toasts .biz-chip{top:0;inset-inline-end:0}
+@media (max-width:759px){.biz-toasts{display:none}}
+.sec-video.zl video{-webkit-mask-image:linear-gradient(to right,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(to right,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%)}
+.sec-video.zr video{-webkit-mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%);mask-image:linear-gradient(to left,#000 0%,rgba(0,0,0,.6) 40%,transparent 75%)}
+.sec-video.on video{opacity:.22}
+.hero.has-vid .sec-video::after{background:linear-gradient(180deg,transparent 70%,var(--ground) 100%)}
+.hero.has-vid .sec-video.on video{opacity:.3}
+.bc > *{min-width:0}
+@media (max-width:480px){.top .wrap{gap:8px}.logo{font-size:1.2rem}.top .btn{padding:8px 12px;font-size:.85rem}.top .btn .wa-ico{display:none}.lang{padding:5px 8px;font-size:.8rem}.top-actions{gap:6px}}
 </style>
 </head>
 <body>
 
 <div class="site" dir="ltr" lang="en">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol></svg>
+
+<div class="hero-media" aria-hidden="true"><video autoplay muted loop playsinline preload="auto"><source src="../assets/bg-network.mp4" type="video/mp4"></video></div>
 
 <header class="top">
   <div class="wrap">
@@ -231,14 +282,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
       <a href="#broadcast">Broadcasts</a>
       <a href="#faq">FAQ</a>
     </nav>
-    <div class="top-actions"><a class="lang" href="/" hreflang="he" lang="he">עברית</a>
+    <div class="top-actions"><a class="lang" href="../index.html" hreflang="he" lang="he">עברית</a><a class="lang" href="../de/index.html" hreflang="de" lang="de">DE</a>
     <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20would%20like%20to%20hear%20about%20a%20WhatsApp%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Talk to us</a></div>
   </div>
 </header>
 
 <main id="top">
 <section class="hero">
-  <div class="hero-media" data-video="/assets/hero-loop.mp4" aria-hidden="true"></div>
   <div class="wrap">
     <div class="hero-copy">
       <span class="eyebrow">WhatsApp bots for business · Quick or official Meta connection</span>
@@ -248,20 +298,23 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20would%20like%20to%20hear%20about%20a%20WhatsApp%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Try the bot on WhatsApp</a>
         <a class="btn btn-ghost" href="#pricing">See plans &amp; pricing</a>
       </div>
-      <p class="price-note">From <strong>₪125</strong> a month · No commitment</p>
+      <p class="price-note">From <strong>$35</strong> a month · No commitment</p>
       <ul class="ticks"><li>No tech skills needed</li><li>Live within minutes</li><li>Answers on Saturday night too</li></ul>
     </div>
 
-    <div class="phone" role="img" aria-label="Example WhatsApp conversation between a customer and the bot">
+    <div class="phone-col">
+      <div class="biz-toasts" aria-hidden="true"></div>
+      <div class="phone" role="img" aria-label="Example WhatsApp conversation between a customer and the bot">
       <div class="phone-bar"><div class="avatar">S</div><div><strong>Shira's Clinic</strong><small>Replies instantly</small></div></div>
       <div class="chat">
         <div class="msg out">Hi, how much is a facial? Any slots this week?<time>21:47</time></div>
-        <div class="msg in">Good evening! 😊 Classic facial: ₪280, 60 minutes.<br>We have openings this week, when suits you?
+        <div class="msg in">Good evening! 😊 Classic facial: $80, 60 minutes.<br>We have openings this week, when suits you?
           <div class="quick"><span>Wednesday afternoon</span><span>Thursday morning</span><span>Talk to Shira</span></div><time>21:47</time></div>
         <div class="msg out">Thursday morning<time>21:48</time></div>
         <div class="msg in">Great, you're booked for Thursday at 10:00 ✅<br>I'll send a reminder the day before.<time>21:48</time></div>
         <div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -322,7 +375,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
       <div class="plan">
         <h3>Quick connection</h3>
         <p class="sub">For most small businesses. Connects to your existing WhatsApp and starts working today.</p>
-        <div class="amount">₪125 <small>/ month</small></div>
+        <div class="amount">$35 <small>/ month</small></div>
         <ul><li>Live in minutes, no Meta approval</li><li>Keep replying from your phone as usual</li><li>No extra Meta per-message fees</li><li>Automated replies and AI</li><li>Send photos, price lists and links</li><li>Alert to you when a human is needed</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20quick%20connection%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get quick connection</a>
       </div>
@@ -330,13 +383,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
         <span class="tag">Official Meta connection</span>
         <h3>Official connection</h3>
         <p class="sub">For businesses with lots of enquiries, or who want a verified, stable channel for the long run.</p>
-        <div class="amount">₪200 <small>/ month</small></div>
-        <p class="setup">+ ₪500 one-time setup</p>
+        <div class="amount">$55 <small>/ month</small></div>
+        <p class="setup">+ $139 one-time setup</p>
         <ul><li>Everything in Quick connection</li><li>Business number approved and verified by Meta</li><li>Buttons and menus inside the chat</li><li>Built for high message volumes</li><li>Runs in the cloud, no phone needed</li><li>Full guidance through Meta approval</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20official%20connection%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get official connection</a>
       </div>
     </div>
-    <p class="fine">Prices exclude VAT. With the official connection, Meta separately charges the business directly a small fee for some message types, according to its official rate card.</p>
+    <p class="fine">Prices exclude VAT/sales tax. With the official connection, Meta separately charges the business directly a small fee for some message types, according to its official rate card.</p>
   </div>
 </section>
 
@@ -361,20 +414,20 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
           <table class="pk" style="min-width:420px">
             <thead><tr><th scope="col">Package</th><th scope="col">Messages</th><th scope="col">Price</th><th scope="col">Per message</th></tr></thead>
             <tbody>
-              <tr><td>Starter</td><td>10,000</td><td>₪490</td><td>4.9 ag.</td></tr>
-              <tr><td>Small</td><td>25,000</td><td>₪1,150</td><td>4.6 ag.</td></tr>
-              <tr class="best"><td>Base</td><td>100,000</td><td>₪4,200</td><td>4.2 ag.</td></tr>
-              <tr><td>Advanced</td><td>300,000</td><td>₪11,400</td><td>3.8 ag.</td></tr>
-              <tr><td>Large</td><td>500,000</td><td>₪16,500</td><td>3.3 ag.</td></tr>
-              <tr><td>Enterprise</td><td>1,000,000</td><td>₪28,000</td><td>2.8 ag.</td></tr>
+              <tr><td>Starter</td><td>10,000</td><td>$135</td><td>1.35¢</td></tr>
+              <tr><td>Small</td><td>25,000</td><td>$315</td><td>1.26¢</td></tr>
+              <tr class="best"><td>Base</td><td>100,000</td><td>$1,150</td><td>1.15¢</td></tr>
+              <tr><td>Advanced</td><td>300,000</td><td>$3,100</td><td>1.03¢</td></tr>
+              <tr><td>Large</td><td>500,000</td><td>$4,500</td><td>0.9¢</td></tr>
+              <tr><td>Enterprise</td><td>1,000,000</td><td>$7,600</td><td>0.76¢</td></tr>
             </tbody>
           </table>
         </div>
         <div class="conds">
           <p><strong>Pay once, no expiry.</strong> Messages stay in your account until you use them.</p>
-          <p><strong>Official connection only</strong> (₪200/month + ₪500 setup), so sending at volume never puts your number at risk.</p>
-          <p><strong>Meta fees are separate</strong> and paid directly by the business, roughly 12–15 agorot per marketing message, per Meta's official rate card.</p>
-          <p>Prices exclude VAT.</p>
+          <p><strong>Official connection only</strong> ($55/month + $139 setup), so sending at volume never puts your number at risk.</p>
+          <p><strong>Meta fees are separate</strong> and paid directly by the business, roughly 3.5–4¢ per marketing message, per Meta's official rate card.</p>
+          <p>Prices exclude VAT/sales tax.</p>
         </div>
       </div>
     </div>
@@ -388,7 +441,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
       <table>
         <thead><tr><th scope="col"></th><th scope="col" class="us">Quick connection</th><th scope="col" class="us">Official connection</th></tr></thead>
         <tbody>
-          <tr><td>Monthly price</td><td>₪125</td><td>₪200 + ₪500 setup</td></tr>
+          <tr><td>Monthly price</td><td>$35</td><td>$55 + $139 setup</td></tr>
           <tr><td>Time to go live</td><td>Minutes</td><td>A few days (Meta approval)</td></tr>
           <tr><td>Keep replying from your phone</td><td>Yes, as usual</td><td>Through the platform</td></tr>
           <tr><td>Meta message fees</td><td>None</td><td>Per Meta's rate card</td></tr>
@@ -468,16 +521,44 @@ document.getElementById('lead').addEventListener('submit',function(e){
   var t='Hi, I\'m '+(n||'')+'. '+(b?('My business: '+b+'. '):'')+'I\'d like to hear about a WhatsApp bot.';
   window.open('https://wa.me/972559473443?text='+encodeURIComponent(t),'_blank','noopener');
 });
+
+
 (function(){
-  var m=document.querySelector('.hero-media'); if(!m) return;
-  var wide=window.matchMedia('(min-width:760px)').matches, calm=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
-  if(!wide||calm) return;
-  var v=document.createElement('video');
-  v.muted=true; v.loop=true; v.autoplay=true; v.playsInline=true; v.setAttribute('playsinline',''); v.preload='auto';
-  v.onerror=function(){v.remove()};
-  var src=document.createElement('source'); src.src=m.getAttribute('data-video'); src.type='video/mp4';
-  src.onerror=function(){v.remove()};
-  v.appendChild(src); m.appendChild(v);
+  var host=document.querySelector('.hero-media'); if(!host) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!matchMedia('(min-width:760px)').matches) return;
+  var site=document.querySelector('.site'), rtl=site.getAttribute('dir')==='rtl';
+  var layer=document.createElement('div'); layer.className='biz-layer'; host.appendChild(layer);
+  var msgs=rtl?[
+    ['💬','ליד חדש מוואטסאפ','עכשיו'],['📅','תור נקבע','חמישי, 10:00'],['₪','הזמנה התקבלה','₪480'],['📈','+3 לקוחות חדשים','היום'],
+    ['✅','הבוט ענה ל-27 פניות','ב-24 שעות האחרונות'],['⭐','ביקורת חדשה','5 כוכבים'],['🔔','תזכורת נשלחה','12 לקוחות'],['₪','תשלום התקבל','₪1,250']
+  ]:[
+    ['💬','New WhatsApp lead','just now'],['📅','Appointment booked','Thu, 10:00'],['$','Order received','$130'],['📈','+3 new customers','today'],
+    ['✅','Bot answered 27 enquiries','last 24 hours'],['⭐','New review','5 stars'],['🔔','Reminder sent','12 customers'],['$','Payment received','$350']
+  ];
+  var idx=Math.floor(Math.random()*msgs.length);
+  var box=document.querySelector('.biz-toasts');
+  function show(){
+    if(document.hidden||!box) return;
+    [].slice.call(box.querySelectorAll('.biz-chip.on')).forEach(function(o){o.classList.remove('on');setTimeout(function(){o.remove()},800)});
+    var m=msgs[idx++%msgs.length], el=document.createElement('div'); el.className='biz-chip';
+    el.innerHTML='<i>'+m[0]+'</i><span><b>'+m[1]+'</b><small>'+m[2]+'</small></span>';
+    box.appendChild(el);
+    requestAnimationFrame(function(){requestAnimationFrame(function(){el.classList.add('on')})});
+  }
+  setTimeout(show,600); setInterval(show,2600);
+})();
+
+(function(){
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches||!matchMedia('(min-width:760px)').matches) return;
+  var boxes=[].slice.call(document.querySelectorAll('.sec-video'));
+  if(!('IntersectionObserver' in window)) return;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){
+    var box=e.target, v=box.querySelector('video');
+    if(e.isIntersecting){ if(getComputedStyle(box).display==='none') return;
+      if(!v.src){v.src=v.getAttribute('data-src')} var p=v.play(); if(p&&p.catch)p.catch(function(){}); box.classList.add('on') }
+    else { v.pause() }
+  })},{rootMargin:'100px'});
+  boxes.forEach(function(b){io.observe(b)});
 })();
 </script>
 

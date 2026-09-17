@@ -1,0 +1,469 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>בנו בוט לוואטסאפ בדקה · CRMBUS</title>
+<meta name="description" content="בנו בוט לוואטסאפ לעסק שלכם בכמה לחיצות, ודברו איתו מיד. בלי הרשמה ובלי כרטיס אשראי.">
+<meta name="robots" content="index,follow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
+<style>
+:root{
+  --ground:#F0F5F2; --surface:#FFFFFF; --ink:#0F2A22; --muted:#4A6259; --line:#D5E2DC;
+  --accent:#0E7A6D; --accent-ink:#FFFFFF; --accent-text:#0B6E5F; --accent-soft:#DCF1EA; --pop:#25D366; --pop-ink:#06231A;
+  --bad:#A8322B; --bad-soft:#F8E3E1; --chat-bg:#EFEAE2; --bubble-in:#FFFFFF; --bubble-out:#D9FDD3; --shadow:0 18px 40px -22px rgba(7,94,84,.4);
+  --display:"Secular One","Arial Hebrew",system-ui,sans-serif;
+  --body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
+  --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --bad:#FF8A80; --bad-soft:#3A1F1C;
+  --chat-bg:#0B141A; --bubble-in:#1F2C28; --bubble-out:#005C4B; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
+}}
+:root[data-theme="dark"]{
+  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
+  --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --bad:#FF8A80; --bad-soft:#3A1F1C;
+  --chat-bg:#0B141A; --bubble-in:#1F2C28; --bubble-out:#005C4B; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.2;margin:0;text-wrap:balance}
+p{margin:0}
+.wrap{max-width:1120px;margin-inline:auto;padding-inline:16px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:999px;font:700 1rem var(--body);text-decoration:none;border:2px solid transparent;cursor:pointer;background:var(--accent);color:var(--accent-ink)}
+.btn:hover{filter:brightness(1.05)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.pop{background:var(--pop);color:var(--pop-ink)}
+.btn[disabled]{opacity:.5;cursor:not-allowed}
+.btn:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,button:focus-visible{outline:3px solid var(--pop);outline-offset:2px}
+.wa-ico{width:20px;height:20px;flex:none}
+header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--ground) 90%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.logo{font-family:var(--display);font-size:1.45rem;text-decoration:none;direction:ltr}
+.logo b{color:#128C7E;font-weight:400}
+header .btn{padding:8px 16px;font-size:.92rem}
+.intro{padding-block:28px 12px;display:grid;gap:8px}
+.intro h1{font-size:clamp(1.7rem,4.6vw,2.6rem)}
+.intro p{color:var(--muted);max-width:62ch}
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:20px;align-items:start;padding-block:12px 64px}
+@media (min-width:920px){.layout{grid-template-columns:minmax(0,1fr) 370px}.phone-col{position:sticky;top:76px}}
+@media (max-width:919px){.layout.chat-first .phone-col{order:-1}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px;display:flex;flex-direction:column;gap:16px}
+.steps{display:flex;gap:6px;list-style:none;margin:0 0 4px;padding:0}
+.steps li{flex:1;display:flex;flex-direction:column;gap:5px;font-size:.8rem;color:var(--muted);font-weight:700;min-width:0}
+.steps li::before{content:"";height:5px;border-radius:9px;background:var(--line)}
+.steps li.done::before,.steps li.on::before{background:var(--accent)}
+.steps li.on{color:var(--ink)}
+.steps span{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+@media (max-width:560px){.steps li:not(.on) span{visibility:hidden}}
+.q{font-size:1.6rem}
+.sub{color:var(--muted)}
+.choices{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.choice{position:relative;display:flex;gap:12px;align-items:flex-start;background:var(--surface);border:2px solid var(--line);border-radius:14px;padding:13px;cursor:pointer;text-align:start}
+.choice:hover{border-color:color-mix(in srgb,var(--accent) 45%,var(--line))}
+.choice input{position:absolute;opacity:0;pointer-events:none}
+.choice:has(input:checked){border-color:var(--accent);background:var(--accent-soft)}
+.choice:has(input:focus-visible){outline:3px solid var(--pop);outline-offset:2px}
+.choice .ico{font-size:1.7rem;line-height:1}
+.choice b{display:block;font-size:1.02rem}
+.choice small{display:block;color:var(--muted);font-size:.88rem;line-height:1.4}
+.tick{margin-inline-start:auto;width:22px;height:22px;border-radius:50%;border:2px solid var(--line);flex:none;display:grid;place-items:center;color:#fff;font-size:.8rem}
+.choice:has(input:checked) .tick{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.locked{cursor:default;opacity:.85}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--surface);border-radius:99px;padding:6px 12px;cursor:pointer;font-weight:600;font-size:.95rem}
+.chip input{accent-color:var(--accent)}
+.chip:has(input:checked){border-color:var(--accent);background:var(--accent-soft);color:var(--accent-text)}
+.field{display:flex;flex-direction:column;gap:6px}
+.label{font-weight:700}
+.hint{color:var(--muted);font-size:.88rem}
+input[type=text],textarea{width:100%;font:inherit;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--surface);color:var(--ink)}
+textarea{min-height:80px;resize:vertical}
+.big{font-size:1.25rem;padding:13px 14px}
+.invalid{border-color:var(--bad)!important}
+.err{color:var(--bad);font-size:.88rem;font-weight:700}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+@media (max-width:919px){.nav.stick{position:sticky;bottom:0;background:var(--surface);padding-block:10px;border-top:1px solid var(--line);margin-inline:-22px;padding-inline:22px;border-radius:0 0 18px 18px}}
+.linkish{background:none;border:0;color:var(--accent-text);font:700 .95rem var(--body);cursor:pointer;padding:6px 0}
+.saved{color:var(--muted);font-size:.85rem;min-height:1em}
+.summary{list-style:none;margin:0;padding:0}
+.summary li{display:flex;justify-content:space-between;gap:10px;padding:9px 0;border-bottom:1px solid var(--line)}
+.summary li:last-child{border:0}
+details.icard{border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+details.icard>summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:10px;padding:13px 15px;font-weight:700}
+details.icard>summary::-webkit-details-marker{display:none}
+details.icard[open]>summary{border-bottom:1px solid var(--line)}
+details.icard .inner{padding:14px 15px;display:flex;flex-direction:column;gap:10px}
+.pill{margin-inline-start:auto;font-size:.78rem;font-weight:700;padding:2px 10px;border-radius:99px;background:var(--line);color:var(--muted)}
+.pill.on{background:var(--accent-soft);color:var(--accent-text)}
+.hours{display:grid;grid-template-columns:auto 1fr;gap:8px 10px;align-items:center}
+.cta{background:#123029;color:#EFFAF6;border:0}
+.cta .sub{color:#B5D6CF}
+/* phone */
+.phone{background:var(--surface);border:1px solid var(--line);border-radius:26px;box-shadow:var(--shadow);overflow:hidden}
+.bar{display:flex;align-items:center;gap:10px;padding:11px 15px;background:#075E54;color:#EFFAF6}
+.bar b{display:block;font-size:.95rem;max-width:260px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar small{display:block;opacity:.8;font-size:.75rem}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--pop);color:var(--pop-ink);display:grid;place-items:center;font-family:var(--display);flex:none}
+.chat{background:var(--chat-bg);padding:12px;display:flex;flex-direction:column;gap:6px;min-height:330px;max-height:480px;overflow-y:auto;font-size:.93rem;line-height:1.45}
+.msg{max-width:86%;padding:7px 10px;border-radius:10px;white-space:pre-wrap;overflow-wrap:anywhere;box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.msg.in{background:var(--bubble-in);align-self:flex-start}
+.msg.out{background:var(--bubble-out);align-self:flex-end}
+.sys{align-self:center;background:#FFF6D6;color:#6B5500;font-size:.78rem;border-radius:7px;padding:3px 10px;text-align:center}
+.note{align-self:stretch;background:var(--surface);border:1px dashed var(--line);border-radius:10px;padding:8px 10px;font-size:.82rem;white-space:pre-wrap}
+.note b{display:block;font-size:.75rem;color:var(--muted)}
+.opts{display:flex;flex-direction:column;gap:4px;align-self:flex-start;width:86%}
+.opts button,.opts span{display:block;width:100%;background:var(--bubble-in);color:#027EB5;border:0;border-radius:10px;padding:8px;text-align:center;font:600 .93rem var(--body);box-shadow:0 1px 0 rgba(0,0,0,.08)}
+.opts button{cursor:pointer}
+.opts.list button,.opts.list span{text-align:start;color:var(--ink)}
+.listbtn{align-self:flex-start;width:86%;background:var(--bubble-in);color:#027EB5;border-radius:10px;padding:7px;text-align:center;font-weight:600}
+.composer{display:flex;gap:8px;padding:8px;background:color-mix(in srgb,var(--chat-bg) 70%,var(--surface))}
+.composer input{border-radius:99px;border:0}
+.composer button{width:44px;height:44px;border-radius:50%;padding:0;flex:none}
+.under{display:flex;justify-content:space-between;align-items:center;padding:4px 14px 10px;background:color-mix(in srgb,var(--chat-bg) 70%,var(--surface))}
+.phone-hint{text-align:center;color:var(--muted);font-size:.85rem;margin-top:8px}
+.banner{background:var(--bad-soft);color:var(--bad);border-radius:12px;padding:10px 14px;font-weight:700}
+.loading{opacity:.6;pointer-events:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--muted);font-size:.9rem}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z"/></symbol></svg>
+
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="/">CRM<b>BUS</b></a>
+    <a class="btn pop" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%91%D7%A0%D7%99%D7%AA%D7%99%20%D7%91%D7%95%D7%98%20%D7%91%D7%93%D7%9E%D7%95%20%D7%95%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>דברו איתנו</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <h1>בנו בוט לוואטסאפ לעסק שלכם, עכשיו</h1>
+    <p>כמה לחיצות, ואתם מדברים עם הבוט כמו לקוח. בלי הרשמה ובלי כרטיס אשראי. מה שבניתם נשמר בדפדפן הזה.</p>
+  </section>
+  <div id="app" class="layout" aria-live="polite">
+    <div class="card"><p class="sub">טוען...</p></div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">זו גרסת הדגמה: שום הודעה לא נשלחת לוואטסאפ, והבוט לא מחובר ללקוחות אמיתיים. © 2026 CRMBUS</div>
+</footer>
+
+<script>
+(function () {
+  "use strict";
+  var API = (new URLSearchParams(location.search).get("api")) || "https://bot.crmbus.com/demo-api";
+  var WA = "972559473443";
+  var KEY = "crmbus_demo_draft";
+  var STEPS = ["type", "name", "goals", "personality", "ready"];
+  var STEP_LABELS = {type: "סוג העסק", name: "שם", goals: "מה הבוט עושה", personality: "טון ושם", ready: "הבוט מוכן"};
+  var DAYS = [["sun", "ראשון"], ["mon", "שני"], ["tue", "שלישי"], ["wed", "רביעי"], ["thu", "חמישי"], ["fri", "שישי"], ["sat", "שבת"]];
+  var app = document.getElementById("app");
+  var S = {templates: [], draft: null, screen: "type", errors: {}, busy: false, openCard: null, failed: false};
+
+  function store(id) { try { if (id) localStorage.setItem(KEY, id); else localStorage.removeItem(KEY); } catch (e) {} }
+  function stored() { try { return localStorage.getItem(KEY); } catch (e) { return null; } }
+  function he(v) { return v && typeof v === "object" ? (v.he || v.en || "") : (v || ""); }
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) { return {"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"}[c]; }); }
+  function tpl() { var code = S.draft && S.draft.template; return S.templates.filter(function (t) { return t.code === code; })[0] || null; }
+  function A() { return (S.draft && S.draft.answers) || {}; }
+
+  function call(method, path, payload) {
+    var opts = {method: method, credentials: "omit"};
+    if (payload) { opts.body = JSON.stringify(payload); opts.headers = {"Content-Type": "text/plain;charset=UTF-8"}; }
+    return fetch(API + path, opts).then(function (r) {
+      return r.json().catch(function () { return {}; }).then(function (data) {
+        if (!r.ok) { var e = new Error(data.error || ("http_" + r.status)); e.status = r.status; throw e; }
+        return data;
+      });
+    });
+  }
+
+  function problem(err) {
+    var msg = err && err.status === 429 ? "יותר מדי פעולות בזמן קצר. נסו שוב בעוד כמה דקות." :
+      "משהו השתבש בחיבור. נסו לרענן את העמוד.";
+    S.failed = msg; render();
+  }
+
+  // ------------------------------------------------------------ start
+  function start() {
+    if (new URLSearchParams(location.search).get("new")) store(null);
+    call("GET", "/templates").then(function (res) {
+      S.templates = res.templates || [];
+      var id = stored();
+      return id ? call("GET", "/drafts/" + encodeURIComponent(id)).catch(function () { return newDraft(); }) : newDraft();
+    }).then(function (draft) { useDraft(draft, true); }).catch(problem);
+  }
+  function newDraft() { return call("POST", "/drafts", {}); }
+  function useDraft(draft, restoring) {
+    S.draft = draft; store(draft.id);
+    if (restoring) {
+      var saved = draft.screen || "type";
+      S.screen = (draft.missing && STEPS.indexOf(draft.missing) > -1 && STEPS.indexOf(draft.missing) < STEPS.indexOf(saved === "improve" ? "ready" : saved)) ? draft.missing : saved;
+    }
+    render();
+  }
+
+  // ------------------------------------------------------------ form values per screen
+  function values(form) {
+    var out = {};
+    Array.prototype.forEach.call(form.elements, function (el) {
+      if (!el.name || el.disabled) return;
+      if ((el.type === "checkbox" || el.type === "radio") && !el.checked) return;
+      if (el.type === "checkbox") { (out[el.name] = out[el.name] || []).push(el.value); return; }
+      out[el.name] = el.value;
+    });
+    return out;
+  }
+
+  var timer = null;
+  function live(form) {
+    clearTimeout(timer);
+    timer = setTimeout(function () {
+      call("POST", "/drafts/" + S.draft.id + "/screen", {screen: S.screen, values: values(form), save: false}).then(function (res) {
+        S.draft = res; renderPhone();
+        var s = document.querySelector(".saved"); if (s) s.textContent = Object.keys(res.errors || {}).length ? "" : "נשמר";
+      }).catch(function () {});
+    }, 350);
+  }
+
+  function next(form) {
+    if (S.busy) return; S.busy = true; form.classList.add("loading");
+    call("POST", "/drafts/" + S.draft.id + "/screen", {screen: S.screen, values: values(form), save: true}).then(function (res) {
+      S.busy = false; S.draft = res; S.errors = res.errors || {};
+      if (!Object.keys(S.errors).length) { S.screen = STEPS[STEPS.indexOf(S.screen) + 1]; window.scrollTo({top: 0, behavior: "smooth"}); }
+      render();
+    }).catch(function (e) { S.busy = false; problem(e); });
+  }
+
+  // ------------------------------------------------------------ rendering
+  function stepsBar() {
+    var idx = STEPS.indexOf(S.screen === "improve" ? "ready" : S.screen);
+    return '<ol class="steps" aria-label="התקדמות">' + STEPS.map(function (s, i) {
+      return '<li class="' + (i < idx ? "done" : i === idx ? "on" : "") + '"' + (i === idx ? ' aria-current="step"' : "") + '><span>' + STEP_LABELS[s] + "</span></li>";
+    }).join("") + "</ol>";
+  }
+  function err(name) { return S.errors[name] ? '<span class="err">' + esc(S.errors[name]) + "</span>" : ""; }
+  function navRow(backTo, label) {
+    return '<div class="nav stick">' + (backTo ? '<button type="button" class="linkish" data-go="' + backTo + '">→ חזרה</button>' : "<span></span>") +
+      '<span class="saved" aria-live="polite"></span><button class="btn" type="submit">' + (label || "המשך ←") + "</button></div>";
+  }
+
+  function screenType() {
+    var a = A();
+    return '<form class="card" data-screen>' + stepsBar() + '<h2 class="q">איזה עסק יש לכם?</h2><p class="sub">נבחר תפריט, שאלות ותשובות שמתאימים לסוג העסק.</p>' +
+      '<fieldset style="border:0;padding:0;margin:0"><legend class="sr">סוג העסק</legend><div class="choices">' +
+      S.templates.map(function (t) {
+        return '<label class="choice"><input type="radio" name="business_type" value="' + esc(t.code) + '"' + (a.business_type === t.code ? " checked" : "") + '>' +
+          '<span class="ico" aria-hidden="true">' + esc(t.icon) + "</span><span><b>" + esc(he(t.name)) + "</b><small>" + esc(he(t.tagline)) + '</small></span><span class="tick" aria-hidden="true">✓</span></label>';
+      }).join("") + "</div>" + err("business_type") + "</fieldset>" + navRow(null) + "</form>";
+  }
+
+  function screenName() {
+    var t = tpl(), a = A();
+    return '<form class="card" data-screen>' + stepsBar() + '<h2 class="q">איך קוראים לעסק?</h2><p class="sub">כך הבוט יציג את העסק ללקוחות.</p>' +
+      '<div class="field"><label class="sr" for="bn">שם העסק</label><input id="bn" class="big' + (S.errors.business_name ? " invalid" : "") + '" type="text" name="business_name" maxlength="60" autocomplete="organization" value="' +
+      esc(a.business_name || "") + '" placeholder="' + esc(he(t && t.name_placeholder)) + '">' + err("business_name") + "</div>" + navRow("type") + "</form>";
+  }
+
+  function screenGoals() {
+    var t = tpl(), a = A(), goals = a.goals || [], fields = a.fields || {};
+    return '<form class="card" data-screen>' + stepsBar() + '<h2 class="q">מה הבוט יעשה בשבילכם?</h2><p class="sub">אפשר לבחור כמה. כל בחירה הופכת לכפתור בתפריט של הבוט.</p>' + err("goals") +
+      t.goals.map(function (g) {
+        var on = g.required || goals.indexOf(g.id) > -1;
+        var box = g.required ? '<input type="checkbox" checked disabled>' : '<input type="checkbox" name="goals" value="' + esc(g.id) + '" data-goal="' + esc(g.id) + '"' + (on ? " checked" : "") + ">";
+        var sub = "";
+        if (g.kind === "booking") {
+          var picked = fields[g.id] || g.fields.filter(function (f) { return f.default; }).map(function (f) { return f.id; });
+          sub = '<fieldset class="chips" data-fields-of="' + esc(g.id) + '" style="border:0;margin:6px 0 0;padding:0"' + (on ? "" : " hidden") + '><legend class="hint" style="padding:0;margin-bottom:6px">אילו פרטים הבוט ישאל:</legend>' +
+            g.fields.map(function (f) { return '<label class="chip"><input type="checkbox" name="fields__' + esc(g.id) + '" value="' + esc(f.id) + '"' + (picked.indexOf(f.id) > -1 ? " checked" : "") + "> " + esc(he(f.label)) + "</label>"; }).join("") +
+            '<div style="flex-basis:100%">' + err("fields__" + g.id) + "</div></fieldset>";
+        }
+        return '<div class="field"><label class="choice' + (g.required ? " locked" : "") + '">' + box + "<span><b>" + esc(he(g.label)) + "</b><small>" + esc(he(g.hint)) + '</small></span><span class="tick" aria-hidden="true">✓</span></label>' + sub + "</div>";
+      }).join("") + navRow("name") + "</form>";
+  }
+
+  function screenPersonality() {
+    var t = tpl(), a = A(), gender = S.draft.gender || "female";
+    var inList = t.names.some(function (n) { return n[0] === a.bot_name && n[1] === gender; });
+    return '<form class="card" data-screen>' + stepsBar() + '<h2 class="q">איך הבוט ידבר?</h2><p class="sub">בחרו טון ושם. הבוט תמיד מציג את עצמו כבוט.</p>' +
+      '<fieldset style="border:0;padding:0;margin:0"><legend class="sr">טון</legend><div class="choices">' +
+      t.personalities.map(function (p, i) {
+        return '<label class="choice"><input type="radio" name="personality" value="' + esc(p.id) + '"' + ((a.personality || t.personalities[0].id) === p.id ? " checked" : "") + "><span><b>" + esc(he(p.label)) + "</b><small>" + esc(he(p.description)) + '</small></span><span class="tick" aria-hidden="true">✓</span></label>';
+      }).join("") + "</div>" + err("personality") + "</fieldset>" +
+      '<fieldset class="field" style="border:0;padding:0;margin:0"><legend class="label">שם לבוט</legend><div class="chips" id="chips">' +
+      t.names.map(function (n) { return '<label class="chip"><input type="radio" name="bot_name" value="' + esc(n[0] + "|" + n[1]) + '"' + (inList && a.bot_name === n[0] && gender === n[1] ? " checked" : "") + "> " + esc(n[0]) + "</label>"; }).join("") +
+      '</div><label class="hint" for="custom">או שם משלכם:</label><input id="custom" type="text" name="bot_name_custom" maxlength="20" value="' + esc(inList ? "" : (a.bot_name || "")) + '"' + (S.errors.bot_name_custom ? ' class="invalid"' : "") + ">" + err("bot_name_custom") +
+      '<div class="chips" id="genders"' + (inList && !S.errors.bot_gender ? " hidden" : "") + '><span class="hint" style="flex-basis:100%">איך הבוט מדבר על עצמו?</span>' +
+      '<label class="chip"><input type="radio" name="bot_gender" value="female"' + (gender === "female" ? " checked" : "") + '> בלשון נקבה ("אני מעבירה")</label>' +
+      '<label class="chip"><input type="radio" name="bot_gender" value="male"' + (gender === "male" ? " checked" : "") + '> בלשון זכר ("אני מעביר")</label></div>' + err("bot_gender") + "</fieldset>" +
+      navRow("goals", "יצירת הבוט ✨") + "</form>";
+  }
+
+  function waLink() {
+    var t = tpl(), a = A();
+    var text = "היי, בניתי בדמו בוט ל" + he(t && t.name) + " (" + (a.business_name || "") + ", הבוט " + (a.bot_name || "") + ") ואשמח להפעיל אותו בוואטסאפ של העסק";
+    return "https://wa.me/" + WA + "?text=" + encodeURIComponent(text);
+  }
+
+  function screenReady() {
+    var t = tpl(), a = A(), female = S.draft.gender !== "male";
+    var goals = t.goals.filter(function (g) { return g.required || (a.goals || []).indexOf(g.id) > -1; }).map(function (g) { return he(g.label); }).join(", ");
+    return '<div class="card">' + stepsBar() + '<h2 class="q">' + esc(a.bot_name) + (female ? " מוכנה" : " מוכן") + ' לעבודה 🎉</h2>' +
+      '<p class="sub">דברו עם הבוט כמו לקוח: לחצו על הכפתורים או כתבו שאלה. כשמבקשים נציג, תראו גם מה הצוות מקבל.</p>' +
+      '<div class="nav"><button type="button" class="btn ghost" data-go="improve">לשפר את הבוט ←</button><button type="button" class="linkish" data-restart>לבנות בוט אחר</button></div></div>' +
+      '<div class="card"><h3>מה בחרתם</h3><ul class="summary">' +
+      '<li><span>סוג העסק: <b>' + esc(he(t.name)) + '</b></span><button class="linkish" data-go="type">שינוי</button></li>' +
+      '<li><span>שם: <b>' + esc(a.business_name) + '</b></span><button class="linkish" data-go="name">שינוי</button></li>' +
+      '<li><span>הבוט עושה: <b>' + esc(goals) + '</b></span><button class="linkish" data-go="goals">שינוי</button></li>' +
+      '<li><span>שם הבוט: <b>' + esc(a.bot_name) + '</b></span><button class="linkish" data-go="personality">שינוי</button></li></ul></div>' + ctaCard();
+  }
+
+  function ctaCard() {
+    return '<div class="card cta"><h3>רוצים את הבוט הזה בוואטסאפ של העסק?</h3><p class="sub">שלחו לנו הודעה, ונחבר אותו למספר שלכם.</p>' +
+      '<div><a class="btn pop" target="_blank" rel="noopener" href="' + esc(waLink()) + '"><svg class="wa-ico"><use href="#wa"/></svg>אני רוצה את הבוט</a></div></div>';
+  }
+
+  function screenImprove() {
+    var t = tpl(), a = A(), facts = a.facts || {};
+    var cards = t.facts.map(function (f) {
+      var filled = !!facts[f.id], open = S.openCard === f.id, input;
+      if (f.input === "hours") {
+        var h = facts.hours || {};
+        input = '<input type="hidden" name="hours_card" value="1"><p class="hint">לכל יום: שעת פתיחה וסגירה, למשל 09:00-18:00. יום ריק = סגור.</p><div class="hours">' +
+          DAYS.map(function (d) {
+            var v = (h[d[0]] || []).map(function (r) { return r.join("-"); }).join(", ");
+            return '<label for="h_' + d[0] + '" class="label">' + d[1] + '</label><div><input id="h_' + d[0] + '" type="text" dir="ltr" name="hours__' + d[0] + '" placeholder="09:00-18:00" value="' + esc(v) + '">' + (open ? err("hours__" + d[0]) : "") + "</div>";
+          }).join("") + "</div>";
+      } else if (f.input === "textarea") {
+        input = '<textarea name="fact__' + esc(f.id) + '" maxlength="' + (f.max || 300) + '" placeholder="' + esc(he(f.placeholder)) + '">' + esc(facts[f.id] || "") + "</textarea>" + (open ? err("fact__" + f.id) : "");
+      } else {
+        input = '<input type="text" name="fact__' + esc(f.id) + '" maxlength="' + (f.max || 300) + '" placeholder="' + esc(he(f.placeholder)) + '" value="' + esc(facts[f.id] || "") + '">' + (open ? err("fact__" + f.id) : "");
+      }
+      return '<details class="icard"' + (open ? " open" : "") + ' data-card="' + esc(f.id) + '"><summary>' + esc(he(f.label)) + '<span class="pill' + (filled ? " on" : "") + '">' + (filled ? "מולא ✓" : "לא מולא") + "</span></summary>" +
+        '<form class="inner" data-improve="' + esc(f.id) + '">' + input + '<div><button class="btn" type="submit">שמירה</button></div></form></details>';
+    }).join("");
+    var faqs = a.custom_faqs || [], rows = "";
+    for (var i = 0; i <= Math.min(faqs.length, 7); i++) {
+      var it = faqs[i] || {};
+      rows += '<div class="field" style="border:1px dashed var(--line);border-radius:12px;padding:10px"><label class="label" for="k' + i + '">מילים שהלקוח כותב</label><input id="k' + i + '" type="text" name="faq' + i + '_keywords" placeholder="למשל: כלב, כלבים" value="' + esc((it.keywords || []).join(", ")) + '">' +
+        err("faq" + i + "_keywords") + '<label class="label" for="r' + i + '">התשובה</label><textarea id="r' + i + '" name="faq' + i + '_answer" maxlength="600">' + esc(it.answer || "") + "</textarea>" + err("faq" + i + "_answer") + "</div>";
+    }
+    return '<div class="card"><h2 class="q">שפרו את הבוט</h2><p class="sub">כל פרט שתמלאו הופך לתשובה אוטומטית. מה שלא ימולא, הבוט יעביר לצוות ולא ימציא. אחרי שמירה, נסו לשאול עליו את הבוט.</p>' +
+      '<div><button type="button" class="linkish" data-go="ready">→ חזרה למסך הבוט</button></div></div>' +
+      '<div style="display:flex;flex-direction:column;gap:10px">' + cards +
+      '<details class="icard"' + (S.openCard === "faqs" ? " open" : "") + ' data-card="faqs"><summary>שאלות ותשובות משלכם<span class="pill' + (faqs.length ? " on" : "") + '">' + faqs.length + ' תשובות</span></summary>' +
+      '<form class="inner" data-improve="faqs"><p class="hint">מילים שהלקוח עשוי לכתוב (מופרדות בפסיק), והתשובה שהבוט ישלח.</p>' + rows + '<div><button class="btn" type="submit">שמירה</button></div></form></details></div>' + ctaCard();
+  }
+
+  function phoneHtml() {
+    var d = S.draft, p = d && d.phone;
+    if (!p) {
+      return '<div class="phone"><div class="bar"><span class="avatar">🤖</span><div><b>הבוט שלכם</b><small>בוט · תצוגה מקדימה</small></div></div><div class="chat"><div class="sys">בחרו סוג עסק כדי לראות את הבוט</div></div></div>';
+    }
+    var last = p.log.length - 1, html = "";
+    p.log.forEach(function (m, i) {
+      if (m.who === "system") {
+        html += '<div class="sys">' + esc(m.text) + "</div>";
+        if (m.note) html += '<div class="note"><b>' + esc(m.note_title) + "</b>" + esc(m.note) + "</div>";
+      } else if (m.who === "customer") {
+        html += '<div class="msg out">' + esc(m.text) + "</div>";
+      } else {
+        if (m.text) html += '<div class="msg in">' + esc(m.text) + "</div>";
+        if (m.options && m.options.length) {
+          var liveOpts = d.interactive && i === last && p.waiting;
+          if (m.list) html += '<div class="listbtn">☰ ' + esc(m.button_text) + "</div>";
+          html += '<div class="opts' + (m.list ? " list" : "") + '">' + m.options.map(function (o) {
+            return liveOpts ? '<button type="button" data-reply="' + esc(o.id) + '" data-title="' + esc(o.title) + '">' + esc(o.title) + "</button>" : "<span>" + esc(o.title) + "</span>";
+          }).join("") + "</div>";
+        }
+      }
+    });
+    var composer = d.interactive ? '<form class="composer" data-chat><label class="sr" for="say">הודעה</label><input id="say" type="text" name="text" autocomplete="off" maxlength="500" placeholder="כתבו הודעה כמו לקוח..."><button class="btn" type="submit" aria-label="שליחה">➤</button></form>' +
+      '<div class="under"><button type="button" class="linkish" data-reset>↺ התחלה מחדש</button><span class="hint">הדגמה, לא נשלח לוואטסאפ</span></div>' : "";
+    return '<div class="phone"><div class="bar"><span class="avatar">' + esc((p.bot_name || "?").charAt(0)) + '</span><div><b>' + esc(p.bot_name) + " · " + esc(p.business_name) + '</b><small>בוט · תצוגה מקדימה</small></div></div>' +
+      '<div class="chat" id="chat">' + html + "</div>" + composer + "</div>" + (d.interactive ? "" : '<p class="phone-hint">כך הלקוח יראה את ההודעה הראשונה</p>');
+  }
+
+  function renderPhone() {
+    var col = document.querySelector(".phone-col");
+    if (!col) return;
+    col.innerHTML = phoneHtml();
+    var c = document.getElementById("chat"); if (c) c.scrollTop = c.scrollHeight;
+  }
+
+  function render() {
+    if (S.failed) { app.className = "layout"; app.innerHTML = '<div class="banner" role="alert">' + esc(S.failed) + "</div>"; return; }
+    if (!S.draft) return;
+    if (S.screen !== "type" && !tpl()) S.screen = "type";
+    var body = {type: screenType, name: screenName, goals: screenGoals, personality: screenPersonality, ready: screenReady, improve: screenImprove}[S.screen]();
+    app.className = "layout" + (S.screen === "ready" ? " chat-first" : "");
+    app.innerHTML = '<div style="display:flex;flex-direction:column;gap:16px;min-width:0">' + body + '</div><aside class="phone-col" aria-label="תצוגה מקדימה של הבוט"></aside>';
+    renderPhone();
+    if (S.screen === "name") { var i = document.getElementById("bn"); if (i && !i.value) i.focus(); }
+  }
+
+  // ------------------------------------------------------------ events
+  app.addEventListener("input", function (e) {
+    var form = e.target.closest("form[data-screen]");
+    if (form) live(form);
+    if (e.target.id === "custom" && e.target.value) {
+      document.querySelectorAll('#chips input').forEach(function (i) { i.checked = false; });
+      var g = document.getElementById("genders"); if (g) g.hidden = false;
+    }
+  });
+  app.addEventListener("change", function (e) {
+    var form = e.target.closest("form[data-screen]");
+    if (e.target.dataset && e.target.dataset.goal) {
+      var fs = form.querySelector('[data-fields-of="' + e.target.dataset.goal + '"]'); if (fs) fs.hidden = !e.target.checked;
+    }
+    if (e.target.name === "bot_name") { var c = document.getElementById("custom"); if (c) c.value = ""; var g = document.getElementById("genders"); if (g) g.hidden = true; }
+    if (form) live(form);
+  });
+  app.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var f = e.target;
+    if (f.matches("form[data-screen]")) { clearTimeout(timer); next(f); return; }
+    if (f.matches("form[data-chat]")) {
+      var input = f.querySelector("input[name=text]"), text = input.value.trim();
+      if (!text) return;
+      input.value = ""; chat({text: text});
+      return;
+    }
+    if (f.dataset.improve) {
+      var card = f.dataset.improve; S.openCard = card; f.classList.add("loading");
+      call("POST", "/drafts/" + S.draft.id + "/improve", {card: card, values: values(f)}).then(function (res) {
+        S.draft = res; S.errors = res.errors || {};
+        if (!Object.keys(S.errors).length) S.openCard = null;
+        render();
+      }).catch(problem);
+    }
+  });
+  app.addEventListener("click", function (e) {
+    var el = e.target.closest("[data-go],[data-reply],[data-reset],[data-restart]");
+    if (!el) return;
+    if (el.dataset.go) { S.errors = {}; S.screen = el.dataset.go; render(); window.scrollTo({top: 0, behavior: "smooth"}); }
+    else if (el.dataset.reply) chat({reply_id: el.dataset.reply, reply_title: el.dataset.title});
+    else if (el.hasAttribute("data-reset")) chat({op: "reset"});
+    else if (el.hasAttribute("data-restart")) { store(null); S.draft = null; S.screen = "type"; newDraft().then(function (d) { useDraft(d, false); }).catch(problem); }
+  });
+
+  function chat(payload) {
+    call("POST", "/drafts/" + S.draft.id + "/chat", payload).then(function (res) {
+      S.draft = res; renderPhone();
+      var say = document.getElementById("say"); if (say && payload.text) say.focus();
+    }).catch(problem);
+  }
+
+  start();
+})();
+</script>
+</body>
+</html>

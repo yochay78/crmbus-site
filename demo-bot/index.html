@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>הבוט שלנו יבנה לכם בוט · CRMBUS</title>
+<title>הבוט שלנו יבנה לכם בוט · MYBOT247</title>
 <meta name="description" content="דברו עם הבוט שלנו בוואטסאפ, הוא יבנה לכם בוט לעסק ויתן הצעת מחיר אישית. בלי הרשמה.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
@@ -112,7 +112,7 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="/">CRM<b>BUS</b></a>
+    <a class="logo" href="/">MYBOT<b>247</b></a>
     <a class="btn pop" id="top-wa" href="https://wa.me/972559473443" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>דברו איתנו</a>
   </div>
 </header>
@@ -124,9 +124,9 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
   </section>
   <div class="cols">
     <div class="col">
-      <h2>הבוט של CRMBUS</h2>
+      <h2>הבוט של MYBOT247</h2>
       <div class="phone ours">
-        <div class="bar"><span class="avatar" id="our-avatar">נ</span><div><b id="our-name">נועם · CRMBUS</b><small>בוט · עונה עכשיו</small></div></div>
+        <div class="bar"><span class="avatar" id="our-avatar">נ</span><div><b id="our-name">נועם · MYBOT247</b><small>בוט · עונה עכשיו</small></div></div>
         <div class="chat tall" id="ours"><div class="waiting">טוען...</div></div>
         <form class="composer" id="composer" hidden><label class="sr" for="say" style="position:absolute;width:1px;height:1px;overflow:hidden">תשובה</label>
           <input id="say" type="text" autocomplete="off" maxlength="60" placeholder="כתבו כאן...">
@@ -142,7 +142,7 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
   </div>
 </main>
 
-<footer><div class="wrap">רוצים לבנות לבד, בלי שאלות? <a href="/demo/">לבונה הבוטים</a> · © 2026 CRMBUS</div></footer>
+<footer><div class="wrap">רוצים לבנות לבד, בלי שאלות? <a href="/demo/">לבונה הבוטים</a> · © 2026 MYBOT247</div></footer>
 
 <script>
 (function () {
@@ -400,7 +400,7 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
   // ---------------------------------------------------------- start
   call("GET", "/interview").then(function (data) {
     S.data = data;
-    document.getElementById("our-name").textContent = data.interview.bot_name + " · CRMBUS";
+    document.getElementById("our-name").textContent = data.interview.bot_name + " · MYBOT247";
     document.getElementById("our-avatar").textContent = data.interview.bot_name.charAt(0);
     return call("POST", "/drafts", {});
   }).then(function (draft) {

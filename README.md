@@ -1,6 +1,6 @@
-# CRMBUS website
+# MYBOT247 website
 
-Static site for crmbus.com (WhatsApp bots for businesses).
+Static site for mybot247.com (WhatsApp bots for businesses).
 
 - `index.html`: Hebrew (default, RTL)
 - `en/index.html`: English

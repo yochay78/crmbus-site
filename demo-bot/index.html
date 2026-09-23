@@ -4,6 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>הבוט שלנו יבנה לכם בוט · MYBOT247</title>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="description" content="דברו עם הבוט שלנו בוואטסאפ, הוא יבנה לכם בוט לעסק ויתן הצעת מחיר אישית. בלי הרשמה.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
@@ -45,6 +48,7 @@ header.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--g
 header.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
 .logo{font-family:var(--display);font-size:1.45rem;text-decoration:none;direction:ltr}
 .logo b{color:#128C7E;font-weight:400}
+.logo{display:inline-flex;align-items:center;gap:.35em}.logo img{width:1.15em;height:1.15em;flex:none;display:block}
 header .btn{padding:8px 16px;font-size:.92rem}
 .intro{padding-block:26px 10px;display:grid;gap:8px}
 .intro h1{font-size:clamp(1.7rem,4.6vw,2.5rem)}
@@ -112,7 +116,7 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
 
 <header class="top">
   <div class="wrap">
-    <a class="logo" href="/">MYBOT<b>247</b></a>
+    <a class="logo" href="/"><img src="/favicon.svg" alt="" width="28" height="28"><span>MYBOT<b>247</b></span></a>
     <a class="btn pop" id="top-wa" href="https://wa.me/972559473443" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>דברו איתנו</a>
   </div>
 </header>

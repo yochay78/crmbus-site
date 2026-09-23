@@ -183,7 +183,16 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
 
   // ---------------------------------------------------------- our bot's chat
   function push(who, text) { S.log.push({who: who, text: text}); }
+  // Popular business types first (market research, Sept 17).
+  var POPULAR = ["salon", "clinic", "home_services", "fitness", "real_estate", "classes", "professional"];
+  var PRESET = new URLSearchParams(location.search).get("type");
   function optionsFor(s) {
+    if (s.options && s.screen === "type") {
+      var rank = function (o) { var i = POPULAR.indexOf(o.value); return i > -1 ? i : POPULAR.length; };
+      return s.options.map(function (o, i) { return [o, i]; })
+        .sort(function (a, b) { return (rank(a[0]) - rank(b[0])) || (a[1] - b[1]); })
+        .map(function (x) { return x[0]; });
+    }
     if (s.options) return s.options;
     if (s.options_from === "goals") {
       var t = current();
@@ -229,6 +238,12 @@ footer{border-top:1px solid var(--line);padding-block:22px 40px;color:var(--mute
     push("bot", fill(s.text));
     renderOurs();
     if (id === "quote") getQuote();
+    // ?type=salon answers the business-type question by itself, once.
+    if (s.screen === "type" && PRESET) {
+      var o = optionsFor(s).filter(function (x) { return x.value === PRESET; })[0];
+      PRESET = null;
+      if (o) setTimeout(function () { answer(o.value, o.title); }, 400);
+    }
   }
 
   // ---------------------------------------------------------- their bot

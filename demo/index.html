@@ -197,13 +197,40 @@ footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--mute
   }
 
   // ------------------------------------------------------------ start
+  // Popular business types first (market research, Sept 17). Others keep their order after these.
+  var POPULAR = ["salon", "clinic", "home_services", "fitness", "real_estate", "classes", "professional"];
+  function byPopularity(list) {
+    function rank(t) { var i = POPULAR.indexOf(t.code); return i > -1 ? i : POPULAR.length; }
+    return list.map(function (t, i) { return [t, i]; })
+      .sort(function (a, b) { return (rank(a[0]) - rank(b[0])) || (a[1] - b[1]); })
+      .map(function (x) { return x[0]; });
+  }
+  // ?type=salon opens the builder on that template and skips the "type" screen.
+  function presetType() {
+    var code = new URLSearchParams(location.search).get("type");
+    return S.templates.some(function (t) { return t.code === code; }) ? code : null;
+  }
   function start() {
     if (new URLSearchParams(location.search).get("new")) store(null);
+    var preset = null;
     call("GET", "/templates").then(function (res) {
-      S.templates = res.templates || [];
+      S.templates = byPopularity(res.templates || []);
+      preset = presetType();
       var id = stored();
       return id ? call("GET", "/drafts/" + encodeURIComponent(id)).catch(function () { return newDraft(); }) : newDraft();
-    }).then(function (draft) { useDraft(draft, true); }).catch(problem);
+    }).then(function (draft) {
+      if (!preset) return useDraft(draft, true);
+      var had = (draft.answers || {}).business_type;
+      if (had === preset) return useDraft(draft, true);
+      // A draft of another business type is not continued: start clean on the requested one.
+      return (had ? newDraft() : Promise.resolve(draft)).then(function (fresh) {
+        return call("POST", "/drafts/" + fresh.id + "/screen", {screen: "type", values: {business_type: preset}, save: true});
+      }).then(function (res) {
+        S.draft = res; store(res.id); S.errors = res.errors || {};
+        S.screen = Object.keys(S.errors).length ? "type" : "name";
+        render();
+      });
+    }).catch(problem);
   }
   function newDraft() { return call("POST", "/drafts", {}); }
   function useDraft(draft, restoring) {

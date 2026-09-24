@@ -285,6 +285,28 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
 .hero-cta .link-down:hover{text-decoration:underline}
 .phone-col{max-width:340px;gap:10px}
 .hero .chat{padding:14px 12px;font-size:.9rem}
+/* hero v3: larger copy, calmer animated demo */
+.hero h1{font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.1}
+.hero-sub{font-size:1.32rem;max-width:620px}
+.hero-cta .ticks{font-size:.98rem}
+.hero-cta .link-down{font-size:1rem}
+.hero .eyebrow{font-size:.95rem}
+.demo-phone{opacity:.88;box-shadow:0 18px 40px -26px rgba(0,0,0,.6)}
+.demo-phone .phone-bar{background:#1d3a33}
+.demo-phone .avatar{background:#3f6b5f;color:#EFFAF6}
+.demo-phone .chat{background:#e9ece9;height:330px;align-content:start;overflow:hidden}
+.demo-phone .msg.out{background:#dfeee4}
+.demo-phone .msg.in{background:#fff}
+.demo-phone .typing{justify-self:start;background:#fff}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .demo-phone .chat{background:#16201d}:root:not([data-theme="light"]) .demo-phone .msg.out{background:#24403a}:root:not([data-theme="light"]) .demo-phone .msg.in,:root:not([data-theme="light"]) .demo-phone .typing{background:#1f2a27}}
+:root[data-theme="dark"] .demo-phone .chat{background:#16201d}
+:root[data-theme="dark"] .demo-phone .msg.out{background:#24403a}
+:root[data-theme="dark"] .demo-phone .msg.in,:root[data-theme="dark"] .demo-phone .typing{background:#1f2a27}
+.demo-phone .msg{animation:msgIn .35s ease both}
+.demo-phone .chat.fade{opacity:0;transition:opacity .5s ease}
+.demo-phone .chat{transition:opacity .5s ease}
+@keyframes msgIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.demo-phone .msg{animation:none}}
 footer .wrap{align-items:start}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px}.phone-col{justify-self:center}}
 footer .wrap > div:first-child{align-content:start;gap:12px}
@@ -377,16 +399,16 @@ section.slim{padding-block:40px}
 
     <div class="phone-col">
       <p class="demo-label">ככה נראית פנייה שהבוט מטפל בה לבד ↓</p>
-      <div class="phone" role="img" aria-label="דוגמה לשיחת וואטסאפ בין לקוחה לבוט: שאלה על מחיר, הצעת שני מועדים וקביעת תור">
-      <div class="phone-bar"><div class="avatar">ק</div><div><strong>קליניקת שירה</strong><small>עונה מיידית</small></div></div>
-      <div class="chat">
-        <div class="msg out">היי, כמה עולה טיפול פנים? ויש תור השבוע?<time>21:47</time></div>
-        <div class="msg in">ערב טוב! 😊 טיפול פנים קלאסי: 280 ש״ח, 60 דקות.<br>יש שני מועדים פנויים השבוע:<br>רביעי 17:30 או חמישי 10:00.<br>מה מתאים לך?<time>21:47</time></div>
-        <div class="msg out">חמישי בבוקר<time>21:48</time></div>
-        <div class="msg in">מעולה 🙂 שריינתי לך חמישי ב־10:00.<br>אשלח לך תזכורת יום לפני.<time>21:48</time></div>
+      <div class="phone demo-phone" role="img" aria-label="דוגמאות לשיחות וואטסאפ שהבוט מנהל לבד: מספרה, אינסטלטור וסטודיו כושר">
+      <div class="phone-bar"><div class="avatar" id="demo-av">נ</div><div><strong id="demo-name">מספרת נועה</strong><small>עונה מיידית</small></div></div>
+      <div class="chat" id="demo-chat">
+        <div class="msg out">היי, יש תור לתספורת מחר?<time>21:47</time></div>
+        <div class="msg in">היי! 😊 תספורת נשים: 150 ₪.<br>מחר פנוי ב־11:00 או ב־16:30. מה מתאים לך?<time>21:47</time></div>
+        <div class="msg out">אחרי הצהריים<time>21:48</time></div>
+        <div class="msg in">מעולה, שריינתי לך מחר ב־16:30 ✅<br>אשלח לך תזכורת בבוקר.<time>21:48</time></div>
       </div>
     </div>
-      <p class="demo-caption">מהודעה ראשונה לתור ביומן, בלי שבעלת העסק הייתה צריכה לענות.</p>
+      <p class="demo-caption">מהודעה ראשונה ועד תור ביומן או ליד מוכן, בלי שבעל העסק צריך לענות.</p>
     </div>
   </div>
 </section>
@@ -594,6 +616,38 @@ document.getElementById('lead').addEventListener('submit',function(e){
   setTimeout(show,600); setInterval(show,2600);
 })();
 
+
+(function(){
+  var chat=document.getElementById('demo-chat'); if(!chat) return;
+  if(matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  var S=[
+    {n:'מספרת נועה',a:'נ',m:[['out','היי, יש תור לתספורת מחר?'],['in','היי! 😊 תספורת נשים: 150 ₪.<br>מחר פנוי ב־11:00 או ב־16:30. מה מתאים לך?'],['out','אחרי הצהריים'],['in','מעולה, שריינתי לך מחר ב־16:30 ✅<br>אשלח לך תזכורת בבוקר.']]},
+    {n:'יוסי אינסטלציה',a:'י',m:[['out','יש נזילה מתחת לכיור, אפשר להגיע היום?'],['in','אפשר! ביקור ואבחון: 250 ₪.<br>מתאים היום ב־17:00? שלחו כתובת 📍'],['out','הרצל 12, רמת גן'],['in','רשמתי ✅ הטכנאי יגיע היום ב־17:00.<br>יוסי קיבל את כל הפרטים.']]},
+    {n:'סטודיו פלאו',a:'פ',m:[['out','יש שיעור ניסיון?'],['in','בטח! שיעור ניסיון ראשון בחינם 💪<br>יש מקום ביום שני ב־19:00 או ברביעי ב־8:00.'],['out','שני בערב'],['in','נרשמת לשני ב־19:00 ✅<br>נשלח לך תזכורת ביום השיעור.']]}
+  ];
+  var name=document.getElementById('demo-name'), av=document.getElementById('demo-av');
+  var si=1, T=[], clock=['21:47','21:47','21:48','21:48'];
+  function later(f,ms){T.push(setTimeout(f,ms))}
+  function add(html){chat.insertAdjacentHTML('beforeend',html)}
+  function play(){
+    var sc=S[si]; chat.classList.add('fade');
+    later(function(){
+      chat.innerHTML=''; name.textContent=sc.n; av.textContent=sc.a; chat.classList.remove('fade');
+      var t=400;
+      sc.m.forEach(function(m,i){
+        if(m[0]==='in'){ later(function(){add('<div class="typing" aria-hidden="true"><i></i><i></i><i></i></div>')},t); t+=1100;
+          later(function(){var ty=chat.querySelector('.typing'); if(ty) ty.remove()},t); }
+        later(function(){add('<div class="msg '+m[0]+'">'+m[1]+'<time>'+clock[i]+'</time></div>')},t);
+        t+= m[0]==='out'?1300:1600;
+      });
+      later(function(){si=(si+1)%S.length; play()},t+3200);
+    },550);
+  }
+  if('IntersectionObserver' in window){
+    var started=false;
+    new IntersectionObserver(function(es){ if(es[0].isIntersecting&&!started){started=true; later(play,2500)} }).observe(chat);
+  } else { later(play,2500) }
+})();
 (function(){
   if(matchMedia('(prefers-reduced-motion:reduce)').matches||!matchMedia('(min-width:760px)').matches) return;
   var boxes=[].slice.call(document.querySelectorAll('.sec-video'));

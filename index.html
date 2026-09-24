@@ -273,9 +273,20 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
 .hero h1{font-size:clamp(2rem,4.4vw,3.15rem)}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
 .plan ul{align-content:start}
-.hero .wrap{align-items:start}
-.hero{padding-block:48px 72px}
+.hero .wrap{align-items:center;grid-template-columns:1.2fr .8fr;gap:56px}
+.hero{padding-block:44px 56px}
+.hero-copy{gap:0}
+.hero .eyebrow{margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,3.8vw,2.75rem);line-height:1.12;margin-bottom:20px}
+.hero-sub{max-width:600px;margin-bottom:26px}
+.hero-cta{display:grid;gap:14px;justify-items:start}
+.hero-cta .ticks{font-size:.88rem;gap:6px 18px}
+.hero-cta .link-down{font-size:.9rem;text-decoration:none;opacity:.85}
+.hero-cta .link-down:hover{text-decoration:underline}
+.phone-col{max-width:340px;gap:10px}
+.hero .chat{padding:14px 12px;font-size:.9rem}
 footer .wrap{align-items:start}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px}.phone-col{justify-self:center}}
 footer .wrap > div:first-child{align-content:start;gap:12px}
 footer .wrap > div:first-child p{max-width:34ch}
 footer .logo{justify-self:start}
@@ -285,7 +296,7 @@ footer .logo{justify-self:start}
 .link-down{color:var(--hero-muted);text-decoration:underline;text-underline-offset:4px;font-size:.98rem;align-self:center}
 .link-down:hover{color:var(--hero-ink)}
 .demo-label{color:var(--hero-muted);font-size:.95rem;font-weight:500;text-align:center}
-.demo-caption{color:var(--hero-ink);font-size:.95rem;text-align:center;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);border-radius:14px;padding:10px 14px}
+.demo-caption{color:var(--hero-muted);font-size:.88rem;text-align:center}
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;list-style:none;padding:0;margin:0;counter-reset:f}
 .flow li{counter-increment:f;position:relative;display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
 .flow li::before{content:counter(f);width:34px;height:34px;border-radius:50%;background:var(--pop);color:var(--pop-ink);display:grid;place-items:center;font-family:var(--display);font-size:1.1rem}
@@ -354,27 +365,25 @@ section.slim{padding-block:40px}
     <div class="hero-copy">
       <span class="eyebrow">בוט וואטסאפ חכם לעסקים</span>
       <h1>פחות זמן בוואטסאפ.<br>יותר לקוחות <em>שסוגרים</em>.</h1>
-      <p class="hero-sub"><strong>MYBOT247</strong> עונה ללקוחות, נותן מחירים, מסנן פניות וקובע תורים. 24/7, בעברית טבעית, בדיוק לפי העסק שלכם.</p>
-      <div class="cta-row">
+      <p class="hero-sub"><strong>MYBOT247</strong> עונה ללקוחות 24/7, נותן מחירים, מסנן פניות וקובע תורים, בעברית טבעית ובדיוק לפי העסק שלכם.</p>
+      <div class="hero-cta">
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9D%20%D7%94%D7%91%D7%95%D7%98%20%D7%95%D7%9C%D7%A8%D7%90%D7%95%D7%AA%20%D7%90%D7%99%D7%9A%20%D7%94%D7%95%D7%90%20%D7%A2%D7%95%D7%91%D7%93" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>דברו עם הבוט עכשיו בוואטסאפ</a>
-        <a class="link-down" href="#what">או ראו איך זה עובד ↓</a>
+        <ul class="ticks">
+          <li>בלי ידע טכני</li><li>החל מ־125 ₪ בחודש</li><li>בלי התחייבות</li>
+        </ul>
+        <a class="link-down" href="#what">ראו איך זה עובד ↓</a>
       </div>
-      <ul class="ticks">
-        <li>בלי ידע טכני</li><li>החל מ־125 ₪ בחודש</li><li>בלי התחייבות</li>
-      </ul>
     </div>
 
     <div class="phone-col">
-      <div class="biz-toasts" aria-hidden="true"></div>
       <p class="demo-label">ככה נראית פנייה שהבוט מטפל בה לבד ↓</p>
       <div class="phone" role="img" aria-label="דוגמה לשיחת וואטסאפ בין לקוחה לבוט: שאלה על מחיר, הצעת שני מועדים וקביעת תור">
       <div class="phone-bar"><div class="avatar">ק</div><div><strong>קליניקת שירה</strong><small>עונה מיידית</small></div></div>
       <div class="chat">
         <div class="msg out">היי, כמה עולה טיפול פנים? ויש תור השבוע?<time>21:47</time></div>
-        <div class="msg in">ערב טוב! 😊 טיפול פנים קלאסי: 280 ש״ח, 60 דקות.<br>יש שני מועדים פנויים השבוע:<br>רביעי 17:30<br>חמישי 10:00<br>מה מתאים לך?
-          <div class="quick"><span>רביעי 17:30</span><span>חמישי 10:00</span><span>לדבר עם שירה</span></div><time>21:47</time></div>
-        <div class="msg out">חמישי 10:00<time>21:48</time></div>
-        <div class="msg in">מעולה, שריינתי לך חמישי ב־10:00 ✅<br>אשלח תזכורת יום לפני.<time>21:48</time></div>
+        <div class="msg in">ערב טוב! 😊 טיפול פנים קלאסי: 280 ש״ח, 60 דקות.<br>יש שני מועדים פנויים השבוע:<br>רביעי 17:30 או חמישי 10:00.<br>מה מתאים לך?<time>21:47</time></div>
+        <div class="msg out">חמישי בבוקר<time>21:48</time></div>
+        <div class="msg in">מעולה 🙂 שריינתי לך חמישי ב־10:00.<br>אשלח לך תזכורת יום לפני.<time>21:48</time></div>
       </div>
     </div>
       <p class="demo-caption">מהודעה ראשונה לתור ביומן, בלי שבעלת העסק הייתה צריכה לענות.</p>

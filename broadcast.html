@@ -270,9 +270,20 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
 .hero h1{font-size:clamp(2rem,4.4vw,3.15rem)}
 @media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
 .plan ul{align-content:start}
-.hero .wrap{align-items:start}
-.hero{padding-block:48px 72px}
+.hero .wrap{align-items:center;grid-template-columns:1.2fr .8fr;gap:56px}
+.hero{padding-block:44px 56px}
+.hero-copy{gap:0}
+.hero .eyebrow{margin-bottom:14px}
+.hero h1{font-size:clamp(1.9rem,3.8vw,2.75rem);line-height:1.12;margin-bottom:20px}
+.hero-sub{max-width:600px;margin-bottom:26px}
+.hero-cta{display:grid;gap:14px;justify-items:start}
+.hero-cta .ticks{font-size:.88rem;gap:6px 18px}
+.hero-cta .link-down{font-size:.9rem;text-decoration:none;opacity:.85}
+.hero-cta .link-down:hover{text-decoration:underline}
+.phone-col{max-width:340px;gap:10px}
+.hero .chat{padding:14px 12px;font-size:.9rem}
 footer .wrap{align-items:start}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr;gap:36px}.phone-col{justify-self:center}}
 footer .wrap > div:first-child{align-content:start;gap:12px}
 footer .wrap > div:first-child p{max-width:34ch}
 footer .logo{justify-self:start}
@@ -282,7 +293,7 @@ footer .logo{justify-self:start}
 .link-down{color:var(--hero-muted);text-decoration:underline;text-underline-offset:4px;font-size:.98rem;align-self:center}
 .link-down:hover{color:var(--hero-ink)}
 .demo-label{color:var(--hero-muted);font-size:.95rem;font-weight:500;text-align:center}
-.demo-caption{color:var(--hero-ink);font-size:.95rem;text-align:center;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.3);border-radius:14px;padding:10px 14px}
+.demo-caption{color:var(--hero-muted);font-size:.88rem;text-align:center}
 .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;list-style:none;padding:0;margin:0;counter-reset:f}
 .flow li{counter-increment:f;position:relative;display:grid;gap:10px;align-content:start;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:22px}
 .flow li::before{content:counter(f);width:34px;height:34px;border-radius:50%;background:var(--pop);color:var(--pop-ink);display:grid;place-items:center;font-family:var(--display);font-size:1.1rem}

@@ -60,6 +60,10 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .logo img{width:1.15em;height:1.15em}
 .top .btn{padding:9px 18px;font-size:.95rem;box-shadow:none}
 .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--pop);box-shadow:none}
+.wa-contact{padding:11px;gap:0;width:44px;height:44px}
+.wa-contact-text{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.text-link{color:var(--pop);font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:6px;font-size:1.05rem}
+.text-link:hover{text-decoration:underline}
 
 /* hero */
 .hero{padding-block:40px 64px;background:radial-gradient(60% 80% at 85% 10%,rgba(37,211,102,.10),transparent 70%),var(--bg)}
@@ -78,7 +82,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .result{border-radius:16px;background:rgba(244,183,94,.12);border:1px solid rgba(244,183,94,.4);padding:16px 18px;display:grid;gap:2px}
 .result .big{font-family:var(--display);font-size:clamp(2.1rem,6vw,2.8rem);line-height:1.1;color:var(--loss);font-variant-numeric:tabular-nums}
 .result small{font-size:.83rem;color:var(--muted)}
-.calc .btn{width:100%;font-size:1.05rem}
+.calc .text-link{margin-top:6px}
 
 /* live demo */
 .sec-head.center{text-align:center;margin-inline:auto;justify-items:center}
@@ -109,7 +113,6 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .compose input{flex:1;border:0;border-radius:999px;padding:10px 14px;font:inherit;background:#2A3942;color:var(--ink)}
 .compose button{border:0;border-radius:50%;width:42px;height:42px;background:var(--pop);color:var(--pop-ink);font-size:1.1rem;cursor:pointer}
 .demo-side{display:grid;gap:22px;justify-items:start}
-@media (max-width:880px){.demo-side .btn{width:100%}}
 .demo-side ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .demo-side li{padding-inline-start:30px;position:relative;display:grid;gap:2px}
 .demo-side li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--pop);font-weight:700;font-size:1.1rem}
@@ -149,11 +152,10 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .cmd{display:inline-block;background:rgba(37,211,102,.15);color:var(--pop);border-radius:6px;padding:0 7px;font-weight:700}
 
 .offer{padding-block:36px}
-.price{display:grid;grid-template-columns:1.2fr auto;gap:28px;align-items:center;background:var(--card);border:2px solid var(--pop);border-radius:24px;padding:32px}
+.price{display:grid;gap:14px;background:var(--card);border:2px solid var(--pop);border-radius:24px;padding:32px}
 .price .amount{font-family:var(--display);font-size:clamp(2.2rem,5vw,3rem);line-height:1.05;color:var(--pop)}
 .price p{color:var(--muted)}
 .price .plus{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
-@media (max-width:760px){.price{grid-template-columns:1fr}.price .btn{width:100%}}
 
 .custom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px}
 .custom h2{margin:4px 0 10px}
@@ -184,7 +186,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/"><img src="/favicon.svg" alt="" width="28" height="28"><span>MYBOT<b>247</b></span></a>
-    <a class="btn ghost" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%9C%D7%95%D7%95%D7%98%D7%A1%D7%90%D7%A4" target="_blank" rel="noopener">💬 צרו קשר בווטסאפ</a>
+    <a class="btn ghost wa-contact" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%9C%D7%95%D7%95%D7%98%D7%A1%D7%90%D7%A4" target="_blank" rel="noopener" aria-label="צרו קשר בווטסאפ"><span aria-hidden="true">💬</span><span class="wa-contact-text">צרו קשר בווטסאפ</span></a>
   </div>
 </header>
 
@@ -194,15 +196,15 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
     <div class="hero-copy">
       <span class="eyebrow" id="eyebrow">עוזר לווטסאפ לעסקים של אדם אחד</span>
       <h1>כמה לקוחות הפסדתם השבוע, רק כי הייתם <em class="hl">באמצע עבודה</em>?</h1>
+      <p class="sub" id="sub">לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר.</p>
       <div class="cta-block" id="hero-cta">
-        <a class="btn big pulse js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם עכשיו, חינם</a>
+        <a class="btn big pulse js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם, חינם</a>
         <div class="badges">
           <span class="badge"><b>✓</b> שבוע ראשון חינם</span>
           <span class="badge"><b>✓</b> בוט עובד תוך 2 דקות</span>
           <span class="badge"><b>✓</b> מהטלפון, על המספר הקיים</span>
         </div>
       </div>
-      <p class="sub" id="sub">לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר.</p>
     </div>
 
     <div class="calc" id="calc">
@@ -219,7 +221,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
         <span id="r-people">בחודש</span>
         <small>הערכה: אם כשליש מהפניות שלא נענות מהר עוברות למישהו אחר.</small>
       </div>
-      <a class="btn js-start" href="https://bot.mybot247.com/start">בונים את העוזר, תוך 2 דקות</a>
+      <a class="text-link js-start" href="https://bot.mybot247.com/start">בונים את העוזר, תוך 2 דקות ←</a>
     </div>
   </div>
 </section>
@@ -232,8 +234,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
         <div class="amount">שבוע ראשון חינם</div>
         <p>בלי כרטיס אשראי. אחר כך <b style="color:var(--ink)">125 ₪ לחודש</b>, בלי התחייבות.</p>
         <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>בסוף השבוע נבקש מכם לבחור אם להמשיך ולשלם. בלי האישור שלכם העוזר פשוט מפסיק לפעול, ולא מחויבים בכלום.</p></div>
+        <a class="text-link js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם ←</a>
       </div>
-      <a class="btn big js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
     </div>
   </div>
 </section>
@@ -258,7 +260,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
           <li><b>שואל את מה שאתם הייתם שואלים</b><span>מה צריך, איפה, מתי, ושם. שאלות קצרות, תשובות ממוספרות.</span></li>
           <li><b>שולח לכם ליד מוכן</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה וחוזרים ללקוח עם כל המידע.</span></li>
         </ul>
-        <a class="btn js-start" href="https://bot.mybot247.com/start">רוצים כזה? תוך 2 דקות הוא שלכם</a>
+        <a class="text-link js-start" href="https://bot.mybot247.com/start">רוצים כזה? תוך 2 דקות הוא שלכם ←</a>
       </div>
     </div>
   </div>
@@ -344,6 +346,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
       <details><summary>איך מכבים את העוזר?</summary><p>כותבים <b>כבה</b> בצ׳אט עם עצמכם בווטסאפ, ו<b>הפעל</b> כדי להדליק. כדי לנתק לגמרי: בווטסאפ, "מכשירים מקושרים", ומנתקים.</p></details>
       <details><summary>מה קורה אחרי השבוע החינמי?</summary><p>נשלח לכם הודעה עם סיכום של מה שהעוזר עשה בשבילכם וקישור לתשלום, ונבקש מכם לבחור אם להמשיך: 125 ₪ לחודש, בלי התחייבות. בלי האישור שלכם העוזר פשוט מפסיק לענות, והחיבור מתנתק - לא מחייבים בלי שאישרתם.</p></details>
       <details><summary>אפשר בוט מותאם אישית, עם AI או חיבור ליומן?</summary><p>כן. מעבר לתבניות המוכנות אנחנו גם מתכננים ובונים זרימת שיחה שונה, בוט מבוסס AI, וחיבור ליומן לתיאום תורים ולשליחת תזכורות. כתבו לנו בווטסאפ ונדבר: <a href="https://wa.me/972559473443" target="_blank" rel="noopener">972-55-947-3443</a>.</p></details>
+      <details><summary>יש תשלום על כל הודעה?</summary><p>לא. המחיר הוא חודשי וקבוע - 125 ₪ לחודש, בלי הגבלה על כמות ההודעות ובלי עלות נוספת לפי שימוש. העוזר עונה לכל מי שכותב, באותו מחיר.</p></details>
     </div>
   </div>
 </section>

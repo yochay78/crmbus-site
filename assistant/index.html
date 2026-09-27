@@ -80,9 +80,10 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .calc .btn{width:100%;font-size:1.05rem}
 
 /* live demo */
-.demo{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
-@media (max-width:880px){.demo{grid-template-columns:1fr}}
-.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.sec-head.center{text-align:center;margin-inline:auto;justify-items:center}
+.demo{display:grid;grid-template-columns:minmax(0,370px) minmax(0,400px);justify-content:center;gap:56px;align-items:center}
+@media (max-width:880px){.demo{grid-template-columns:minmax(0,370px);gap:28px}}
+.tabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:0 auto 22px}
 .tab{background:transparent;border:1.5px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 16px;font:inherit;font-size:.95rem;cursor:pointer}
 .tab[aria-selected=true]{border-color:var(--pop);color:var(--ink);background:rgba(37,211,102,.12)}
 .phone{background:#000;border-radius:34px;padding:10px;width:min(370px,100%);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);justify-self:center}
@@ -106,7 +107,8 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .compose{display:flex;gap:6px;padding:8px;background:var(--wa-bar)}
 .compose input{flex:1;border:0;border-radius:999px;padding:10px 14px;font:inherit;background:#2A3942;color:var(--ink)}
 .compose button{border:0;border-radius:50%;width:42px;height:42px;background:var(--pop);color:var(--pop-ink);font-size:1.1rem;cursor:pointer}
-.demo-side{display:grid;gap:18px}
+.demo-side{display:grid;gap:22px;justify-items:start}
+@media (max-width:880px){.demo-side .btn{width:100%}}
 .demo-side ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
 .demo-side li{padding-inline-start:30px;position:relative;display:grid;gap:2px}
 .demo-side li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--pop);font-weight:700;font-size:1.1rem}
@@ -145,6 +147,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 @media (max-width:700px){.safe{grid-template-columns:1fr}}
 .cmd{display:inline-block;background:rgba(37,211,102,.15);color:var(--pop);border-radius:6px;padding:0 7px;font-weight:700}
 
+.offer{padding-block:36px}
 .price{display:grid;grid-template-columns:1.2fr auto;gap:28px;align-items:center;background:var(--card);border:2px solid var(--pop);border-radius:24px;padding:32px}
 .price .amount{font-family:var(--display);font-size:clamp(2.2rem,5vw,3rem);line-height:1.05;color:var(--pop)}
 .price p{color:var(--muted)}
@@ -215,10 +218,26 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   </div>
 </section>
 
+<section class="offer">
+  <div class="wrap">
+    <div class="price">
+      <div style="display:grid;gap:10px">
+        <span class="eyebrow">מבצע השקה</span>
+        <div class="amount">שבוע ראשון חינם</div>
+        <p>בלי כרטיס אשראי. אחר כך <b style="color:var(--ink)">125 ₪ לחודש</b>, בלי התחייבות.</p>
+        <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>לא ממשיכים אחרי השבוע? העוזר פשוט נכבה, ולא מחויבים בכלום.</p></div>
+      </div>
+      <a class="btn big js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
+    </div>
+  </div>
+</section>
+
 <section class="alt" id="try">
-  <div class="wrap demo">
-    <div>
-      <div class="tabs" role="tablist" aria-label="סוג העסק" id="tabs"></div>
+  <div class="wrap">
+    <div class="sec-head center"><span class="eyebrow">נסו בעצמכם, עכשיו</span><h2>ככה העוזר שלכם עונה ללקוח חדש</h2>
+      <p class="lead">זה בוט אמיתי. בחרו סוג עסק וענו לו כמו לקוח: במספר או במילים. בסוף תראו את הסיכום שמגיע אליכם.</p></div>
+    <div class="tabs" role="tablist" aria-label="סוג העסק" id="tabs"></div>
+    <div class="demo">
       <div class="phone">
         <div class="phone-in">
           <div class="phone-bar"><div class="avatar" id="p-av">י</div><div><strong id="p-name">יוסי</strong><small>העוזר הדיגיטלי · עונה מיד</small></div></div>
@@ -227,16 +246,14 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
           <form class="compose" id="compose"><input id="say" type="text" autocomplete="off" placeholder="כתבו כמו לקוח…" aria-label="הודעה לעוזר"><button type="submit" aria-label="שליחה">➤</button></form>
         </div>
       </div>
-    </div>
-    <div class="demo-side">
-      <div class="sec-head" style="margin:0"><span class="eyebrow">נסו בעצמכם, עכשיו</span><h2>ככה העוזר שלכם עונה ללקוח חדש</h2>
-        <p class="lead">זה בוט אמיתי. ענו לו כמו לקוח: במספר או במילים. בסוף תראו את הסיכום שמגיע אליכם.</p></div>
-      <ul>
-        <li><b>עונה תוך שניות, בשמכם</b><span>הלקוח לא מחכה, ולא ממשיך לחפש.</span></li>
-        <li><b>שואל את מה שאתם הייתם שואלים</b><span>מה צריך, איפה, מתי, ושם. שאלות קצרות, תשובות ממוספרות.</span></li>
-        <li><b>שולח לכם ליד מוכן</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה וחוזרים ללקוח עם כל המידע.</span></li>
-      </ul>
-      <a class="btn js-start" href="https://bot.mybot247.com/start" style="justify-self:start">רוצים כזה? בנו אותו עכשיו, חינם</a>
+      <div class="demo-side">
+        <ul>
+          <li><b>עונה תוך שניות, בשמכם</b><span>הלקוח לא מחכה, ולא ממשיך לחפש.</span></li>
+          <li><b>שואל את מה שאתם הייתם שואלים</b><span>מה צריך, איפה, מתי, ושם. שאלות קצרות, תשובות ממוספרות.</span></li>
+          <li><b>שולח לכם ליד מוכן</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה וחוזרים ללקוח עם כל המידע.</span></li>
+        </ul>
+        <a class="btn js-start" href="https://bot.mybot247.com/start">רוצים כזה? בנו אותו עכשיו, חינם</a>
+      </div>
     </div>
   </div>
 </section>
@@ -299,20 +316,6 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 
 <section>
   <div class="wrap">
-    <div class="price">
-      <div style="display:grid;gap:10px">
-        <span class="eyebrow">מבצע השקה</span>
-        <div class="amount">שבוע ראשון חינם</div>
-        <p>בלי כרטיס אשראי. אחר כך <b style="color:var(--ink)">125 ₪ לחודש</b>, בלי התחייבות.</p>
-        <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>לא ממשיכים אחרי השבוע? העוזר פשוט נכבה, ולא מחויבים בכלום.</p></div>
-      </div>
-      <a class="btn big js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
-    </div>
-  </div>
-</section>
-
-<section class="alt">
-  <div class="wrap">
     <div class="sec-head"><span class="eyebrow">שאלות</span><h2>מה שבדרך כלל שואלים</h2></div>
     <div class="faq">
       <details><summary>צריך מספר חדש או ווטסאפ ביזנס?</summary><p>לא. העוזר עובד על המספר הקיים שלכם, בווטסאפ רגיל או בווטסאפ ביזנס. הוא מתחבר כמו ווטסאפ במחשב, כ"מכשיר מקושר".</p></details>
@@ -325,7 +328,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap final">
     <h2>הלקוח הבא כבר כותב לכם. מי יענה לו?</h2>
     <a class="btn big pulse js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם, חינם</a>

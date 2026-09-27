@@ -59,6 +59,7 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .logo b{color:var(--pop);font-weight:400}
 .logo img{width:1.15em;height:1.15em}
 .top .btn{padding:9px 18px;font-size:.95rem;box-shadow:none}
+.btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--pop);box-shadow:none}
 
 /* hero */
 .hero{padding-block:40px 64px;background:radial-gradient(60% 80% at 85% 10%,rgba(37,211,102,.10),transparent 70%),var(--bg)}
@@ -154,6 +155,11 @@ header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;backgroun
 .price .plus{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
 @media (max-width:760px){.price{grid-template-columns:1fr}.price .btn{width:100%}}
 
+.custom{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px}
+.custom h2{margin:4px 0 10px}
+.custom .lead{margin:0;max-width:56ch}
+@media (max-width:760px){.custom{flex-direction:column;align-items:stretch;text-align:center}.custom .btn{width:100%}}
+
 .faq{display:grid;gap:10px;max-width:820px}
 details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
 summary{cursor:pointer;font-weight:700;padding-block:14px;list-style:none;display:flex;justify-content:space-between;gap:16px}
@@ -178,7 +184,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/"><img src="/favicon.svg" alt="" width="28" height="28"><span>MYBOT<b>247</b></span></a>
-    <a class="btn js-start" href="https://bot.mybot247.com/start">להתחיל חינם</a>
+    <a class="btn ghost" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%9C%D7%95%D7%95%D7%98%D7%A1%D7%90%D7%A4" target="_blank" rel="noopener">💬 צרו קשר בווטסאפ</a>
   </div>
 </header>
 
@@ -213,7 +219,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
         <span id="r-people">בחודש</span>
         <small>הערכה: אם כשליש מהפניות שלא נענות מהר עוברות למישהו אחר.</small>
       </div>
-      <a class="btn js-start" href="https://bot.mybot247.com/start">לעצור את ההפסד, חינם</a>
+      <a class="btn js-start" href="https://bot.mybot247.com/start">בונים את העוזר, תוך 2 דקות</a>
     </div>
   </div>
 </section>
@@ -225,7 +231,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
         <span class="eyebrow">מבצע השקה</span>
         <div class="amount">שבוע ראשון חינם</div>
         <p>בלי כרטיס אשראי. אחר כך <b style="color:var(--ink)">125 ₪ לחודש</b>, בלי התחייבות.</p>
-        <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>לא ממשיכים אחרי השבוע? העוזר פשוט נכבה, ולא מחויבים בכלום.</p></div>
+        <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>בסוף השבוע נבקש מכם לבחור אם להמשיך ולשלם. בלי האישור שלכם העוזר פשוט מפסיק לפעול, ולא מחויבים בכלום.</p></div>
       </div>
       <a class="btn big js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
     </div>
@@ -252,7 +258,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
           <li><b>שואל את מה שאתם הייתם שואלים</b><span>מה צריך, איפה, מתי, ושם. שאלות קצרות, תשובות ממוספרות.</span></li>
           <li><b>שולח לכם ליד מוכן</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה וחוזרים ללקוח עם כל המידע.</span></li>
         </ul>
-        <a class="btn js-start" href="https://bot.mybot247.com/start">רוצים כזה? בנו אותו עכשיו, חינם</a>
+        <a class="btn js-start" href="https://bot.mybot247.com/start">רוצים כזה? תוך 2 דקות הוא שלכם</a>
       </div>
     </div>
   </div>
@@ -316,14 +322,28 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 
 <section>
   <div class="wrap">
+    <div class="custom">
+      <div>
+        <span class="eyebrow">מעבר לתבנית המוכנה</span>
+        <h2>גם בוט בהתאמה אישית</h2>
+        <p class="lead">זרימת שיחה שונה, בוט מבוסס AI, או חיבור ליומן לתיאום תורים ולשליחת תזכורות - מתכננים ובונים לכם דוגמה. וגם: תמיכה מיידית בווטסאפ, כל שאלה.</p>
+      </div>
+      <a class="btn big" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%95%D7%93%20%D7%A2%D7%9C%20%D7%91%D7%95%D7%98%20%D7%91%D7%94%D7%AA%D7%90%D7%9E%D7%94%20%D7%90%D7%99%D7%A9%D7%99%D7%AA" target="_blank" rel="noopener">💬 דברו איתנו בווטסאפ</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
     <div class="sec-head"><span class="eyebrow">שאלות</span><h2>מה שבדרך כלל שואלים</h2></div>
     <div class="faq">
       <details><summary>צריך מספר חדש או ווטסאפ ביזנס?</summary><p>לא. העוזר עובד על המספר הקיים שלכם, בווטסאפ רגיל או בווטסאפ ביזנס. הוא מתחבר כמו ווטסאפ במחשב, כ"מכשיר מקושר".</p></details>
       <details><summary>כמה זמן לוקח להתחיל?</summary><p>בערך 2 דקות: עונים על כמה שאלות, מקבלים קוד, מקלידים אותו בווטסאפ, וזהו. הכול מהטלפון.</p></details>
-      <details><summary>זה חיבור רשמי של ווטסאפ?</summary><p>לא. החיבור עובד כמו ווטסאפ במחשב (מכשיר מקושר), ואינו שירות רשמי של ווטסאפ, ולכן קיים סיכון נמוך שווטסאפ תגביל את המספר. כדי להקטין אותו, העוזר רק עונה למי שכתב לכם, ולא שולח הודעות יזומות. אפשר לנתק אותו בכל רגע מהטלפון.</p></details>
-      <details><summary>אתם קוראים את השיחות הפרטיות שלי?</summary><p>לא. הודעות מאנשי קשר שמורים, מקבוצות ומסטטוסים לא נשמרות אצלנו בשום מקום. נשמרות רק השיחות שהעוזר עצמו ניהל עם לקוחות חדשים. פרטים ב<a href="/privacy.html">מדיניות הפרטיות</a>.</p></details>
+      <details><summary>זה חיבור רשמי של ווטסאפ?</summary><p>לא. החיבור עובד כמו ווטסאפ במחשב (מכשיר מקושר), ואינו שירות רשמי של ווטסאפ. קיימת אפשרות שווטסאפ תגביל את המספר בעקבות זה - אין לנו נתון מדויק על התדירות. כדי לצמצם את זה, העוזר רק עונה למי שכתב לכם, ולא שולח הודעות יזומות. אפשר לנתק אותו בכל רגע מהטלפון.</p></details>
+      <details><summary>אתם קוראים את השיחות הפרטיות שלי?</summary><p>כל הודעה נכנסת עוברת דרך השרת שלנו כדי לבדוק דבר אחד בלבד: האם השולח שמור אצלכם באנשי הקשר. אם כן - או שזו קבוצה, סטטוס או ערוץ - ההודעה לא נשמרת אצלנו בשום מקום ולא מגיעה לאף אחד. רק שיחות שהעוזר עצמו ניהל עם מי שלא שמור אצלכם נשמרות אצלנו, כדי שהעוזר יוכל לעבוד ולשלוח לכם סיכום. פרטים ב<a href="/privacy.html">מדיניות הפרטיות</a>.</p></details>
       <details><summary>איך מכבים את העוזר?</summary><p>כותבים <b>כבה</b> בצ׳אט עם עצמכם בווטסאפ, ו<b>הפעל</b> כדי להדליק. כדי לנתק לגמרי: בווטסאפ, "מכשירים מקושרים", ומנתקים.</p></details>
-      <details><summary>מה קורה אחרי השבוע החינמי?</summary><p>תקבלו הודעה עם סיכום של מה שהעוזר עשה בשבילכם וקישור לתשלום: 125 ₪ לחודש, בלי התחייבות. לא משלמים? העוזר נכבה, והחיבור מתנתק.</p></details>
+      <details><summary>מה קורה אחרי השבוע החינמי?</summary><p>נשלח לכם הודעה עם סיכום של מה שהעוזר עשה בשבילכם וקישור לתשלום, ונבקש מכם לבחור אם להמשיך: 125 ₪ לחודש, בלי התחייבות. בלי האישור שלכם העוזר פשוט מפסיק לענות, והחיבור מתנתק - לא מחייבים בלי שאישרתם.</p></details>
+      <details><summary>אפשר בוט מותאם אישית, עם AI או חיבור ליומן?</summary><p>כן. מעבר לתבניות המוכנות אנחנו גם מתכננים ובונים זרימת שיחה שונה, בוט מבוסס AI, וחיבור ליומן לתיאום תורים ולשליחת תזכורות. כתבו לנו בווטסאפ ונדבר: <a href="https://wa.me/972559473443" target="_blank" rel="noopener">972-55-947-3443</a>.</p></details>
     </div>
   </div>
 </section>
@@ -344,7 +364,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="btn js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם, חינם</a></div>
+<div class="sticky" id="sticky"><a class="btn js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם עכשיו</a></div>
 
 <script>
 (function(){
@@ -356,8 +376,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
       sub: "לקוחה ששואלת על תור באמצע טיפול, קובעת אצל מי שענתה ראשונה. העוזרת עונה לה מיד, בשמך, ואוספת את כל הפרטים.", calc: [10, 60, 400]},
     trainer: {code: "solo_trainer", tab: "מאמן / פילאטיס", eyebrow: "עוזר לווטסאפ למאמנים ולמדריכות פילאטיס", name: "רועי", av: "ר", first: "היי, אתה מאמן גם בבית?",
       sub: "מתאמן חדש שכותב לך באמצע אימון, ממשיך לחפש. העוזר עונה לו מיד, מברר מה הוא מחפש ושולח לך סיכום.", calc: [4, 60, 1500]},
-    other: {code: "solo_general", tab: "תחום אחר", eyebrow: "עוזר לווטסאפ לעסקים של אדם אחד", name: "יוסי", av: "י", first: "היי, יש לי נזילה מתחת לכיור",
-      sub: "לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר.", calc: [5, 50, 800]}
+    other: {code: "solo_general", tab: "עוד עסקים", eyebrow: "עוזר לווטסאפ לעסקים של אדם אחד", name: "מאיה", av: "מ", first: "היי, יש לך תור פנוי השבוע?",
+      sub: "לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר. מתאים כמעט לכל עסק של אדם אחד.", calc: [5, 50, 800]}
   };
   var param = new URLSearchParams(location.search).get("type");
   var key = TYPES[param] ? param : "other";

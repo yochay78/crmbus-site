@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MYBOT247 · עוזר לווטסאפ שעונה כשאתם באמצע עבודה</title>
-<meta name="description" content="לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים. העוזר עונה במקומכם, אוסף את הפרטים ושולח לכם סיכום. שבוע ראשון חינם, מתחברים תוך 2 דקות מהטלפון.">
+<meta name="description" content="לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים. העוזר עונה במקומכם, אוסף את הפרטים ושולח לכם סיכום. שבוע ראשון חינם, בוט עובד תוך 2 דקות, מהטלפון.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -20,159 +20,184 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
 <style>
 :root{
-  --ground:#F0F5F2; --surface:#FFFFFF; --ink:#0F2A22; --muted:#4A6259; --line:#D5E2DC;
-  --accent:#0E7A6D; --accent-ink:#FFFFFF; --accent-text:#0B6E5F; --accent-soft:#DCF1EA; --signal:#128C7E; --pop:#25D366; --pop-ink:#06231A;
-  --bubble-in:#FFFFFF; --bubble-out:#D9FDD3; --chat-bg:#EFEAE2; --shadow:0 18px 40px -22px rgba(7,94,84,.4);
-  --hero-bg:#123029; --hero-ink:#EFFAF6; --hero-muted:#B5D6CF; --loss:#F2B35A;
+  color-scheme:dark;
+  --bg:#0F2721; --bg2:#12302A; --card:#17392F; --card2:#1C4338; --line:rgba(234,242,240,.12);
+  --ink:#EFFAF6; --muted:#A9C9C0; --pop:#25D366; --pop-ink:#06231A; --loss:#F4B75E;
+  --bubble-in:#1F2C28; --bubble-out:#005C4B; --chat-bg:#0B141A; --wa-bar:#1F2C33;
   --display:"Secular One","Rubik","Arial Hebrew",system-ui,sans-serif;
   --body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
-  color-scheme:dark;
-  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
-  --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --signal:#25D366;
-  --bubble-in:#1F2C28; --bubble-out:#005C4B; --chat-bg:#0B141A; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
-  --hero-bg:#102A24;
-}}
-:root[data-theme="dark"]{
-  color-scheme:dark;
-  --ground:#0F221D; --surface:#143029; --ink:#E4EFEA; --muted:#9BB3AA; --line:#244A40;
-  --accent:#25D366; --accent-ink:#06231A; --accent-text:#3FDB7E; --accent-soft:#16302A; --signal:#25D366;
-  --bubble-in:#1F2C28; --bubble-out:#005C4B; --chat-bg:#0B141A; --shadow:0 18px 40px -22px rgba(0,0,0,.7);
-  --hero-bg:#102A24;
-}
 *{box-sizing:border-box}
-body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;margin:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.65;margin:0}
 .wrap{max-width:1120px;margin-inline:auto;padding-inline:20px}
 a{color:inherit}
 h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.2;text-wrap:balance;margin:0}
-h1{font-size:clamp(2rem,5.2vw,3.3rem)}
-h2{font-size:clamp(1.6rem,3.4vw,2.3rem)}
+h1{font-size:clamp(2.1rem,5.6vw,3.5rem)}
+h2{font-size:clamp(1.7rem,3.6vw,2.4rem)}
 h3{font-size:1.2rem}
 p{margin:0}
 section{padding-block:64px}
-.sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:720px}
-.lead{font-size:1.1rem;color:var(--muted);max-width:58ch}
-.eyebrow{font-size:.85rem;font-weight:700;color:var(--accent-text);letter-spacing:.02em}
-.band{background:var(--surface);border-block:1px solid var(--line)}
+section.alt{background:var(--bg2);border-block:1px solid var(--line)}
+.sec-head{display:grid;gap:10px;margin-bottom:32px;max-width:760px}
+.lead{font-size:1.1rem;color:var(--muted);max-width:60ch}
+.eyebrow{font-size:.88rem;font-weight:700;color:var(--pop);letter-spacing:.02em}
+em.hl{font-style:normal;color:var(--pop)}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1.08rem;border:0;cursor:pointer;font-family:var(--body);background:var(--pop);color:var(--pop-ink);transition:transform .15s ease}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:17px 30px;border-radius:999px;font-weight:700;text-decoration:none;font-size:1.15rem;border:0;cursor:pointer;font-family:var(--body);background:var(--pop);color:var(--pop-ink);box-shadow:0 12px 30px -10px rgba(37,211,102,.55);transition:transform .15s ease}
 .btn:hover{transform:translateY(-2px)}
-.btn:focus-visible,a:focus-visible,input:focus-visible,summary:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
-@media (prefers-reduced-motion:reduce){.btn{transition:none}}
+.btn:focus-visible,a:focus-visible,input:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--pop);outline-offset:3px}
+.btn.big{font-size:1.25rem;padding:20px 34px}
+@media (prefers-reduced-motion:no-preference){.btn.pulse{animation:pulse 2.6s ease-in-out infinite}}
+@keyframes pulse{0%,100%{box-shadow:0 12px 30px -10px rgba(37,211,102,.55)}50%{box-shadow:0 12px 40px -4px rgba(37,211,102,.85)}}
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{display:inline-flex;align-items:center;gap:6px;background:rgba(37,211,102,.12);border:1px solid rgba(37,211,102,.35);color:var(--ink);border-radius:999px;padding:6px 14px;font-size:.95rem;font-weight:500}
+.badge b{color:var(--pop)}
 
-header.top{background:var(--hero-bg);color:var(--hero-ink)}
-.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(15,39,33,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:12px}
 .logo{font-family:var(--display);font-size:1.45rem;text-decoration:none;direction:ltr;display:inline-flex;align-items:center;gap:.35em}
 .logo b{color:var(--pop);font-weight:400}
 .logo img{width:1.15em;height:1.15em}
-.top .small-cta{color:var(--hero-muted);text-decoration:none;font-size:.95rem;border:1px solid rgba(234,242,240,.3);border-radius:999px;padding:7px 14px}
+.top .btn{padding:9px 18px;font-size:.95rem;box-shadow:none}
 
 /* hero */
-.hero{background:var(--hero-bg);color:var(--hero-ink);padding-block:36px 64px}
-.hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:start}
-@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:28px}}
-.hero-copy{display:grid;gap:18px}
-.hero h1 em{font-style:normal;color:var(--pop)}
-.hero .sub{color:var(--hero-muted);font-size:1.1rem;max-width:52ch}
-.ticks{display:flex;flex-wrap:wrap;gap:6px 18px;list-style:none;padding:0;margin:0;color:var(--hero-muted);font-size:.95rem}
-.ticks li::before{content:"✓ ";color:var(--pop);font-weight:700}
+.hero{padding-block:40px 64px;background:radial-gradient(60% 80% at 85% 10%,rgba(37,211,102,.10),transparent 70%),var(--bg)}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:start}
+@media (max-width:880px){.hero .wrap{grid-template-columns:1fr;gap:30px}}
+.hero-copy{display:grid;gap:20px}
+.cta-block{display:grid;gap:12px;justify-items:start}
+@media (max-width:560px){.cta-block .btn{width:100%}}
+.hero .sub{color:var(--muted);font-size:1.1rem;max-width:54ch}
 
-.calc{background:var(--surface);color:var(--ink);border-radius:22px;padding:24px;box-shadow:var(--shadow);display:grid;gap:16px}
-.calc h2{font-size:1.35rem}
-.calc label{display:grid;grid-template-columns:1fr auto;align-items:center;gap:6px 12px;font-size:.97rem}
-.calc label span{color:var(--muted)}
-.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--accent)}
-.calc output{font-weight:700;font-variant-numeric:tabular-nums;min-width:4.5em;text-align:end}
-.result{border-radius:16px;background:#FFF4E2;color:#5A3A0B;padding:16px 18px;display:grid;gap:4px}
-.result .big{font-family:var(--display);font-size:clamp(2rem,6vw,2.6rem);line-height:1.1;font-variant-numeric:tabular-nums}
-.result small{font-size:.85rem;opacity:.85}
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .result{background:#3A2A12;color:#F7DCAE}}
-:root[data-theme="dark"] .result{background:#3A2A12;color:#F7DCAE}
-.calc .btn{width:100%}
-.calc .fine{font-size:.82rem;color:var(--muted);text-align:center}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:24px;display:grid;gap:16px}
+.calc h2{font-size:1.4rem}
+.calc label{display:grid;grid-template-columns:1fr auto;align-items:center;gap:4px 12px;font-size:.97rem;color:var(--muted)}
+.calc input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--pop)}
+.calc output{font-weight:700;color:var(--ink);font-variant-numeric:tabular-nums;min-width:5em;text-align:end}
+.result{border-radius:16px;background:rgba(244,183,94,.12);border:1px solid rgba(244,183,94,.4);padding:16px 18px;display:grid;gap:2px}
+.result .big{font-family:var(--display);font-size:clamp(2.1rem,6vw,2.8rem);line-height:1.1;color:var(--loss);font-variant-numeric:tabular-nums}
+.result small{font-size:.83rem;color:var(--muted)}
+.calc .btn{width:100%;font-size:1.05rem}
 
-/* phone */
-.show{display:grid;grid-template-columns:.9fr 1.1fr;gap:44px;align-items:center}
-@media (max-width:880px){.show{grid-template-columns:1fr}}
-.phone{background:var(--surface);border:1px solid var(--line);border-radius:28px;box-shadow:var(--shadow);overflow:hidden;max-width:380px;width:100%;justify-self:center}
-.phone-bar{display:flex;align-items:center;gap:12px;padding:12px 16px;background:#075E54;color:#EFFAF6}
+/* live demo */
+.demo{display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:start}
+@media (max-width:880px){.demo{grid-template-columns:1fr}}
+.tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tab{background:transparent;border:1.5px solid var(--line);color:var(--muted);border-radius:999px;padding:8px 16px;font:inherit;font-size:.95rem;cursor:pointer}
+.tab[aria-selected=true]{border-color:var(--pop);color:var(--ink);background:rgba(37,211,102,.12)}
+.phone{background:#000;border-radius:34px;padding:10px;width:min(370px,100%);box-shadow:0 30px 60px -30px rgba(0,0,0,.8);justify-self:center}
+.phone-in{border-radius:26px;overflow:hidden;display:flex;flex-direction:column;height:560px;background:var(--chat-bg)}
+.phone-bar{display:flex;align-items:center;gap:12px;padding:12px 14px;background:var(--wa-bar)}
 .avatar{width:36px;height:36px;border-radius:50%;background:var(--pop);color:var(--pop-ink);display:grid;place-items:center;font-family:var(--display)}
-.phone-bar small{display:block;opacity:.85;font-size:.78rem;line-height:1.2}
-.chat{background:var(--chat-bg);padding:16px 12px;display:grid;gap:7px;font-size:.92rem;line-height:1.5}
-.msg{max-width:86%;padding:7px 11px;border-radius:12px;white-space:pre-line;box-shadow:0 1px 0 rgba(0,0,0,.06)}
-.in{background:var(--bubble-in);justify-self:start;border-start-start-radius:3px}
-.out{background:var(--bubble-out);justify-self:end;border-start-end-radius:3px}
-.owner{margin-top:6px;background:#FFF8E7;border:1px dashed #D8B36A;border-radius:12px;padding:9px 12px;font-size:.88rem;white-space:pre-line;color:#3d2c07}
-.show ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
-.show li{display:grid;gap:2px;padding-inline-start:30px;position:relative}
-.show li::before{content:"✓";position:absolute;inset-inline-start:0;top:0;color:var(--accent-text);font-weight:700;font-size:1.1rem}
-.show li span{color:var(--muted);font-size:.97rem}
+.phone-bar small{display:block;color:var(--muted);font-size:.78rem;line-height:1.2}
+.chat{flex:1;overflow-y:auto;padding:14px 10px;display:flex;flex-direction:column;gap:7px;font-size:.92rem;line-height:1.5}
+.msg{max-width:86%;padding:7px 11px;border-radius:10px;white-space:pre-line}
+.msg.bot{background:var(--bubble-in);align-self:flex-start;border-start-start-radius:3px}
+.msg.customer{background:var(--bubble-out);align-self:flex-end;border-start-end-radius:3px}
+.owner{margin-top:8px;background:#2C2512;border:1px dashed var(--loss);border-radius:12px;padding:10px 12px;font-size:.88rem;white-space:pre-line}
+.owner b{color:var(--loss)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 10px 8px}
+.chip{background:var(--card2);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 12px;font:inherit;font-size:.86rem;cursor:pointer}
+.typing{align-self:flex-start;background:var(--bubble-in);border-radius:10px;padding:10px 14px;display:flex;gap:4px}
+.typing i{width:6px;height:6px;border-radius:50%;background:var(--muted);animation:blink 1.2s infinite}
+.typing i:nth-child(2){animation-delay:.2s}.typing i:nth-child(3){animation-delay:.4s}
+@keyframes blink{0%,80%,100%{opacity:.3}40%{opacity:1}}
+@media (prefers-reduced-motion:reduce){.typing i{animation:none}}
+.compose{display:flex;gap:6px;padding:8px;background:var(--wa-bar)}
+.compose input{flex:1;border:0;border-radius:999px;padding:10px 14px;font:inherit;background:#2A3942;color:var(--ink)}
+.compose button{border:0;border-radius:50%;width:42px;height:42px;background:var(--pop);color:var(--pop-ink);font-size:1.1rem;cursor:pointer}
+.demo-side{display:grid;gap:18px}
+.demo-side ul{list-style:none;padding:0;margin:0;display:grid;gap:14px}
+.demo-side li{padding-inline-start:30px;position:relative;display:grid;gap:2px}
+.demo-side li::before{content:"✓";position:absolute;inset-inline-start:0;color:var(--pop);font-weight:700;font-size:1.1rem}
+.demo-side li span{color:var(--muted);font-size:.97rem}
+
+/* benefits */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px;display:grid;gap:8px;align-content:start}
+.card .n{font-family:var(--display);font-size:2rem;color:var(--pop);line-height:1}
+.card p{color:var(--muted);font-size:.97rem}
+.card .tag{justify-self:start;font-size:.8rem;font-weight:700;background:rgba(244,183,94,.15);color:var(--loss);border-radius:999px;padding:2px 10px}
+@media (max-width:900px){.cards{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.cards{grid-template-columns:1fr}}
+
+/* compare */
+.vs{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.vs article{border-radius:18px;padding:22px;display:grid;gap:10px;align-content:start}
+.vs .them{background:var(--card);border:1px solid var(--line)}
+.vs .us{background:rgba(37,211,102,.08);border:2px solid var(--pop)}
+.vs ul{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.vs .them li::before{content:"✕  ";color:#E0806F;font-weight:700}
+.vs .us li::before{content:"✓  ";color:var(--pop);font-weight:700}
+.vs .them li{color:var(--muted)}
+@media (max-width:700px){.vs{grid-template-columns:1fr}}
 
 /* steps */
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;list-style:none;padding:0;margin:0;counter-reset:s}
 .steps li{counter-increment:s;display:grid;gap:6px;align-content:start;padding-top:18px;border-top:3px solid var(--pop)}
-.steps li::before{content:counter(s);font-family:var(--display);font-size:1.6rem;color:var(--accent-text);line-height:1}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:1.8rem;color:var(--pop);line-height:1}
 .steps p{color:var(--muted);font-size:.98rem}
 @media (max-width:760px){.steps{grid-template-columns:1fr}}
 
-/* privacy */
-.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-.safe article{border:1px solid var(--line);border-radius:16px;padding:20px;display:grid;gap:6px;align-content:start;background:var(--ground)}
+.safe{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.safe article{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;display:grid;gap:6px;align-content:start}
 .safe p{color:var(--muted);font-size:.97rem}
 @media (max-width:700px){.safe{grid-template-columns:1fr}}
-.cmd{display:inline-block;background:var(--accent-soft);color:var(--accent-text);border-radius:6px;padding:0 7px;font-weight:700}
+.cmd{display:inline-block;background:rgba(37,211,102,.15);color:var(--pop);border-radius:6px;padding:0 7px;font-weight:700}
 
-/* price */
-.price{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;background:var(--surface);border:2px solid var(--pop);border-radius:22px;padding:30px;box-shadow:var(--shadow)}
-.price .amount{font-family:var(--display);font-size:2.6rem;line-height:1}
-.price .amount small{font-family:var(--body);font-size:1rem;color:var(--muted)}
+.price{display:grid;grid-template-columns:1.2fr auto;gap:28px;align-items:center;background:var(--card);border:2px solid var(--pop);border-radius:24px;padding:32px}
+.price .amount{font-family:var(--display);font-size:clamp(2.2rem,5vw,3rem);line-height:1.05;color:var(--pop)}
 .price p{color:var(--muted)}
-@media (max-width:700px){.price{grid-template-columns:1fr}.price .btn{width:100%}}
+.price .plus{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:12px;margin-top:4px}
+@media (max-width:760px){.price{grid-template-columns:1fr}.price .btn{width:100%}}
 
-/* faq */
 .faq{display:grid;gap:10px;max-width:820px}
-details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:4px 20px}
 summary{cursor:pointer;font-weight:700;padding-block:14px;list-style:none;display:flex;justify-content:space-between;gap:16px}
 summary::-webkit-details-marker{display:none}
-summary::after{content:"+";color:var(--accent-text);font-size:1.4rem;line-height:1}
+summary::after{content:"+";color:var(--pop);font-size:1.4rem;line-height:1}
 details[open] summary::after{content:"–"}
 details p{padding-bottom:16px;color:var(--muted)}
 
-footer{padding-block:36px 90px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
-footer .wrap{display:grid;gap:8px}
-footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
+.final{text-align:center;display:grid;gap:18px;justify-items:center}
+.final .btn{max-width:100%}
+
+footer{padding-block:32px 110px;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+footer .wrap{display:grid;gap:6px}
+footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 
 .sticky{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;display:none}
-.sticky .btn{width:100%;box-shadow:0 10px 24px -8px rgba(0,0,0,.45)}
-@media (max-width:700px){.sticky.on{display:block}}
+.sticky .btn{width:100%}
+@media (max-width:760px){.sticky.on{display:block}}
 </style>
 </head>
 <body>
 <header class="top">
   <div class="wrap">
     <a class="logo" href="/"><img src="/favicon.svg" alt="" width="28" height="28"><span>MYBOT<b>247</b></span></a>
-    <a class="small-cta js-start" href="https://bot.mybot247.com/start">להתחיל חינם</a>
+    <a class="btn js-start" href="https://bot.mybot247.com/start">להתחיל חינם</a>
   </div>
 </header>
 
-<main id="top">
+<main>
 <section class="hero">
   <div class="wrap">
     <div class="hero-copy">
-      <span class="eyebrow" style="color:var(--pop)" id="eyebrow">עוזר לווטסאפ לעסקים של אדם אחד</span>
-      <h1>כמה לקוחות הפסדתם השבוע, רק כי הייתם <em>באמצע עבודה</em>?</h1>
-      <p class="sub" id="sub">לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם, אוסף את כל הפרטים ושולח לכם סיכום מסודר.</p>
-      <ul class="ticks">
-        <li>שבוע ראשון חינם</li>
-        <li>מתחברים תוך 2 דקות, מהטלפון</li>
-        <li>על המספר הקיים שלכם</li>
-        <li>בלי כרטיס אשראי</li>
-      </ul>
+      <span class="eyebrow" id="eyebrow">עוזר לווטסאפ לעסקים של אדם אחד</span>
+      <h1>כמה לקוחות הפסדתם השבוע, רק כי הייתם <em class="hl">באמצע עבודה</em>?</h1>
+      <div class="cta-block" id="hero-cta">
+        <a class="btn big pulse js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם עכשיו, חינם</a>
+        <div class="badges">
+          <span class="badge"><b>✓</b> שבוע ראשון חינם</span>
+          <span class="badge"><b>✓</b> בוט עובד תוך 2 דקות</span>
+          <span class="badge"><b>✓</b> מהטלפון, על המספר הקיים</span>
+        </div>
+      </div>
+      <p class="sub" id="sub">לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר.</p>
     </div>
 
     <div class="calc" id="calc">
-      <h2>כמה זה עולה לכם?</h2>
+      <h2>כמה אתם מפסידים?</h2>
       <label for="c-leads">פניות חדשות בשבוע <output id="o-leads"></output>
         <input type="range" id="c-leads" min="1" max="40" step="1"></label>
       <label for="c-busy">מתוכן, כשאתם באמצע עבודה <output id="o-busy"></output>
@@ -181,79 +206,117 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
         <input type="range" id="c-value" min="100" max="6000" step="50"></label>
       <div class="result" aria-live="polite">
         <span>אתם עלולים להפסיד בערך</span>
-        <span class="big" id="r-money">₪0</span>
+        <span class="big" id="r-money">0 ₪</span>
         <span id="r-people">בחודש</span>
-        <small>הערכה: אם כשליש מהפניות שלא נענות מהר פונות למישהו אחר.</small>
+        <small>הערכה: אם כשליש מהפניות שלא נענות מהר עוברות למישהו אחר.</small>
       </div>
-      <a class="btn js-start" href="https://bot.mybot247.com/start">בנו עוזר שעונה במקומכם, חינם</a>
-      <p class="fine">שבוע ראשון חינם · חיבור תוך 2 דקות · ביטול בכל רגע</p>
+      <a class="btn js-start" href="https://bot.mybot247.com/start">לעצור את ההפסד, חינם</a>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="try">
+  <div class="wrap demo">
+    <div>
+      <div class="tabs" role="tablist" aria-label="סוג העסק" id="tabs"></div>
+      <div class="phone">
+        <div class="phone-in">
+          <div class="phone-bar"><div class="avatar" id="p-av">י</div><div><strong id="p-name">יוסי</strong><small>העוזר הדיגיטלי · עונה מיד</small></div></div>
+          <div class="chat" id="chat" aria-live="polite"></div>
+          <div class="chips" id="chips"></div>
+          <form class="compose" id="compose"><input id="say" type="text" autocomplete="off" placeholder="כתבו כמו לקוח…" aria-label="הודעה לעוזר"><button type="submit" aria-label="שליחה">➤</button></form>
+        </div>
+      </div>
+    </div>
+    <div class="demo-side">
+      <div class="sec-head" style="margin:0"><span class="eyebrow">נסו בעצמכם, עכשיו</span><h2>ככה העוזר שלכם עונה ללקוח חדש</h2>
+        <p class="lead">זה בוט אמיתי. ענו לו כמו לקוח: במספר או במילים. בסוף תראו את הסיכום שמגיע אליכם.</p></div>
+      <ul>
+        <li><b>עונה תוך שניות, בשמכם</b><span>הלקוח לא מחכה, ולא ממשיך לחפש.</span></li>
+        <li><b>שואל את מה שאתם הייתם שואלים</b><span>מה צריך, איפה, מתי, ושם. שאלות קצרות, תשובות ממוספרות.</span></li>
+        <li><b>שולח לכם ליד מוכן</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה וחוזרים ללקוח עם כל המידע.</span></li>
+      </ul>
+      <a class="btn js-start" href="https://bot.mybot247.com/start" style="justify-self:start">רוצים כזה? בנו אותו עכשיו, חינם</a>
     </div>
   </div>
 </section>
 
 <section>
-  <div class="wrap show">
-    <div class="phone" role="img" aria-label="שיחת וואטסאפ לדוגמה בין לקוח חדש לעוזר">
-      <div class="phone-bar"><div class="avatar" id="p-av">י</div><div><strong id="p-name">יוסי</strong><small>עונה מיד, גם כשאתם עסוקים</small></div></div>
-      <div class="chat" id="p-chat"></div>
-    </div>
-    <div>
-      <div class="sec-head"><span class="eyebrow">ככה זה נראה</span><h2>הלקוח מקבל תשובה מיד. אתם מקבלים ליד מוכן.</h2></div>
-      <ul>
-        <li><b>עונה בשמכם, תוך שניות</b><span>מציג את עצמו כעוזר הדיגיטלי שלכם, ולא נותן ללקוח ללכת למתחרה.</span></li>
-        <li><b>אוסף את כל הפרטים</b><span>מה צריך, איפה, מתי נוח, ושם. בשאלות קצרות עם תשובות ממוספרות.</span></li>
-        <li><b>שולח לכם סיכום מסודר</b><span>לצ׳אט עם עצמכם בווטסאפ. מסיימים עבודה, פותחים, וחוזרים ללקוח עם כל המידע.</span></li>
-        <li><b>עורכים כל מילה</b><span>כל טקסט של העוזר ניתן לשינוי, בלחיצה על ההודעה עצמה.</span></li>
-        <li><b>מתאם פגישות ביומן</b><span>מחברים את העוזר ליומן, והוא בודק זמינות וקובע תורים ופגישות לבד. תוספת של 75 ₪ לחודש.</span></li>
-      </ul>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">מה אתם מקבלים</span><h2>עובד בשבילכם גם כשהידיים שלכם בעבודה</h2></div>
+    <div class="cards">
+      <article class="card"><span class="n">שניות</span><h3>תשובה מיידית לכל לקוח חדש</h3><p>הראשון שעונה, מקבל את העבודה. מעכשיו זה אתם.</p></article>
+      <article class="card"><span class="n">📩</span><h3>ליד מסודר ישר לווטסאפ</h3><p>כל הפרטים בהודעה אחת, עם מספר הטלפון של הלקוח.</p></article>
+      <article class="card"><span class="n">0</span><h3>הודעות לחברים ולמשפחה</h3><p>עונה רק למי שלא שמור אצלכם. קבוצות? אף פעם.</p></article>
+      <article class="card"><span class="n">✍️</span><h3>כל מילה ניתנת לעריכה</h3><p>משנים כל טקסט של העוזר בלחיצה על ההודעה עצמה.</p></article>
+      <article class="card"><span class="n">📅</span><h3>מתאם פגישות ביומן</h3><p>מחברים ליומן, והעוזר בודק זמינות וקובע תורים לבד.</p><span class="tag">תוספת 75 ₪ לחודש</span></article>
+      <article class="card"><span class="n">⏻</span><h3>מדליקים ומכבים מהווטסאפ</h3><p>כותבים לעצמכם <span class="cmd">כבה</span> או <span class="cmd">הפעל</span>. בלילה נכבה לבד.</p></article>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section class="alt">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow">מתחילים בשתי דקות</span><h2>שלושה צעדים, הכול מהטלפון</h2></div>
+    <div class="sec-head"><span class="eyebrow">יש לכם כבר הודעת היעדרות?</span><h2>משפט קבוע לא סוגר עבודות</h2></div>
+    <div class="vs">
+      <article class="them"><h3>הודעת היעדרות רגילה</h3><ul>
+        <li>משפט אחד קבוע, ולקוח שממשיך לחפש</li>
+        <li>לא שואלת מה צריך, איפה ומתי</li>
+        <li>אתם חוזרים ללקוח ומתחילים מאפס</li>
+        <li>מדליקים ומכבים במסכי הגדרות</li></ul></article>
+      <article class="us"><h3>העוזר של MYBOT247</h3><ul>
+        <li>מנהל שיחה ומחזיק את הלקוח אצלכם</li>
+        <li>אוסף את כל הפרטים של העבודה</li>
+        <li>שולח לכם סיכום מוכן לחזרה</li>
+        <li>הפעל / כבה במילה אחת, ונכבה לבד בלילה</li></ul></article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">בוט עובד תוך 2 דקות</span><h2>שלושה צעדים, הכול מהטלפון</h2></div>
     <ol class="steps">
-      <li><h3>עונים על כמה שאלות</h3><p>השם שלכם, במה אתם עוסקים, מחירים אם תרצו. רואים מיד איך השיחה תיראה.</p></li>
-      <li><h3>מחברים עם קוד</h3><p>מקבלים קוד, מקלידים אותו בווטסאפ תחת "מכשירים מקושרים". בלי מספר חדש ובלי להתקין כלום.</p></li>
-      <li><h3>העוזר עונה במקומכם</h3><p>מלקוח חדש ראשון. בלילה הוא נכבה לבד, ובבוקר חוזר.</p></li>
+      <li><h3>עונים על כמה שאלות</h3><p>השם שלכם, במה אתם עוסקים, ומחירים אם תרצו. רואים מיד איך השיחה תיראה.</p></li>
+      <li><h3>מחברים עם קוד</h3><p>מקבלים קוד ומקלידים אותו בווטסאפ, תחת "מכשירים מקושרים". בלי מספר חדש ובלי להתקין כלום.</p></li>
+      <li><h3>העוזר מתחיל לעבוד</h3><p>מהלקוח החדש הראשון. אתם עובדים, הוא עונה.</p></li>
     </ol>
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">הווטסאפ שלכם נשאר שלכם</span><h2>הוא לא עונה לאמא שלכם</h2>
-      <p class="lead">רוב בעלי המקצוע משתמשים באותו ווטסאפ גם לעסק וגם לחברים ולמשפחה. העוזר בנוי בדיוק בשביל זה.</p></div>
+      <p class="lead">רוב בעלי המקצוע משתמשים באותו ווטסאפ לעסק ולחברים ולמשפחה. העוזר בנוי בדיוק בשביל זה.</p></div>
     <div class="safe">
-      <article><h3>רק מי שלא שמור אצלכם</h3><p>העוזר עונה רק למי שלא שמור באנשי הקשר. חברים, משפחה ולקוחות שכבר שמרתם, לא יקבלו ממנו כלום.</p></article>
+      <article><h3>רק מי שלא שמור אצלכם</h3><p>חברים, משפחה ולקוחות שכבר שמרתם, לא יקבלו ממנו כלום.</p></article>
       <article><h3>קבוצות? אף פעם</h3><p>קבוצות, סטטוסים וערוצים לא נענים, בשום מצב.</p></article>
-      <article><h3>כתבתם בעצמכם? הוא שותק</h3><p>ברגע שאתם עונים ללקוח בעצמכם, העוזר יוצא מהשיחה הזו.</p></article>
-      <article><h3>מדליקים ומכבים מהווטסאפ</h3><p>כותבים לעצמכם <span class="cmd">כבה</span> או <span class="cmd">הפעל</span>. ובלילה הוא נכבה לבד.</p></article>
+      <article><h3>עניתם בעצמכם? הוא שותק</h3><p>ברגע שאתם כותבים ללקוח, העוזר יוצא מהשיחה הזו.</p></article>
+      <article><h3>השיחות הפרטיות לא נשמרות</h3><p>הודעות מאנשי קשר ומקבוצות לא נשמרות אצלנו בשום מקום.</p></article>
     </div>
   </div>
 </section>
 
-<section class="band">
+<section>
   <div class="wrap">
     <div class="price">
       <div style="display:grid;gap:10px">
         <span class="eyebrow">מבצע השקה</span>
         <div class="amount">שבוע ראשון חינם</div>
-        <p>אחר כך 125 ₪ לחודש, בלי התחייבות. רוצים שיתאם גם פגישות ביומן? עוד 75 ₪ לחודש.</p>
-        <p>בסוף השבוע תקבלו הודעה עם קישור לתשלום. לא ממשיכים? העוזר פשוט נכבה, ולא מחויבים בכלום.</p>
+        <p>בלי כרטיס אשראי. אחר כך <b style="color:var(--ink)">125 ₪ לחודש</b>, בלי התחייבות.</p>
+        <div class="plus"><p>📅 תיאום פגישות ביומן: עוד 75 ₪ לחודש.</p><p>לא ממשיכים אחרי השבוע? העוזר פשוט נכבה, ולא מחויבים בכלום.</p></div>
       </div>
-      <a class="btn js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
+      <a class="btn big js-start" href="https://bot.mybot247.com/start">להתחיל עכשיו, חינם</a>
     </div>
   </div>
 </section>
 
-<section>
+<section class="alt">
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">שאלות</span><h2>מה שבדרך כלל שואלים</h2></div>
     <div class="faq">
       <details><summary>צריך מספר חדש או ווטסאפ ביזנס?</summary><p>לא. העוזר עובד על המספר הקיים שלכם, בווטסאפ רגיל או בווטסאפ ביזנס. הוא מתחבר כמו ווטסאפ במחשב, כ"מכשיר מקושר".</p></details>
-      <details><summary>יש לי הודעת היעדרות בווטסאפ ביזנס. מה ההבדל?</summary><p>הודעת היעדרות היא משפט אחד קבוע. העוזר מנהל שיחה: שואל מה צריך, איפה ומתי, ושולח לכם סיכום מוכן. ככה אתם חוזרים ללקוח עם כל המידע, ולא מתחילים מאפס.</p></details>
+      <details><summary>כמה זמן לוקח להתחיל?</summary><p>בערך 2 דקות: עונים על כמה שאלות, מקבלים קוד, מקלידים אותו בווטסאפ, וזהו. הכול מהטלפון.</p></details>
       <details><summary>זה חיבור רשמי של ווטסאפ?</summary><p>לא. החיבור עובד כמו ווטסאפ במחשב (מכשיר מקושר), ואינו שירות רשמי של ווטסאפ, ולכן קיים סיכון נמוך שווטסאפ תגביל את המספר. כדי להקטין אותו, העוזר רק עונה למי שכתב לכם, ולא שולח הודעות יזומות. אפשר לנתק אותו בכל רגע מהטלפון.</p></details>
       <details><summary>אתם קוראים את השיחות הפרטיות שלי?</summary><p>לא. הודעות מאנשי קשר שמורים, מקבוצות ומסטטוסים לא נשמרות אצלנו בשום מקום. נשמרות רק השיחות שהעוזר עצמו ניהל עם לקוחות חדשים. פרטים ב<a href="/privacy.html">מדיניות הפרטיות</a>.</p></details>
       <details><summary>איך מכבים את העוזר?</summary><p>כותבים <b>כבה</b> בצ׳אט עם עצמכם בווטסאפ, ו<b>הפעל</b> כדי להדליק. כדי לנתק לגמרי: בווטסאפ, "מכשירים מקושרים", ומנתקים.</p></details>
@@ -261,95 +324,133 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
     </div>
   </div>
 </section>
+
+<section>
+  <div class="wrap final">
+    <h2>הלקוח הבא כבר כותב לכם. מי יענה לו?</h2>
+    <a class="btn big pulse js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם, חינם</a>
+    <div class="badges" style="justify-content:center"><span class="badge"><b>✓</b> שבוע ראשון חינם</span><span class="badge"><b>✓</b> בוט עובד תוך 2 דקות</span></div>
+  </div>
+</section>
 </main>
 
 <footer>
   <div class="wrap">
-    <a class="logo" href="/" style="color:var(--ink)"><img src="/favicon.svg" alt="" width="28" height="28"><span>MYBOT<b style="color:var(--signal)">247</b></span></a>
     <p><a href="/privacy.html">מדיניות פרטיות</a> · <a href="/terms.html">תנאי שימוש</a> · <a href="/data-deletion.html">מחיקת נתונים</a></p>
     <p>© 2026 MYBOT247 · ריינט מדיה בע"מ, ח.פ. 513973107</p>
   </div>
 </footer>
 
-<div class="sticky" id="sticky"><a class="btn js-start" href="https://bot.mybot247.com/start">בנו עוזר חינם, תוך 2 דקות</a></div>
+<div class="sticky" id="sticky"><a class="btn js-start" href="https://bot.mybot247.com/start">בנו את העוזר שלכם, חינם</a></div>
 
 <script>
 (function(){
+  var API = "https://bot.mybot247.com/solo-api/demo";
   var TYPES = {
-    driving: {code: "driving", eyebrow: "עוזר לווטסאפ למורי נהיגה", name: "אבי", av: "א",
-      sub: "תלמיד שכותב לך באמצע שיעור לא מחכה עד שתסיים. העוזר עונה לו מיד, אוסף את כל הפרטים ושולח לך סיכום מסודר.",
-      calc: [6, 60, 3000],
-      chat: [["out", "היי, כמה עולה שיעור?"],
-             ["in", "היי 👋 כאן העוזר הדיגיטלי של אבי. אבי באמצע שיעור ויחזור אליך בהקדם.\nמי כותב?\n1. אני התלמיד/ה\n2. אני הורה"],
-             ["out", "2"], ["in", "מאיפה לאסוף?"], ["out", "רמת השרון"],
-             ["in", "…\nתודה מיכל! אבי יחזור אליך בהקדם 🚗\nשיעור של 40 דקות: 160 ₪"]],
-      owner: "📩 פנייה חדשה מהבוט\nתלמיד/ה חדש/ה\nמי כותב: הורה · איסוף: רמת השרון\nרישיון: אוטומט · זמנים: ערב\nשם: מיכל"},
-    beauty: {code: "beauty", eyebrow: "עוזרת לווטסאפ לציפורניים, ריסים וגבות", name: "שירן", av: "ש",
-      sub: "לקוחה ששואלת על תור באמצע טיפול, קובעת אצל מי שענתה ראשונה. העוזרת עונה לה מיד, בשמך, ואוספת את כל הפרטים.",
-      calc: [10, 60, 400],
-      chat: [["out", "היי כמה עולה לק ג׳ל?"],
-             ["in", "היי 💅 כאן העוזרת הדיגיטלית של שירן. שירן באמצע טיפול, אז אני עונה בשבילה.\nלאיזה טיפול?\n1. לק ג׳ל, 120 ₪\n2. מילוי, 150 ₪\n3. בנייה, 220 ₪"],
-             ["out", "1"], ["in", "זו הפעם הראשונה אצל שירן?\n1. כן\n2. כבר הייתי"], ["out", "כן"],
-             ["in", "…\nמעולה דנה ✨ שירן תחזור אלייך לאשר את התור ברגע שתסיים טיפול."]],
-      owner: "📩 פנייה חדשה מהבוט\nתור חדש\nטיפול: לק ג׳ל · פעם ראשונה: כן\nמתי נוח: מחר אחרי 16:00\nשם: דנה"},
-    trainer: {code: "trainer", eyebrow: "עוזר לווטסאפ למאמנים ולמדריכות פילאטיס", name: "רועי", av: "ר",
-      sub: "מתאמן חדש שכותב לך באמצע אימון, ממשיך לחפש. העוזר עונה לו מיד, מברר מה הוא מחפש ושולח לך סיכום.",
-      calc: [4, 60, 1500],
-      chat: [["out", "היי, אתה מאמן גם בבית?"],
-             ["in", "היי 💪 כאן העוזר הדיגיטלי של רועי. רועי באמצע אימון ויחזור אליך.\nמה המטרה?\n1. ירידה במשקל וחיטוב\n2. כוח ומסה\n3. כושר כללי ובריאות"],
-             ["out", "1"], ["in", "איך תרצה להתאמן?\n1. אישי\n2. זוגי\n3. קבוצה קטנה\n4. אונליין"], ["out", "אישי"],
-             ["in", "…\nתודה יוסי! רועי יחזור אליך לתאם אימון ניסיון 🙂"]],
-      owner: "📩 פנייה חדשה מהבוט\nמתאמן/ת חדש/ה\nמטרה: ירידה במשקל · אימון: אישי\nאזור: רמת גן · זמנים: ערב\nשם: יוסי"},
-    other: {code: "other", eyebrow: "עוזר לווטסאפ לעסקים של אדם אחד", name: "יוסי", av: "י",
-      sub: "לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם, אוסף את כל הפרטים ושולח לכם סיכום מסודר.",
-      calc: [5, 50, 800],
-      chat: [["out", "היי, יש לי נזילה מתחת לכיור"],
-             ["in", "היי 👋 כאן העוזר הדיגיטלי של יוסי. יוסי באמצע עבודה ויחזור אליך בהקדם.\nאיפה? (עיר או שכונה)"],
-             ["out", "רעננה"], ["in", "כמה זה דחוף?\n1. היום\n2. השבוע\n3. לא דחוף"], ["out", "1"],
-             ["in", "…\nתודה רונית! יוסי יחזור אליך בהקדם 🙏"]],
-      owner: "📩 פנייה חדשה מהבוט\nפנייה חדשה\nמה צריך: נזילה מתחת לכיור\nאיפה: רעננה · דחיפות: היום\nשם: רונית"}
+    driving: {code: "solo_driving", tab: "מורה נהיגה", eyebrow: "עוזר לווטסאפ למורי נהיגה", name: "אבי", av: "א", first: "היי, כמה עולה שיעור?",
+      sub: "תלמיד שכותב לך באמצע שיעור לא מחכה עד שתסיים. העוזר עונה לו מיד, אוסף את כל הפרטים ושולח לך סיכום מסודר.", calc: [6, 60, 3000]},
+    beauty: {code: "solo_beauty", tab: "ציפורניים וריסים", eyebrow: "עוזרת לווטסאפ לציפורניים, ריסים וגבות", name: "שירן", av: "ש", first: "היי, יש תור השבוע?",
+      sub: "לקוחה ששואלת על תור באמצע טיפול, קובעת אצל מי שענתה ראשונה. העוזרת עונה לה מיד, בשמך, ואוספת את כל הפרטים.", calc: [10, 60, 400]},
+    trainer: {code: "solo_trainer", tab: "מאמן / פילאטיס", eyebrow: "עוזר לווטסאפ למאמנים ולמדריכות פילאטיס", name: "רועי", av: "ר", first: "היי, אתה מאמן גם בבית?",
+      sub: "מתאמן חדש שכותב לך באמצע אימון, ממשיך לחפש. העוזר עונה לו מיד, מברר מה הוא מחפש ושולח לך סיכום.", calc: [4, 60, 1500]},
+    other: {code: "solo_general", tab: "תחום אחר", eyebrow: "עוזר לווטסאפ לעסקים של אדם אחד", name: "יוסי", av: "י", first: "היי, יש לי נזילה מתחת לכיור",
+      sub: "לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר.", calc: [5, 50, 800]}
   };
   var param = new URLSearchParams(location.search).get("type");
-  var T = TYPES[param] || TYPES.other;
-  var start = "https://bot.mybot247.com/start" + (TYPES[param] ? "?type=" + T.code : "");
+  var key = TYPES[param] ? param : "other";
 
-  document.getElementById("eyebrow").textContent = T.eyebrow;
-  document.getElementById("sub").textContent = T.sub;
-  document.getElementById("p-name").textContent = T.name;
-  document.getElementById("p-av").textContent = T.av;
-  var chat = document.getElementById("p-chat");
-  T.chat.forEach(function(m){ var d = document.createElement("div"); d.className = "msg " + m[0]; d.textContent = m[1]; chat.appendChild(d); });
-  var o = document.createElement("div"); o.className = "owner"; o.textContent = "ומה שאתם מקבלים, בצ׳אט עם עצמכם:\n" + T.owner; chat.appendChild(o);
-
+  function startLink(k){ return "https://bot.mybot247.com/start" + (k !== "other" || param === "other" ? "?type=" + k : ""); }
+  function setLinks(k){
+    Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){ a.href = startLink(k); });
+  }
   Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){
-    a.href = start;
-    a.addEventListener("click", function(){ if (window.gtag) { gtag("event", "solo_start_click", {type: T.code}); } });
+    a.addEventListener("click", function(){ if (window.gtag) { gtag("event", "solo_start_click", {type: key}); } });
   });
 
+  var T = TYPES[key];
+  document.getElementById("eyebrow").textContent = T.eyebrow;
+  document.getElementById("sub").textContent = T.sub;
+  setLinks(key);
+
+  // ---------------- calculator
   var leads = document.getElementById("c-leads"), busy = document.getElementById("c-busy"), value = document.getElementById("c-value");
   leads.value = T.calc[0]; busy.value = T.calc[1]; value.value = T.calc[2];
   var fmt = function(n){ return Math.round(n).toLocaleString("he-IL") + " ₪"; };
-  var touched = false;
+  var used = false;
   function calc(){
     var l = +leads.value, b = +busy.value / 100, v = +value.value;
-    var lostPeople = l * b * (1 / 3) * 4.3;
+    var lost = l * b * (1 / 3) * 4.3;
     document.getElementById("o-leads").textContent = l;
     document.getElementById("o-busy").textContent = Math.round(b * 100) + "%";
     document.getElementById("o-value").textContent = fmt(v);
-    document.getElementById("r-money").textContent = fmt(lostPeople * v);
-    document.getElementById("r-people").textContent = "בחודש · כ־" + Math.max(1, Math.round(lostPeople)) + " לקוחות שהלכו למישהו אחר";
+    document.getElementById("r-money").textContent = fmt(lost * v);
+    document.getElementById("r-people").textContent = "בחודש · כ־" + Math.max(1, Math.round(lost)) + " לקוחות שהלכו למישהו אחר";
   }
   [leads, busy, value].forEach(function(el){
-    el.addEventListener("input", function(){
-      calc();
-      if (!touched && window.gtag) { touched = true; gtag("event", "solo_calc_used", {type: T.code}); }
-    });
+    el.addEventListener("input", function(){ calc(); if (!used && window.gtag) { used = true; gtag("event", "solo_calc_used", {type: key}); } });
   });
   calc();
 
-  var sticky = document.getElementById("sticky"), calcBox = document.getElementById("calc");
+  // ---------------- live demo
+  var chat = document.getElementById("chat"), chips = document.getElementById("chips"), say = document.getElementById("say");
+  var demo = {key: key, texts: [], busy: false};
+  function bubble(who, text){ var d = document.createElement("div"); d.className = "msg " + who; d.textContent = text; chat.appendChild(d); }
+  function render(j){
+    chat.innerHTML = ""; chips.innerHTML = "";
+    bubble("customer", TYPES[demo.key].first);
+    j.log.forEach(function(m){ bubble(m.who, m.text || ""); });
+    if (j.done && j.summary) {
+      var o = document.createElement("div"); o.className = "owner";
+      o.innerHTML = "<b>📩 זה מה שמגיע אליכם, לצ׳אט עם עצמכם:</b>\n";
+      o.appendChild(document.createTextNode(j.summary.join("\n")));
+      chat.appendChild(o);
+      var again = document.createElement("button"); again.className = "chip"; again.type = "button"; again.textContent = "↺ שוב מההתחלה";
+      again.onclick = function(){ load(demo.key); }; chips.appendChild(again);
+      if (window.gtag) { gtag("event", "solo_demo_done", {type: demo.key}); }
+    } else {
+      var last = j.log.length ? j.log[j.log.length - 1] : null;
+      if (last && last.who === "bot") {
+        (last.text || "").split("\n").forEach(function(line){
+          var m = line.match(/^(\d+)\.\s+(.+)$/);
+          if (m) { var c = document.createElement("button"); c.type = "button"; c.className = "chip"; c.textContent = m[1] + ". " + m[2];
+            c.onclick = function(){ send(m[1]); }; chips.appendChild(c); }
+        });
+      }
+    }
+    chat.scrollTop = chat.scrollHeight;
+  }
+  function typing(){ var t = document.createElement("div"); t.className = "typing"; t.innerHTML = "<i></i><i></i><i></i>"; chat.appendChild(t); chat.scrollTop = chat.scrollHeight; }
+  function call(){
+    demo.busy = true;
+    return fetch(API, {method: "POST", headers: {"Content-Type": "text/plain"}, body: JSON.stringify({type: TYPES[demo.key].code, texts: demo.texts})})
+      .then(function(r){ return r.json(); })
+      .then(function(j){ setTimeout(function(){ render(j); demo.busy = false; }, 500); })
+      .catch(function(){ demo.busy = false; chat.innerHTML = ""; bubble("bot", "ההדגמה לא זמינה כרגע. אפשר לבנות את העוזר שלכם ולנסות אותו שם."); });
+  }
+  function send(text){
+    if (demo.busy || !text) { return; }
+    demo.texts.push(text); bubble("customer", text); chips.innerHTML = ""; typing(); call();
+    if (demo.texts.length === 1 && window.gtag) { gtag("event", "solo_demo_started", {type: demo.key}); }
+  }
+  function load(k){
+    demo.key = k; demo.texts = [];
+    document.getElementById("p-name").textContent = TYPES[k].name; document.getElementById("p-av").textContent = TYPES[k].av;
+    Array.prototype.forEach.call(document.querySelectorAll(".tab"), function(b){ b.setAttribute("aria-selected", b.dataset.k === k ? "true" : "false"); });
+    chat.innerHTML = ""; bubble("customer", TYPES[k].first); typing(); call();
+  }
+  var tabs = document.getElementById("tabs");
+  Object.keys(TYPES).forEach(function(k){
+    var b = document.createElement("button"); b.type = "button"; b.className = "tab"; b.setAttribute("role", "tab"); b.dataset.k = k; b.textContent = TYPES[k].tab;
+    b.onclick = function(){ load(k); setLinks(k); };
+    tabs.appendChild(b);
+  });
+  document.getElementById("compose").addEventListener("submit", function(e){ e.preventDefault(); var t = say.value.trim(); say.value = ""; send(t); });
+  load(key);
+
+  // ---------------- sticky button on phones, once the hero button is gone
+  var sticky = document.getElementById("sticky");
   if ("IntersectionObserver" in window) {
-    new IntersectionObserver(function(e){ sticky.classList.toggle("on", !e[0].isIntersecting); }).observe(calcBox);
+    new IntersectionObserver(function(e){ sticky.classList.toggle("on", !e[0].isIntersecting); }).observe(document.getElementById("hero-cta"));
   }
 })();
 </script>

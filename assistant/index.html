@@ -387,7 +387,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
       sub: "לקוחות חדשים כותבים לכם בווטסאפ בזמן שאתם עובדים, ומי שלא מקבל תשובה עובר למי שענה ראשון. העוזר עונה במקומכם תוך שניות, אוסף את כל הפרטים ושולח לכם סיכום מסודר. מתאים כמעט לכל עסק של אדם אחד.", calc: [5, 50, 800]}
   };
   var param = new URLSearchParams(location.search).get("type");
-  var key = TYPES[param] ? param : "driving";
+  var key = TYPES[param] ? param : "other";
 
   function startLink(k){ return "https://bot.mybot247.com/start" + (k !== "other" || param === "other" ? "?type=" + k : ""); }
   function setLinks(k){

@@ -435,6 +435,9 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   }
   Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){
     a.addEventListener("click", function(){
+      // the cookie choice made here goes along, so /start does not ask again (ck=1 / ck=0)
+      var ch = null; try { ch = localStorage.getItem("mb_cookies"); } catch (e) {}
+      if (ch && a.href.indexOf("ck=") < 0) { a.href += (a.href.indexOf("?") < 0 ? "?" : "&") + "ck=" + (ch === "no" ? "0" : "1"); }
       if (window.gtag) { gtag("event", "solo_start_click", {type: key}); }
       if (window.fbq) { fbq("trackCustom", "StartClick", {business_type: key}); }
     });

@@ -9,6 +9,21 @@
   gtag('js', new Date());
   gtag('config', 'G-8MYSPBKZ6K');
 </script>
+<!-- Meta Pixel - dataset MYBOT247 (skipped when the visitor declined cookies) -->
+<script>
+(function(){
+  var declined = false;
+  try { declined = localStorage.getItem("mb_cookies") === "no"; } catch (e) {}
+  if (declined) { window["ga-disable-G-8MYSPBKZ6K"] = true; return; }
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3277712335763557');
+  fbq('track', 'PageView');
+})();
+</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>MYBOT247 · עוזר דיגיטלי לווטסאפ שעונה כשאתם באמצע עבודה</title>
@@ -186,6 +201,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 .sticky{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:30;display:none}
 .sticky .btn{width:100%}
 @media (max-width:760px){.sticky.on{display:block}}
+.cookie{position:fixed;inset-inline:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));z-index:40;max-width:560px;margin-inline:auto;background:var(--card2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;display:grid;gap:10px;box-shadow:0 12px 30px -12px rgba(0,0,0,.6);font-size:.95rem}
+.cookie p{margin:0;color:var(--muted)}
+.cookie a{color:var(--ink)}
+.cookie .row{display:flex;gap:10px;flex-wrap:wrap}
+.cookie button{font:inherit;font-weight:700;border-radius:999px;padding:8px 18px;cursor:pointer;border:1.5px solid var(--pop)}
+.cookie .ok{background:var(--pop);color:var(--pop-ink)}
+.cookie .no{background:transparent;color:var(--ink);border-color:var(--line)}
 </style>
 </head>
 <body>
@@ -373,6 +395,14 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
 
 <div class="sticky" id="sticky"><a class="btn js-start" href="https://bot.mybot247.com/start">בנו את העוזר הדיגיטלי שלכם עכשיו</a></div>
 
+<div class="cookie" id="cookie" role="region" aria-label="עוגיות" hidden>
+  <p>האתר משתמש בעוגיות של Google ושל Meta כדי למדוד כניסות ולשפר את הפרסום שלנו. <a href="/privacy.html#cookies">פרטים במדיניות הפרטיות</a>.</p>
+  <div class="row">
+    <button type="button" class="ok" id="cookie-ok">מאשר</button>
+    <button type="button" class="no" id="cookie-no">בלי עוגיות מדידה</button>
+  </div>
+</div>
+
 <script>
 (function(){
   var API = "https://bot.mybot247.com/solo-api/demo";
@@ -389,12 +419,24 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   var param = new URLSearchParams(location.search).get("type");
   var key = TYPES[param] ? param : "other";
 
-  function startLink(k){ return "https://bot.mybot247.com/start" + (k !== "other" || param === "other" ? "?type=" + k : ""); }
+  // Ad source (utm_* and click ids) is passed on to /start so every signup keeps the ad that brought it
+  var SRC_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_content", "utm_term", "utm_id", "fbclid", "gclid", "ttclid"];
+  var here = new URLSearchParams(location.search), src = [];
+  SRC_KEYS.forEach(function(n){ var v = here.get(n); if (v) { src.push(n + "=" + encodeURIComponent(v.slice(0, 200))); } });
+  function startLink(k){
+    var q = [];
+    if (k !== "other" || param === "other") { q.push("type=" + k); }
+    q = q.concat(src);
+    return "https://bot.mybot247.com/start" + (q.length ? "?" + q.join("&") : "");
+  }
   function setLinks(k){
     Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){ a.href = startLink(k); });
   }
   Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){
-    a.addEventListener("click", function(){ if (window.gtag) { gtag("event", "solo_start_click", {type: key}); } });
+    a.addEventListener("click", function(){
+      if (window.gtag) { gtag("event", "solo_start_click", {type: key}); }
+      if (window.fbq) { fbq("trackCustom", "StartClick", {business_type: key}); }
+    });
   });
 
   var T = TYPES[key];
@@ -484,6 +526,21 @@ footer a{text-decoration:none}footer a:hover{color:var(--pop)}
   });
   document.getElementById("compose").addEventListener("submit", function(e){ e.preventDefault(); var t = say.value.trim(); say.value = ""; send(t); });
   load(key);
+
+  // ---------------- cookie notice (choice kept in this browser; "no" stops Meta and Google measurement)
+  var cookie = document.getElementById("cookie"), choice = null;
+  try { choice = localStorage.getItem("mb_cookies"); } catch (e) {}
+  if (!choice) { cookie.hidden = false; }
+  function choose(v){
+    try { localStorage.setItem("mb_cookies", v); } catch (e) {}
+    cookie.hidden = true;
+    if (v === "no") {
+      window["ga-disable-G-8MYSPBKZ6K"] = true;
+      if (window.fbq) { fbq("consent", "revoke"); }
+    }
+  }
+  document.getElementById("cookie-ok").onclick = function(){ choose("yes"); };
+  document.getElementById("cookie-no").onclick = function(){ choose("no"); };
 
   // ---------------- sticky button on phones, once the hero button is gone
   var sticky = document.getElementById("sticky");

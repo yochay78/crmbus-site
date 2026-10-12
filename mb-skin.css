@@ -1,0 +1,92 @@
+/* MYBOT247 site skin (Oct 12, 2026): the light, cheerful look of /assistant/ and /start for every page of the site.
+   Each page links it right after its own <style> and has data-theme="light" on <html>.
+   To undo on a page: remove the two lines (the Rubik font link + this file) and the data-theme attribute. */
+
+:root[data-theme="light"]{
+  color-scheme:light;
+  --ground:#F2FAF5; --surface:#FFFFFF; --ink:#0F271E; --muted:#55706A; --line:#D3E7DA;
+  --accent:#25D366; --accent-ink:#06281A; --accent-text:#0B7F43; --accent-soft:#E3F6EA; --signal:#0B7F43;
+  --pop:#25D366; --pop-ink:#06281A; --deep:#0B7F43; --sun:#FFD84A; --sun-soft:#FFF6CF;
+  --bubble-in:#FFFFFF; --bubble-out:#D9FDD3; --chat-bg:#EFE9E0;
+  --shadow:0 18px 40px -24px rgba(15,39,30,.45);
+  --hero-bg:transparent; --hero-ink:#0F271E; --hero-muted:#55706A;
+  --bad:#C93C3F; --bad-soft:#FBE7E7;
+  --display:"Rubik","Arial Hebrew",system-ui,sans-serif;
+}
+
+/* the ground: soft mint and sun glows + a faint dot grid at the top */
+:root[data-theme="light"] body{
+  background:radial-gradient(85% 38% at 100% 0%,#D4F5DF 0%,rgba(212,245,223,0) 70%),
+             radial-gradient(70% 30% at 0% 100%,#FFF1B8 0%,rgba(255,241,184,0) 70%),var(--ground);
+  background-attachment:fixed;color:var(--ink);
+}
+:root[data-theme="light"] body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background-image:radial-gradient(rgba(11,127,67,.14) 1.1px,transparent 1.5px);background-size:18px 18px;
+  -webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.3) 25%,transparent 50%);
+  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.3) 25%,transparent 50%)}
+
+/* type */
+:root[data-theme="light"] h1,:root[data-theme="light"] h2,:root[data-theme="light"] h3{font-family:var(--display);font-weight:800;letter-spacing:-.01em}
+:root[data-theme="light"] h1 em,:root[data-theme="light"] h2 em{font-style:normal;color:var(--deep);
+  background:linear-gradient(transparent 62%,rgba(255,216,74,.75) 62%);padding:0 2px;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone}
+:root[data-theme="light"] .eyebrow{color:var(--deep)}
+:root[data-theme="light"] .logo{font-weight:800;color:var(--ink)}
+:root[data-theme="light"] .logo b{color:var(--deep);font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:700}
+
+/* buttons: WhatsApp green with dark text, everywhere */
+:root[data-theme="light"] .btn-primary,:root[data-theme="light"] .btn.pop,:root[data-theme="light"] .final .btn,:root[data-theme="light"] .hero .btn-primary{
+  background:var(--pop);color:var(--pop-ink);box-shadow:0 10px 22px -10px rgba(11,127,67,.6)}
+:root[data-theme="light"] .btn-ghost,:root[data-theme="light"] .btn.ghost{background:#FFFFFF;color:var(--deep);border-color:var(--pop)}
+:root[data-theme="light"] .btn{font-family:var(--display);font-weight:700}
+
+/* header */
+:root[data-theme="light"] header.top,:root[data-theme="light"] body > header{background:rgba(255,255,255,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+:root[data-theme="light"] .lang{background:#FFFFFF;color:var(--deep);border-color:var(--line)}
+
+/* cards and blocks keep white surfaces with a soft shadow */
+:root[data-theme="light"] .card,:root[data-theme="light"] .plan,:root[data-theme="light"] details,:root[data-theme="light"] .aud article,
+:root[data-theme="light"] .table-scroll,:root[data-theme="light"] .conds,:root[data-theme="light"] .phone,:root[data-theme="light"] .choice,
+:root[data-theme="light"] details.icard{background:#FFFFFF;box-shadow:0 8px 22px -18px rgba(15,39,30,.45)}
+:root[data-theme="light"] .feat .ic{background:var(--accent-soft);color:var(--deep)}
+:root[data-theme="light"] .plan.hot{border-color:var(--pop)}
+:root[data-theme="light"] .tag{background:var(--sun);color:var(--ink)}
+:root[data-theme="light"] .ticks li::before,:root[data-theme="light"] .plan li::before,:root[data-theme="light"] .bc-list li::before{color:var(--deep)}
+
+/* ===== home page (index.html, en/, de/): the dark video hero becomes light ===== */
+:root[data-theme="light"] .hero-media{display:none}
+:root[data-theme="light"] .hero{color:var(--ink)}
+:root[data-theme="light"] .hero .lead,:root[data-theme="light"] .hero .price-note,:root[data-theme="light"] .hero .ticks,:root[data-theme="light"] .hero-sub{color:var(--muted)}
+:root[data-theme="light"] .hero .price-note strong{color:var(--ink)}
+:root[data-theme="light"] .hero .eyebrow{color:var(--deep)}
+:root[data-theme="light"] .hero .btn-ghost{color:var(--deep);border-color:var(--pop);background:#FFFFFF}
+:root[data-theme="light"] .hero .phone{border-color:var(--line)}
+:root[data-theme="light"] .hero-cta .link-down{color:var(--deep)}
+:root[data-theme="light"] main > section:not(.hero):not(.band),:root[data-theme="light"] footer{background:transparent}
+:root[data-theme="light"] .band{background:rgba(255,255,255,.85)}
+:root[data-theme="light"] .pain .stamp{color:var(--deep)}
+:root[data-theme="light"] .steps li{border-top-color:var(--pop)}
+:root[data-theme="light"] .biz-chip{background:#FFFFFF;color:var(--ink);border-color:var(--line);box-shadow:0 10px 24px -16px rgba(15,39,30,.5)}
+:root[data-theme="light"] .biz-chip i{background:var(--accent-soft);color:var(--deep)}
+:root[data-theme="light"] .sec-video{display:none}
+/* the closing call to action: the sunny box of the landing instead of dark green */
+:root[data-theme="light"] .final{background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);color:var(--ink);border:0}
+:root[data-theme="light"] .final p,:root[data-theme="light"] .final .note{opacity:1;color:var(--ink)}
+:root[data-theme="light"] .final input,:root[data-theme="light"] .final textarea{background:#FFFFFF;border:1.5px solid #E9C23A}
+:root[data-theme="light"] .float-wa{box-shadow:0 10px 24px -8px rgba(11,127,67,.6)}
+
+/* ===== demo pages ===== */
+:root[data-theme="light"] .cta{background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);color:var(--ink)}
+:root[data-theme="light"] .cta .sub{color:var(--muted)}
+:root[data-theme="light"] .steps li.done::before,:root[data-theme="light"] .steps li.on::before{background:var(--pop)}
+:root[data-theme="light"] .choice:has(input:checked){border-color:var(--pop);background:var(--accent-soft)}
+:root[data-theme="light"] .choice:has(input:checked) .tick{background:var(--pop);border-color:var(--pop);color:var(--pop-ink)}
+:root[data-theme="light"] input[type=text],:root[data-theme="light"] input[type=email],:root[data-theme="light"] input[type=tel],:root[data-theme="light"] textarea{background:#FFFFFF;border:1.5px solid var(--line)}
+
+/* ===== legal pages (terms, privacy, data deletion) ===== */
+:root[data-theme="light"] main h2{color:var(--ink)}
+:root[data-theme="light"] .meta{color:var(--muted)}
+
+/* never wider than the phone */
+:root[data-theme="light"],:root[data-theme="light"] body{overflow-x:clip;max-width:100%}
+:root[data-theme="light"] .demo-phone{opacity:1;box-shadow:0 18px 40px -26px rgba(15,39,30,.45)}

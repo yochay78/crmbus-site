@@ -33,7 +33,7 @@
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=IBM+Plex+Sans+Hebrew:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=JetBrains+Mono:wght@700&display=swap">
 <style>
 /* Campaign landing v2 (Oct 12, 2026): one phone screen, loss vs gain, animated CTA. Old one-screen page: /assistant/ ; long page: /assistant/full/ */
 
@@ -263,14 +263,36 @@ body{margin:0}
 .cookie button{font:inherit;font-weight:700;border-radius:999px;padding:6px 10px;white-space:nowrap;cursor:pointer;border:1.5px solid var(--pop-deep)}
 .cookie .ok{background:var(--pop);border-color:var(--pop);color:var(--pop-ink)}
 .cookie .no{background:transparent;color:var(--ink);border-color:var(--line)}
+
+/* green is for buttons only: the "with the assistant" box and the reassurance card are sunny instead */
+.vs-box.gain{background:linear-gradient(135deg,#FFD84A 0%,#FFF0A8 100%);color:var(--ink);box-shadow:0 14px 30px -16px rgba(170,120,0,.55)}
+.vs-box.gain b{color:var(--ink)}
+.vs-box.gain .vs-ic{background:#FFFFFF;color:var(--ink)}
+.tag-g{background:var(--ink);color:#FFE680}
+.calm{background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);color:var(--ink);box-shadow:0 14px 30px -18px rgba(170,120,0,.5)}
+.calm b{color:var(--ink)}
+.calm .ic{background:#FFFFFF;color:var(--ink)}
+.cmd2{background:#FFFFFF}
+
+/* a touch of "tech": faint dot grid fading down from the top, live status chip, mono brand digits */
+.scr{position:relative;isolation:isolate}
+.scr::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:radial-gradient(rgba(11,127,67,.16) 1.1px,transparent 1.5px);background-size:18px 18px;-webkit-mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.35) 30%,transparent 60%);mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.35) 30%,transparent 60%)}
+.logo b{font-family:"JetBrains Mono",ui-monospace,monospace;font-weight:700;letter-spacing:-.02em}
+.live{display:inline-flex;align-items:center;gap:6px;padding:3px 10px 3px 9px;border-radius:999px;background:var(--ink);color:#C8F7D8;font-family:"JetBrains Mono",ui-monospace,monospace;font-size:12px;font-weight:700;letter-spacing:.02em;white-space:nowrap;direction:ltr}
+.live i{width:7px;height:7px;border-radius:999px;background:#25D366;box-shadow:0 0 0 0 rgba(37,211,102,.7);animation:live 1.8s ease-out infinite}
+@keyframes live{0%{box-shadow:0 0 0 0 rgba(37,211,102,.7)}100%{box-shadow:0 0 0 8px rgba(37,211,102,0)}}
+.vs-box.gain{box-shadow:0 14px 30px -16px rgba(170,120,0,.55),inset 0 0 0 1px rgba(255,255,255,.6)}
+.vs-box.loss{box-shadow:inset 0 0 0 1px rgba(255,255,255,.08)}
+.cta{font-size:23px!important;letter-spacing:-.01em}
+@media (prefers-reduced-motion:reduce){.live i{animation:none}}
 </style>
 </head>
 <body>
 <div class="app">
 <main class="scr" id="s1" style="background:radial-gradient(90% 45% at 100% 0%,#D4F5DF 0%,var(--bg) 70%)">
-  <div class="bar"><span class="logo" style="font-size:22px">MYBOT<b>247</b></span><span style="display:flex;align-items:center;gap:8px"><a class="talk" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%A2%D7%9D%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 19.5l1.1-4A8 8 0 1 1 20 11.5z"/></svg>דברו איתנו</a></span></div>
+  <div class="bar"><span class="logo" style="font-size:22px;display:inline-flex;align-items:center;gap:.35em"><span>MYBOT<b>247</b></span><img src="/favicon.svg" alt="" width="28" height="28"></span><span style="display:flex;align-items:center;gap:8px"><a class="talk" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%A2%D7%9D%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 19.5l1.1-4A8 8 0 1 1 20 11.5z"/></svg>דברו איתנו</a></span></div>
   <div style="display:flex;flex-direction:column;gap:12px">
-    <p style="font-size:17px;color:var(--pop-deep);font-weight:700">העוזר הדיגיטלי לווטסאפ של העסק</p>
+    <p style="display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:16px;color:var(--pop-deep);font-weight:700"><span>העוזר הדיגיטלי לווטסאפ</span><span class="live"><i aria-hidden="true"></i>24/7 ONLINE</span></p>
     <h1 class="hero-h" style="font-size:46px;line-height:1.08">אף לקוח <mark>לא הולך</mark> לאיבוד</h1>
   </div>
   <div class="vs2">

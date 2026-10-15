@@ -1,0 +1,29 @@
+# MYBOT247
+
+> MYBOT247 היא מערכת ישראלית לבניית עוזר דיגיטלי (בוט) בווטסאפ לעסקים: עונה ללקוחות אוטומטית, אוסף פרטים וקובע תורים ביומן גוגל. 99 ₪ לחודש, בלי התחייבות.
+
+## מדריכים
+- [מהו עוזר דיגיטלי](https://mybot247.com/help/what-is/): מה הוא עושה, מה לא, ואיך שולטים בו
+- [איך מתחילים](https://mybot247.com/help/getting-started/): שישה צעדים מהרשמה ועד בוט פועל
+- [מחירים](https://mybot247.com/help/pricing/): 99 ₪ לחודש, בלי התחייבות
+- [שאלות נפוצות](https://mybot247.com/help/faq/): תשובות קצרות לשאלות שמרבים לשאול
+- [תמיכה](https://mybot247.com/help/support/): פתרון בעיות ויצירת קשר בווטסאפ
+
+## מדריכי וידאו
+- [חיבור היומן](https://mybot247.com/help/calendar-connect/): מחברים את יומן גוגל כדי שהבוט יקבע תורים בו.
+- [סוגי תורים](https://mybot247.com/help/calendar-types/): קובעים מה אפשר לקבוע: שם, אורך ואישור שלכם.
+- [שעות פעילות ותורים](https://mybot247.com/help/calendar-hours/): מגדירים מתי העסק פתוח ומתי אפשר לקבוע תורים.
+- [קביעת תור בבוט](https://mybot247.com/help/calendar-bot/): מוסיפים לבוט כפתור "לקבוע תור".
+- [תזכורות וביטולים](https://mybot247.com/help/calendar-remind/): מתי הלקוח מקבל תזכורת ועד מתי הוא יכול לבטל.
+- [בדיקה ויום־יום](https://mybot247.com/help/calendar-test/): בודקים שהכול עובד ומנהלים את התורים הקרובים.
+- [עריכת הבוט](https://mybot247.com/help/bot-edit/): משנים הודעות ושאלות של הבוט במסך העריכה.
+
+## בלוג
+- [מענה אוטומטי בווטסאפ לעסקים](https://mybot247.com/blog/auto-reply-whatsapp-business/)
+- [מענה אוטומטי חינמי בווטסאפ](https://mybot247.com/blog/whatsapp-free-auto-reply/)
+- [בוט לקביעת תורים בווטסאפ](https://mybot247.com/blog/whatsapp-appointment-bot/)
+
+## משפטי
+- [מדיניות פרטיות](https://mybot247.com/privacy.html)
+- [תנאי שימוש](https://mybot247.com/terms.html)
+- [מחיקת נתונים](https://mybot247.com/data-deletion.html)

@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MYSPBKZ6K"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8MYSPBKZ6K');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מהו עוזר דיגיטלי בווטסאפ ואיך הוא עובד | MYBOT247</title>
+<meta name="description" content="עוזר דיגיטלי בווטסאפ הוא בוט שעונה ללקוחות של העסק אוטומטית, לפי מה שבעל העסק הגדיר. הסבר פשוט: מה הוא עושה, מה הוא לא עושה, איך מחברים אותו ואיך שולטים בו.">
+<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;700&family=Secular+One&display=swap">
+<style>
+:root{--ground:#F0F5F2;--surface:#FFFFFF;--ink:#0F2A22;--muted:#4A6259;--line:#D5E2DC;--accent-text:#0B6E5F;--signal:#128C7E;--display:"Secular One","Rubik","Arial Hebrew",system-ui,sans-serif;--body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:var(--accent-text)}.wrap{max-width:900px;margin-inline:auto;padding-inline:16px}
+header{border-bottom:1px solid var(--line);background:var(--surface)}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px}
+.logo{font-family:var(--display);font-size:1.6rem;text-decoration:none;color:var(--ink);direction:ltr;display:inline-flex;align-items:center;gap:.35em}.logo b{color:var(--signal);font-weight:400}.logo img{width:1.15em;height:1.15em}
+.back{font-size:.95rem;font-weight:700;text-decoration:none;color:var(--muted);padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:#fff}
+main{padding-block:36px 64px}
+.eyebrow{font-weight:700;font-size:.85rem;letter-spacing:.04em;margin:0 0 6px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.2;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:34em}
+h2{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+h2 .n{background:var(--accent-soft,#E3F6EA);color:#0B7F43;font-family:var(--body);font-weight:700;font-size:.85rem;border-radius:999px;padding:2px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;list-style:none;padding:0;margin:0}
+.g{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;text-decoration:none;color:var(--ink);box-shadow:0 8px 22px -18px rgba(15,39,30,.45);transition:transform .15s,border-color .15s}
+.g:hover{transform:translateY(-2px);border-color:#25D366}
+.th{position:relative;flex:none;width:64px;height:112px;border-radius:10px;overflow:hidden;background:#0F271E}.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th::after{content:"";position:absolute;inset:0;margin:auto;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230B7F43' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/18px no-repeat}
+.g b{display:block;font-size:1.05rem;line-height:1.3}.g span{display:block;color:var(--muted);font-size:.92rem;line-height:1.4;margin-top:2px}
+.g small{display:inline-block;margin-top:6px;font-size:.8rem;font-weight:700;color:#0B7F43;background:#E3F6EA;border-radius:999px;padding:1px 10px;direction:ltr}
+.help{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);border-radius:18px;padding:20px 22px}
+.help p{margin:0;font-weight:700;font-size:1.1rem}.help p span{display:block;font-weight:400;font-size:.95rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:10px 24px;border-radius:14px;background:#25D366;color:#06281A;font-weight:700;text-decoration:none;box-shadow:0 10px 22px -10px rgba(11,127,67,.6)}
+.btn.ghost{background:#fff;border:1.5px solid #25D366;color:#0B7F43;box-shadow:none}
+.player{display:flex;flex-direction:column;align-items:center;gap:18px}
+video{width:min(100%,calc((100svh - 190px)*9/16),380px);min-width:230px;aspect-ratio:9/16;border-radius:20px;background:#000;box-shadow:0 18px 40px -22px rgba(15,39,30,.6);display:block}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%;max-width:420px}.row .btn{flex:1 1 170px}
+.crumb{font-size:.9rem;color:var(--muted);margin:0 0 14px}.crumb a{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.9rem}footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:8px}
+
+.answer{background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);border-radius:18px;padding:18px 22px;margin:0 0 24px;font-size:1.08rem}
+.answer b.k{display:block;font-size:.8rem;letter-spacing:.04em;color:#6b5400;margin-bottom:4px}
+.upd{color:var(--muted);font-size:.88rem;margin:0 0 18px}
+.toc{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 20px;margin:0 0 8px}
+.toc b{display:block;margin-bottom:4px}.toc ol{margin:0;padding-inline-start:20px}.toc a{text-decoration:none}
+article h2{margin-top:36px;scroll-margin-top:16px}article p,article li{max-width:42em}article li{margin-bottom:6px}
+.tablewrap{overflow-x:auto;margin:12px 0;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.97rem}th,td{padding:10px 14px;text-align:start;border-bottom:1px solid var(--line)}
+th{background:#E3F6EA;font-weight:700}tr:last-child td{border-bottom:0}
+.steps{list-style:none;counter-reset:s;padding:0;margin:0}
+.steps li{counter-increment:s;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px 14px 18px;margin-bottom:12px;position:relative;padding-inline-start:64px;max-width:none}
+.steps li::before{content:counter(s);position:absolute;inset-inline-start:16px;top:14px;width:34px;height:34px;border-radius:50%;background:#25D366;color:#06281A;font-weight:800;display:flex;align-items:center;justify-content:center}
+.steps li b{display:block;font-size:1.08rem;margin-bottom:2px}
+details{background:var(--surface);border:1px solid var(--line);border-radius:14px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700;padding:14px 18px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}summary::after{content:"+";font-size:1.4rem;line-height:1;color:var(--accent-text)}
+details[open] summary::after{content:"−"}details .a{padding:0 18px 14px;max-width:42em}
+.rel{margin-top:40px}.rel h2{font-size:1.15rem}.cta{margin-top:36px}
+.cta-row{display:flex;flex-wrap:wrap;gap:12px;margin:14px 0}
+.hub2{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;list-style:none;padding:0;margin:0}
+.hub2 a{display:block;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 18px;text-decoration:none;color:var(--ink);box-shadow:0 8px 22px -18px rgba(15,39,30,.45);height:100%}
+.hub2 a:hover{border-color:#25D366}.hub2 b{display:block;font-size:1.05rem}.hub2 span{color:var(--muted);font-size:.92rem;line-height:1.4}
+</style>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=JetBrains+Mono:wght@700&display=swap">
+<link rel="stylesheet" href="/mb-skin.css?v=1">
+<link rel="canonical" href="https://mybot247.com/help/what-is/">
+<meta property="og:type" content="website"><meta property="og:site_name" content="MYBOT247"><meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://mybot247.com/help/what-is/"><meta property="og:title" content="מהו עוזר דיגיטלי בווטסאפ ואיך הוא עובד | MYBOT247"><meta property="og:description" content="עוזר דיגיטלי בווטסאפ הוא בוט שעונה ללקוחות של העסק אוטומטית, לפי מה שבעל העסק הגדיר. הסבר פשוט: מה הוא עושה, מה הוא לא עושה, איך מחברים אותו ואיך שולטים בו.">
+<meta property="og:image" content="https://mybot247.com/og/og-he.jpg"><meta name="theme-color" content="#25D366">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MYBOT247", "item": "https://mybot247.com/"}, {"@type": "ListItem", "position": 2, "name": "מרכז העזרה", "item": "https://mybot247.com/help/"}, {"@type": "ListItem", "position": 3, "name": "מהו עוזר דיגיטלי בווטסאפ ואיך הוא עובד", "item": "https://mybot247.com/help/what-is/"}]}</script><script type="application/ld+json">{"@context": "https://schema.org", "@type": "SoftwareApplication", "name": "MYBOT247", "applicationCategory": "BusinessApplication", "operatingSystem": "Web", "description": "עוזר דיגיטלי בווטסאפ (בוט) הוא תוכנה שעונה אוטומטית להודעות שלקוחות שולחים לעסק, לפי מה שבעל העסק הגדיר מראש: מחירים, שעות פעילות, שאלות נפוצות וקביעת תורים. כשהוא לא יודע לענות, הוא לא ממציא תשובה אלא מעביר את הפנייה לבעל העסק. MYBOT247 היא מערכת שמאפשרת לבנות עוזר כזה בכמה דקות ולחבר אותו למספר הווטסאפ הקיים של העסק.", "url": "https://mybot247.com/", "inLanguage": "he", "publisher": {"@type": "Organization", "name": "MYBOT247", "legalName": "ריינט מדיה בע\"מ", "url": "https://mybot247.com/", "logo": "https://mybot247.com/icon-512.png"}}</script>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/"><span>MYBOT<b>247</b></span><img src="/favicon.svg" alt="" width="28" height="28"></a><a class="back" href="/">חזרה לאתר</a></div></header>
+<main><div class="wrap"><article><p class="crumb"><a href="/help/">מרכז העזרה</a> › מהו עוזר דיגיטלי בווטסאפ ואיך הוא עובד</p><h1>מהו עוזר דיגיטלי בווטסאפ <em>ואיך הוא עובד</em></h1>
+<p class="upd">עודכן: 15 באוקטובר 2026</p>
+<div class="answer"><b class="k">בקצרה</b>עוזר דיגיטלי בווטסאפ (בוט) הוא תוכנה שעונה אוטומטית להודעות שלקוחות שולחים לעסק, לפי מה שבעל העסק הגדיר מראש: מחירים, שעות פעילות, שאלות נפוצות וקביעת תורים. כשהוא לא יודע לענות, הוא לא ממציא תשובה אלא מעביר את הפנייה לבעל העסק. MYBOT247 היא מערכת שמאפשרת לבנות עוזר כזה בכמה דקות ולחבר אותו למספר הווטסאפ הקיים של העסק.</div>
+<nav class="toc" aria-label="תוכן העניינים"><b>בעמוד הזה</b><ol><li><a href="#what">מה העוזר הדיגיטלי עושה</a></li><li><a href="#not">מה הוא לא עושה</a></li><li><a href="#how">איך זה עובד, ב־4 שלבים</a></li><li><a href="#control">השליטה נשארת אצלכם</a></li><li><a href="#risk">מה חשוב לדעת על החיבור המהיר</a></li><li><a href="#who">למי זה מתאים</a></li></ol></nav><h2 id="what">מה העוזר הדיגיטלי עושה</h2><p>כשלקוח חדש כותב לעסק בווטסאפ, העוזר עונה לו מיד, גם בלילה, גם בסוף שבוע וגם כשבעל העסק באמצע עבודה. הוא יכול:</p>
+  <ul><li>לענות על שאלות חוזרות, כמו מחירים, שעות פתיחה, כתובת ומה כלול בשירות.</li>
+  <li>לשאול את הלקוח שאלות ולאסוף את הפרטים שבעל העסק צריך: שם, טלפון, סוג העבודה, אזור, תאריך מבוקש.</li>
+  <li>להציע ללקוח כפתורים ותפריט במקום להקליד הכול, לדוגמה "לקבל הצעת מחיר" או "לדבר עם נציג".</li>
+  <li>לקבוע תורים ביומן גוגל של העסק, כולל תזכורת ללקוח ואפשרות לבטל (תוספת בתשלום, ראו <a href="/help/pricing/">מחירים</a>).</li>
+  <li>לשלוח לבעל העסק התראה עם כל מה שנאסף, כדי שיחזור ללקוח עם פנייה מוכנה.</li></ul><h2 id="not">מה הוא לא עושה</h2><p>חשוב לדעת גם את הגבולות, כי הם מה שמבדיל עוזר אמין מבוט מעצבן:</p>
+  <ul><li><b>הוא לא ממציא תשובות.</b> אם השאלה לא מופיעה במידע שבעל העסק הזין, הוא אומר ללקוח שמישהו יחזור אליו, ובעל העסק מקבל התראה.</li>
+  <li><b>הוא לא פותח שיחות.</b> הוא עונה רק למי שכתב לעסק. הוא לא שולח הודעות המוניות ולא הודעות יזומות.</li>
+  <li><b>הוא לא עונה לאנשי הקשר שלכם.</b> בחיבור המהיר הוא עונה רק למי שאינו שמור באנשי הקשר בטלפון של העסק, ולעולם לא בקבוצות, בסטטוסים או בערוצים. כך משפחה וחברים לא מקבלים תשובות של בוט.</li>
+  <li><b>הוא לא מתערב כשאתם כותבים.</b> כשבעל העסק עצמו עונה בשיחה, הבוט מפסיק לענות בה.</li></ul><h2 id="how">איך זה עובד, ב־4 שלבים</h2><ol><li><b>בוחרים את סוג העסק.</b> המערכת מציעה תבנית מוכנה עם שאלות ותשובות שמתאימות לתחום.</li>
+  <li><b>משלימים כמה פרטים.</b> שם העסק, שירותים, מחירים ושעות. אפשר לראות בזמן אמת איך הבוט עונה בשיחה לדוגמה.</li>
+  <li><b>מחברים את הווטסאפ.</b> מקלידים את מספר הטלפון ומקבלים קוד, שמקלידים באפליקציית הווטסאפ. אותו תהליך כמו חיבור ווטסאפ למחשב.</li>
+  <li><b>הבוט פועל.</b> מרגע החיבור הוא עונה ללקוחות חדשים. אפשר לערוך אותו בכל רגע, בלחיצה על העיפרון ליד כל הודעה.</li></ol>
+  <p>הפירוט המלא, צעד אחר צעד, נמצא במדריך <a href="/help/getting-started/">איך מתחילים</a>.</p><h2 id="control">השליטה נשארת אצלכם</h2><p>בעל העסק שולט בבוט מהטלפון, בצ'אט "הודעה לעצמי" בווטסאפ:</p>
+  <div class="tablewrap"><table><thead><tr><th>מה כותבים</th><th>מה קורה</th></tr></thead><tbody>
+  <tr><td>כבה</td><td>הבוט מפסיק לענות עד ההדלקה הבאה.</td></tr>
+  <tr><td>הפעל</td><td>הבוט חוזר לענות.</td></tr>
+  <tr><td>מצב</td><td>מקבלים דיווח: האם הבוט דלוק, כמה פניות היו היום ומה מצב החיבור.</td></tr>
+  <tr><td>עריכה</td><td>מקבלים קישור אישי לעריכת הבוט.</td></tr>
+  <tr><td>עזרה</td><td>רשימת הפקודות.</td></tr></tbody></table></div>
+  <p>בנוסף, הבוט נכבה אוטומטית בלילה וחוזר בבוקר, ואפשר לשנות את השעות במסך העריכה. אפשר גם לנתק אותו לגמרי בכל רגע דרך "מכשירים מקושרים" בווטסאפ.</p><h2 id="risk">מה חשוב לדעת על החיבור המהיר</h2><p>בחיבור המהיר, MYBOT247 מתחברת למספר הווטסאפ הקיים של העסק כ"מכשיר מקושר", בדומה לווטסאפ במחשב. זה מאפשר להתחיל בדקות ולהמשיך לענות גם מהטלפון, אבל חיבור כזה אינו שירות רשמי של WhatsApp. WhatsApp עשויה להגביל או לחסום מספרים שמשתמשים בחיבורים מסוג זה, וזה לא בשליטתנו. לכן העוזר עונה רק למי שכתב לעסק ולא שולח הודעות המוניות, והעסק מאשר את הסיכון בעת ההרשמה. פירוט נוסף בעמוד <a href="/help/faq/">שאלות נפוצות</a> ובתנאי השימוש.</p><h2 id="who">למי זה מתאים</h2><p>העוזר מתאים לעסקים שלקוחותיהם פונים אליהם בווטסאפ ושבהם בעל העסק לא תמיד פנוי לענות: עצמאים ובעלי מקצוע, מורי נהיגה, מטפלים ומאמנים, קוסמטיקאיות ומעצבות ציפורניים, קליניקות, סוכני נדל"ן ונותני שירותים מקצועיים. אם הלקוחות שלכם כבר כותבים לכם בווטסאפ, כנראה שאפשר לבנות עבורכם תהליך כזה.</p><section class="rel"><h2>עוד בנושא</h2><ul class="hub2"><li><a href="/help/getting-started/"><b>איך מתחילים</b><span>שישה צעדים מהרשמה ועד בוט פועל</span></a></li><li><a href="/help/faq/"><b>שאלות נפוצות</b><span>תשובות קצרות לשאלות שמרבים לשאול</span></a></li><li><a href="/help/pricing/"><b>מחירים</b><span>כמה זה עולה ומה כלול</span></a></li></ul></section><div class="help"><p>יש שאלה שלא נענתה כאן?<span>כתבו לנו בווטסאפ למספר <span dir="ltr" style="display:inline">055-947-3443</span> ונחזור אליכם.</span></p><a class="btn" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%A2%D7%9D%20%D7%94%D7%9E%D7%93%D7%A8%D7%99%D7%9B%D7%99%D7%9D">דברו איתנו בווטסאפ</a></div></article></div></main><footer><div class="wrap"><nav><a href="/help/">מרכז העזרה</a><a href="/help/what-is/">מהו עוזר דיגיטלי</a><a href="/help/pricing/">מחירים</a><a href="/help/faq/">שאלות נפוצות</a><a href="/help/support/">תמיכה</a><a href="/privacy.html">מדיניות פרטיות</a><a href="/terms.html">תנאי שימוש</a><a href="/data-deletion.html">מחיקת נתונים</a><a href="/">חזרה לאתר</a></div><div>© 2026 MYBOT247 · ריינט מדיה בע"מ (RYNET MEDIA LTD), ח.פ. 513973107, מצדה 7, תל אביב-יפו</div></div></footer>
+</body></html>

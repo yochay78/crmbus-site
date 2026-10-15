@@ -16,7 +16,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־125 ₪ לחודש, בלי התחייבות.">
+<meta name="description" content="בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־99 ₪ לחודש, בלי התחייבות.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
 <style>
@@ -188,6 +188,21 @@ main > section:not(.hero):not(.band),footer{background:var(--ground)}
 .plan .btn{justify-content:center}
 .plan .sub{color:var(--muted);font-size:.95rem}
 .setup{font-size:.95rem;color:var(--muted)}
+.base{display:grid;gap:4px}.base .lbl{font-weight:700;font-size:.95rem;color:var(--accent-text)}
+.addon{background:var(--accent-soft);border:1.5px dashed var(--accent);border-radius:18px;padding:18px;display:grid;gap:14px;margin-top:4px}
+.addon-head{display:flex;gap:12px;align-items:center}
+.addon-ico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--surface);display:grid;place-items:center;color:var(--accent-text)}
+.addon-head strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.3}
+.addon-head .d{display:block;color:var(--muted);font-size:.92rem;line-height:1.45}
+.plan .addon-list{flex:none;gap:6px}
+.addon-price{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
+.addon-price .amount{font-size:2rem}
+.addon-price em{font-style:normal;font-weight:700;font-size:.85rem;background:var(--surface);color:var(--accent-text);border-radius:999px;padding:4px 12px}
+.addon .btn{justify-content:center}
+tr.price td:first-child{font-weight:700}tr.price td{border-top:2px solid var(--line)}
+tr.cal td{background:var(--accent-soft)}tr.cal td:first-child small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.calico{display:inline-flex;vertical-align:middle;margin-inline-end:8px;color:var(--accent-text)}.calico svg{width:18px;height:18px}
+
 .fine{margin-top:18px;color:var(--muted);font-size:.9rem}
 @media (max-width:900px){.plans{grid-template-columns:1fr}}
 
@@ -377,13 +392,13 @@ section.slim{padding-block:40px}
 <meta property="og:locale" content="he_IL">
 <meta property="og:url" content="https://mybot247.com/">
 <meta property="og:title" content="בוט לוואטסאפ לעסקים | מענה אוטומטי 24/7 · MYBOT247">
-<meta property="og:description" content="בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־125 ₪ לחודש, בלי התחייבות.">
+<meta property="og:description" content="בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־99 ₪ לחודש, בלי התחייבות.">
 <meta property="og:image" content="https://mybot247.com/og/og-he.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#25D366">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://mybot247.com/#org", "name": "MYBOT247", "legalName": "ריינט מדיה בע\"מ (RYNET MEDIA LTD)", "url": "https://mybot247.com/", "logo": "https://mybot247.com/icon-512.png", "contactPoint": {"@type": "ContactPoint", "telephone": "+972-55-947-3443", "contactType": "customer service", "availableLanguage": ["he", "en", "de"]}}, {"@type": "WebSite", "@id": "https://mybot247.com/#site", "url": "https://mybot247.com/", "name": "MYBOT247", "inLanguage": "he", "publisher": {"@id": "https://mybot247.com/#org"}}, {"@type": "SoftwareApplication", "name": "MYBOT247", "applicationCategory": "BusinessApplication", "operatingSystem": "WhatsApp, Web", "url": "https://mybot247.com/", "inLanguage": "he", "description": "בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־125 ₪ לחודש, בלי התחייבות.", "publisher": {"@id": "https://mybot247.com/#org"}, "offers": [{"@type": "Offer", "name": "Starter", "price": "125", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing"}, {"@type": "Offer", "name": "Meta Business", "price": "200", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "אפשר להשתמש במספר הקיים של העסק?", "acceptedAnswer": {"@type": "Answer", "text": "כן. במסלול הבסיסי המספר ממשיך לעבוד גם באפליקציה הרגילה. בחיבור הרשמי המספר עובר לעבוד דרך המערכת, ונעבור על זה איתכם לפני שמתחילים."}}, {"@type": "Question", "name": "מה קורה כשהבוט לא יודע לענות?", "acceptedAnswer": {"@type": "Answer", "text": "הבוט לא ממציא תשובות. אם השאלה לא מופיעה במידע של העסק, הוא אומר ללקוח שמישהו יחזור אליו ושולח לכם התראה עם פרטי הפנייה."}}, {"@type": "Question", "name": "צריך ידע טכני או מתכנת?", "acceptedAnswer": {"@type": "Answer", "text": "לא. אנחנו מלווים את החיבור, ואת המידע על העסק מזינים בשפה פשוטה, כמו שהייתם מסבירים לעובד חדש."}}, {"@type": "Question", "name": "תוך כמה זמן הבוט עובד?", "acceptedAnswer": {"@type": "Answer", "text": "במסלול הבסיסי, תוך דקות מרגע שהמידע על העסק מוכן. בחיבור הרשמי, בדרך כלל ימים ספורים, בעיקר בגלל האישור של מטא."}}, {"@type": "Question", "name": "מה ההבדל בין שני המסלולים?", "acceptedAnswer": {"@type": "Answer", "text": "המסלול הבסיסי (Starter) מתחבר לוואטסאפ הקיים שלכם תוך דקות, ואפשר להמשיך לענות מהטלפון. החיבור הרשמי (Meta Business) עובר אישור של מטא, ומתאים לעסקים עם הרבה פניות, לשליחת הודעות בכמות ולכפתורים בתוך השיחה. לא בטוחים? כתבו לנו ונמליץ."}}, {"@type": "Question", "name": "המספר שלי יכול להיחסם?", "acceptedAnswer": {"@type": "Answer", "text": "בחיבור הרשמי המספר מאושר על ידי מטא, וזו הדרך הבטוחה ביותר. המסלול הבסיסי מתאים לשימוש רגיל של מענה ללקוחות שפונים אליכם. כדי לשמור על המספר, לא שולחים דרכו הודעות המוניות ללקוחות שלא ביקשו אותן. עסק שמתכנן לשלוח הודעות בכמות, עדיף לו החיבור הרשמי."}}, {"@type": "Question", "name": "יש התחייבות?", "acceptedAnswer": {"@type": "Answer", "text": "לא. משלמים חודש בחודשו, ואפשר להפסיק מתי שרוצים."}}, {"@type": "Question", "name": "מה מטא גובה בחיבור הרשמי?", "acceptedAnswer": {"@type": "Answer", "text": "מטא גובה על חלק מסוגי ההודעות בחיבור הרשמי לפי מחירון רשמי. התשלום עובר ישירות מהעסק למטא, בלי תיווך ובלי תוספת מצדנו. במסלול הבסיסי אין תשלום כזה."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://mybot247.com/#org", "name": "MYBOT247", "legalName": "ריינט מדיה בע\"מ (RYNET MEDIA LTD)", "url": "https://mybot247.com/", "logo": "https://mybot247.com/icon-512.png", "contactPoint": {"@type": "ContactPoint", "telephone": "+972-55-947-3443", "contactType": "customer service", "availableLanguage": ["he", "en", "de"]}}, {"@type": "WebSite", "@id": "https://mybot247.com/#site", "url": "https://mybot247.com/", "name": "MYBOT247", "inLanguage": "he", "publisher": {"@id": "https://mybot247.com/#org"}}, {"@type": "SoftwareApplication", "name": "MYBOT247", "applicationCategory": "BusinessApplication", "operatingSystem": "WhatsApp, Web", "url": "https://mybot247.com/", "inLanguage": "he", "description": "בוט וואטסאפ לעסק שעונה ללקוחות מיד, נותן מחירים, מסנן פניות וקובע תורים, 24/7 ובעברית טבעית. מתחבר למספר הקיים תוך דקות. החל מ־99 ₪ לחודש, בלי התחייבות.", "publisher": {"@id": "https://mybot247.com/#org"}, "offers": [{"@type": "Offer", "name": "Starter - בוט רגיל (חיבור לא רשמי)", "price": "99", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing"}, {"@type": "Offer", "name": "Starter - בוט עם יומן וקביעת תורים (חיבור לא רשמי)", "price": "149", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing"}, {"@type": "Offer", "name": "Meta Business - בוט רגיל (חיבור רשמי)", "price": "199", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing", "description": "לחודש, ועוד 499 ₪ הקמה חד פעמית"}, {"@type": "Offer", "name": "Meta Business - בוט עם יומן וקביעת תורים (חיבור רשמי)", "price": "299", "priceCurrency": "ILS", "url": "https://mybot247.com/#pricing", "description": "לחודש, ועוד 499 ₪ הקמה חד פעמית"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "בחיבור הלא רשמי (Starter): ₪99 לחודש לבוט רגיל, ₪149 לחודש לבוט עם יומן וקביעת תורים. בחיבור הרשמי של מטא: ₪199 לחודש לבוט רגיל, ₪299 לחודש לבוט עם יומן, ועוד ₪499 הקמה חד פעמית. המחירים לא כוללים מע״מ."}}, {"@type": "Question", "name": "מה ההבדל בין בוט רגיל לבוט עם יומן?", "acceptedAnswer": {"@type": "Answer", "text": "בוט רגיל עונה לשאלות, נותן מחירים ומידע ומסנן פניות. בוט עם יומן מחובר גם ליומן שלכם: הוא מציע ללקוח שעות פנויות, קובע תור ושולח תזכורת."}}, {"@type": "Question", "name": "אפשר להשתמש במספר הקיים של העסק?", "acceptedAnswer": {"@type": "Answer", "text": "כן. במסלול הבסיסי המספר ממשיך לעבוד גם באפליקציה הרגילה. בחיבור הרשמי המספר עובר לעבוד דרך המערכת, ונעבור על זה איתכם לפני שמתחילים."}}, {"@type": "Question", "name": "מה קורה כשהבוט לא יודע לענות?", "acceptedAnswer": {"@type": "Answer", "text": "הבוט לא ממציא תשובות. אם השאלה לא מופיעה במידע של העסק, הוא אומר ללקוח שמישהו יחזור אליו ושולח לכם התראה עם פרטי הפנייה."}}, {"@type": "Question", "name": "צריך ידע טכני או מתכנת?", "acceptedAnswer": {"@type": "Answer", "text": "לא. אנחנו מלווים את החיבור, ואת המידע על העסק מזינים בשפה פשוטה, כמו שהייתם מסבירים לעובד חדש."}}, {"@type": "Question", "name": "תוך כמה זמן הבוט עובד?", "acceptedAnswer": {"@type": "Answer", "text": "במסלול הבסיסי, תוך דקות מרגע שהמידע על העסק מוכן. בחיבור הרשמי, בדרך כלל ימים ספורים, בעיקר בגלל האישור של מטא."}}, {"@type": "Question", "name": "מה ההבדל בין שני המסלולים?", "acceptedAnswer": {"@type": "Answer", "text": "המסלול הבסיסי (Starter) הוא חיבור לא רשמי שמתחבר לוואטסאפ הקיים שלכם תוך דקות, ואפשר להמשיך לענות מהטלפון. החיבור הרשמי (Meta Business) עובר אישור של מטא, ומתאים לעסקים עם הרבה פניות, לשליחת הודעות בכמות ולכפתורים בתוך השיחה. לא בטוחים? כתבו לנו ונמליץ."}}, {"@type": "Question", "name": "המספר שלי יכול להיחסם?", "acceptedAnswer": {"@type": "Answer", "text": "בחיבור הרשמי המספר מאושר על ידי מטא, וזו הדרך הבטוחה ביותר. המסלול הבסיסי מתאים לשימוש רגיל של מענה ללקוחות שפונים אליכם. כדי לשמור על המספר, לא שולחים דרכו הודעות המוניות ללקוחות שלא ביקשו אותן. עסק שמתכנן לשלוח הודעות בכמות, עדיף לו החיבור הרשמי."}}, {"@type": "Question", "name": "יש התחייבות?", "acceptedAnswer": {"@type": "Answer", "text": "לא. משלמים חודש בחודשו, ואפשר להפסיק מתי שרוצים."}}, {"@type": "Question", "name": "מה מטא גובה בחיבור הרשמי?", "acceptedAnswer": {"@type": "Answer", "text": "מטא גובה על חלק מסוגי ההודעות בחיבור הרשמי לפי מחירון רשמי. התשלום עובר ישירות מהעסק למטא, בלי תיווך ובלי תוספת מצדנו. במסלול הבסיסי אין תשלום כזה."}}]}]}</script>
 <!-- /seo-1 -->
 </head>
 <body>
@@ -418,7 +433,7 @@ section.slim{padding-block:40px}
       <div class="hero-cta">
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%93%D7%91%D7%A8%20%D7%A2%D7%9D%20%D7%94%D7%91%D7%95%D7%98%20%D7%95%D7%9C%D7%A8%D7%90%D7%95%D7%AA%20%D7%90%D7%99%D7%9A%20%D7%94%D7%95%D7%90%20%D7%A2%D7%95%D7%91%D7%93" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>דברו עם הבוט עכשיו בוואטסאפ</a>
         <ul class="ticks">
-          <li>בלי ידע טכני</li><li>החל מ־125 ₪ בחודש</li><li>בלי התחייבות</li>
+          <li>בלי ידע טכני</li><li>החל מ־99 ₪ בחודש</li><li>בלי התחייבות</li>
         </ul>
         <a class="link-down" href="#what">ראו איך זה עובד ↓</a>
       </div>
@@ -498,19 +513,30 @@ section.slim{padding-block:40px}
     <div class="plans">
       <div class="plan">
         <h3>Starter</h3>
-        <p class="sub">לעסקים שרוצים להתחיל פשוט ומהר.</p>
-        <div class="amount">₪125 <small>לחודש</small></div>
+        <p class="sub">לעסקים שרוצים להתחיל פשוט ומהר. חיבור לא רשמי, בלי אישור של מטא.</p>
+        <div class="base"><span class="lbl">בוט רגיל</span><div class="amount">₪99 <small>לחודש</small></div></div>
         <ul><li>עובד עם המספר הקיים, ממשיכים לענות גם מהטלפון</li><li>מתחילים תוך דקות, בלי אישור של מטא</li><li>בינה מלאכותית בעברית</li><li>תשובות, תמונות ומחירון</li><li>התראה אליכם כשצריך מענה אנושי</li><li>ללא התחייבות</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20Starter" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>התחילו עם Starter</a>
+        <div class="addon">
+          <div class="addon-head"><span class="addon-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span><div><strong>רוצים גם קביעת תורים?</strong><span class="d">מוסיפים יומן, והבוט קובע תורים במקומכם.</span></div></div>
+          <ul class="addon-list"><li>חיבור ליומן גוגל</li><li>הצעת שעות פנויות וקביעת תור בשיחה</li><li>תזכורת ללקוח לפני התור</li></ul>
+          <div class="addon-price"><div class="amount">₪149 <small>לחודש</small></div><em>+₪50 לחודש לעומת בוט רגיל</em></div>
+          <a class="btn btn-ghost" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20Starter%20%D7%A2%D7%9D%20%D7%99%D7%95%D7%9E%D7%9F%20%D7%95%D7%A7%D7%91%D7%99%D7%A2%D7%AA%20%D7%AA%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>אני רוצה עם יומן</a>
+        </div>
       </div>
       <div class="plan hot">
         <span class="tag">החיבור הרשמי של מטא</span>
         <h3>Meta Business</h3>
         <p class="sub">לעסקים עם נפח פעילות גבוה יותר.</p>
-        <div class="amount">₪200 <small>לחודש</small></div>
-        <p class="setup">+ ₪500 הקמה חד פעמית</p>
+        <div class="base"><span class="lbl">בוט רגיל</span><div class="amount">₪199 <small>לחודש</small></div><p class="setup">+ ₪499 הקמה חד פעמית</p></div>
         <ul><li>כל מה שיש במסלול הבסיסי</li><li>חיבור רשמי ומאומת של מטא</li><li>כפתורים ותפריטים בתוך השיחה</li><li>מתאים לכמויות גדולות של הודעות</li><li>הודעות יזומות וקמפיינים</li><li>רץ בענן, בלי תלות בטלפון</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20Meta%20Business" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>בחרו בחיבור הרשמי</a>
+        <div class="addon">
+          <div class="addon-head"><span class="addon-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span><div><strong>רוצים גם קביעת תורים?</strong><span class="d">מוסיפים יומן, והבוט קובע תורים במקומכם.</span></div></div>
+          <ul class="addon-list"><li>חיבור ליומן גוגל</li><li>הצעת שעות פנויות וקביעת תור בשיחה</li><li>תזכורת ללקוח לפני התור</li></ul>
+          <div class="addon-price"><div class="amount">₪299 <small>לחודש</small></div><em>+₪100 לחודש לעומת בוט רגיל</em></div>
+          <a class="btn btn-ghost" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%9E%D7%AA%D7%A2%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%9E%D7%A1%D7%9C%D7%95%D7%9C%20Meta%20Business%20%D7%A2%D7%9D%20%D7%99%D7%95%D7%9E%D7%9F%20%D7%95%D7%A7%D7%91%D7%99%D7%A2%D7%AA%20%D7%AA%D7%95%D7%A8%D7%99%D7%9D" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>אני רוצה עם יומן</a>
+        </div>
       </div>
     </div>
     <div class="unsure">
@@ -521,15 +547,17 @@ section.slim{padding-block:40px}
       <table>
         <thead><tr><th scope="col"></th><th scope="col" class="us">Starter</th><th scope="col" class="us">Meta Business</th></tr></thead>
         <tbody>
+          <tr><td>סוג החיבור</td><td>לא רשמי, סריקת QR</td><td>רשמי של מטא</td></tr>
           <tr><td>התחלה</td><td>תוך דקות</td><td>ימים ספורים, אחרי אישור מטא</td></tr>
           <tr><td>עונים גם מהטלפון</td><td>כן, כרגיל</td><td>דרך המערכת</td></tr>
           <tr><td>מענה אוטומטי בעברית</td><td>✓</td><td>✓</td></tr>
           <tr><td>כפתורים, נפח גבוה וקמפיינים</td><td>—</td><td>✓</td></tr>
-          <tr><td>מחיר</td><td>₪125 לחודש</td><td>₪200 לחודש + ₪500 הקמה</td></tr>
+          <tr class="price"><td>מחיר: בוט רגיל</td><td>₪99 לחודש</td><td>₪199 לחודש + ₪499 הקמה</td></tr>
+          <tr class="price cal"><td><span class="calico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span>מחיר: בוט עם יומן וקביעת תורים<small>כולל חיבור ליומן, תורים ותזכורות</small></td><td>₪149 לחודש</td><td>₪299 לחודש + ₪499 הקמה</td></tr>
         </tbody>
       </table>
     </div>
-    <p class="fine">המחירים לא כוללים מע״מ. בחיבור הרשמי, מטא גובה בנפרד וישירות מהעסק תשלום קטן על חלק מסוגי ההודעות, לפי המחירון הרשמי שלה.</p>
+    <p class="fine">המחירים לא כוללים מע״מ. ההקמה בחיבור הרשמי היא תשלום חד פעמי. בחיבור הרשמי, מטא גובה בנפרד וישירות מהעסק תשלום קטן על חלק מסוגי ההודעות, לפי המחירון הרשמי שלה.</p>
   </div>
 </section>
 
@@ -547,7 +575,7 @@ section.slim{padding-block:40px}
     <div class="proof">
       <div><strong>24/7</strong><span>המענה ממשיך גם מחוץ לשעות הפעילות</span></div>
       <div><strong>תוך שניות</strong><span>הלקוח מקבל תשובה</span></div>
-      <div><strong>125 ₪</strong><span>מחיר התחלתי לחודש</span></div>
+      <div><strong>99 ₪</strong><span>מחיר התחלתי לחודש</span></div>
     </div>
   </div>
 </section>
@@ -556,11 +584,13 @@ section.slim{padding-block:40px}
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">שאלות נפוצות</span><h2>מה ששואלים אותנו לפני שמתחילים</h2></div>
     <div class="faq">
+      <details><summary>כמה זה עולה?</summary><p>בחיבור הלא רשמי (Starter): ₪99 לחודש לבוט רגיל, ₪149 לחודש לבוט עם יומן וקביעת תורים. בחיבור הרשמי של מטא: ₪199 לחודש לבוט רגיל, ₪299 לחודש לבוט עם יומן, ועוד ₪499 הקמה חד פעמית. המחירים לא כוללים מע״מ.</p></details>
+      <details><summary>מה ההבדל בין בוט רגיל לבוט עם יומן?</summary><p>בוט רגיל עונה לשאלות, נותן מחירים ומידע ומסנן פניות. בוט עם יומן מחובר גם ליומן שלכם: הוא מציע ללקוח שעות פנויות, קובע תור ושולח תזכורת.</p></details>
       <details><summary>אפשר להשתמש במספר הקיים של העסק?</summary><p>כן. במסלול הבסיסי המספר ממשיך לעבוד גם באפליקציה הרגילה. בחיבור הרשמי המספר עובר לעבוד דרך המערכת, ונעבור על זה איתכם לפני שמתחילים.</p></details>
       <details><summary>מה קורה כשהבוט לא יודע לענות?</summary><p>הבוט לא ממציא תשובות. אם השאלה לא מופיעה במידע של העסק, הוא אומר ללקוח שמישהו יחזור אליו ושולח לכם התראה עם פרטי הפנייה.</p></details>
       <details><summary>צריך ידע טכני או מתכנת?</summary><p>לא. אנחנו מלווים את החיבור, ואת המידע על העסק מזינים בשפה פשוטה, כמו שהייתם מסבירים לעובד חדש.</p></details>
       <details><summary>תוך כמה זמן הבוט עובד?</summary><p>במסלול הבסיסי, תוך דקות מרגע שהמידע על העסק מוכן. בחיבור הרשמי, בדרך כלל ימים ספורים, בעיקר בגלל האישור של מטא.</p></details>
-      <details><summary>מה ההבדל בין שני המסלולים?</summary><p>המסלול הבסיסי (Starter) מתחבר לוואטסאפ הקיים שלכם תוך דקות, ואפשר להמשיך לענות מהטלפון. החיבור הרשמי (Meta Business) עובר אישור של מטא, ומתאים לעסקים עם הרבה פניות, לשליחת הודעות בכמות ולכפתורים בתוך השיחה. לא בטוחים? כתבו לנו ונמליץ.</p></details>
+      <details><summary>מה ההבדל בין שני המסלולים?</summary><p>המסלול הבסיסי (Starter) הוא חיבור לא רשמי שמתחבר לוואטסאפ הקיים שלכם תוך דקות, ואפשר להמשיך לענות מהטלפון. החיבור הרשמי (Meta Business) עובר אישור של מטא, ומתאים לעסקים עם הרבה פניות, לשליחת הודעות בכמות ולכפתורים בתוך השיחה. לא בטוחים? כתבו לנו ונמליץ.</p></details>
       <details><summary>המספר שלי יכול להיחסם?</summary><p>בחיבור הרשמי המספר מאושר על ידי מטא, וזו הדרך הבטוחה ביותר. המסלול הבסיסי מתאים לשימוש רגיל של מענה ללקוחות שפונים אליכם. כדי לשמור על המספר, לא שולחים דרכו הודעות המוניות ללקוחות שלא ביקשו אותן. עסק שמתכנן לשלוח הודעות בכמות, עדיף לו החיבור הרשמי.</p></details>
       <details><summary>יש התחייבות?</summary><p>לא. משלמים חודש בחודשו, ואפשר להפסיק מתי שרוצים.</p></details>
       <details><summary>מה מטא גובה בחיבור הרשמי?</summary><p>מטא גובה על חלק מסוגי ההודעות בחיבור הרשמי לפי מחירון רשמי. התשלום עובר ישירות מהעסק למטא, בלי תיווך ובלי תוספת מצדנו. במסלול הבסיסי אין תשלום כזה.</p></details>

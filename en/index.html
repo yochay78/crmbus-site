@@ -15,7 +15,7 @@
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-<meta name="description" content="A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $35 a month, no commitment.">
+<meta name="description" content="A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $48 a month, no commitment.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;500;700&family=Secular+One&display=swap">
 <style>
@@ -187,6 +187,21 @@ main > section:not(.hero):not(.band),footer{background:var(--ground)}
 .plan .btn{justify-content:center}
 .plan .sub{color:var(--muted);font-size:.95rem}
 .setup{font-size:.95rem;color:var(--muted)}
+.base{display:grid;gap:4px}.base .lbl{font-weight:700;font-size:.95rem;color:var(--accent-text)}
+.addon{background:var(--accent-soft);border:1.5px dashed var(--accent);border-radius:18px;padding:18px;display:grid;gap:14px;margin-top:4px}
+.addon-head{display:flex;gap:12px;align-items:center}
+.addon-ico{flex:none;width:42px;height:42px;border-radius:12px;background:var(--surface);display:grid;place-items:center;color:var(--accent-text)}
+.addon-head strong{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;line-height:1.3}
+.addon-head .d{display:block;color:var(--muted);font-size:.92rem;line-height:1.45}
+.plan .addon-list{flex:none;gap:6px}
+.addon-price{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:14px}
+.addon-price .amount{font-size:2rem}
+.addon-price em{font-style:normal;font-weight:700;font-size:.85rem;background:var(--surface);color:var(--accent-text);border-radius:999px;padding:4px 12px}
+.addon .btn{justify-content:center}
+tr.price td:first-child{font-weight:700}tr.price td{border-top:2px solid var(--line)}
+tr.cal td{background:var(--accent-soft)}tr.cal td:first-child small{display:block;font-weight:400;color:var(--muted);font-size:.85rem}
+.calico{display:inline-flex;vertical-align:middle;margin-inline-end:8px;color:var(--accent-text)}.calico svg{width:18px;height:18px}
+
 .fine{margin-top:18px;color:var(--muted);font-size:.9rem}
 @media (max-width:900px){.plans{grid-template-columns:1fr}}
 
@@ -286,13 +301,13 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
 <meta property="og:locale" content="en_US">
 <meta property="og:url" content="https://mybot247.com/en/">
 <meta property="og:title" content="WhatsApp Bot for Business | 24/7 Auto-Replies · MYBOT247">
-<meta property="og:description" content="A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $35 a month, no commitment.">
+<meta property="og:description" content="A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $48 a month, no commitment.">
 <meta property="og:image" content="https://mybot247.com/og/og-en.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="theme-color" content="#25D366">
-<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://mybot247.com/#org", "name": "MYBOT247", "legalName": "ריינט מדיה בע\"מ (RYNET MEDIA LTD)", "url": "https://mybot247.com/", "logo": "https://mybot247.com/icon-512.png", "contactPoint": {"@type": "ContactPoint", "telephone": "+972-55-947-3443", "contactType": "customer service", "availableLanguage": ["he", "en", "de"]}}, {"@type": "WebSite", "@id": "https://mybot247.com/#site", "url": "https://mybot247.com/", "name": "MYBOT247", "inLanguage": "en", "publisher": {"@id": "https://mybot247.com/#org"}}, {"@type": "SoftwareApplication", "name": "MYBOT247", "applicationCategory": "BusinessApplication", "operatingSystem": "WhatsApp, Web", "url": "https://mybot247.com/en/", "inLanguage": "en", "description": "A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $35 a month, no commitment.", "publisher": {"@id": "https://mybot247.com/#org"}, "offers": [{"@type": "Offer", "name": "Starter", "price": "35", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing"}, {"@type": "Offer", "name": "Meta Business", "price": "55", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What's the difference between quick and official connection?", "acceptedAnswer": {"@type": "Answer", "text": "Quick connection links to your existing WhatsApp in minutes, and you can keep replying from your phone. Official connection goes through Meta approval and suits businesses with many enquiries, bulk messaging and in-chat buttons. Not sure? Message us and we'll recommend one."}}, {"@type": "Question", "name": "Can I message all my customers at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with broadcast messages on the official connection. You send Meta-approved message templates, only to customers who agreed to hear from your business. Buy a prepaid message package with no expiry; Meta's per-message fee is separate."}}, {"@type": "Question", "name": "Do I need tech skills or a developer?", "acceptedAnswer": {"@type": "Answer", "text": "No. We guide the connection, and you enter your business info in plain language, the way you'd brief a new employee."}}, {"@type": "Question", "name": "Can I use my existing business number?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With quick connection the number keeps working in the regular app. With official connection the number runs through the platform, and we'll walk you through that before starting."}}, {"@type": "Question", "name": "Can my number get blocked?", "acceptedAnswer": {"@type": "Answer", "text": "With official connection the number is approved by Meta, which is the safest route. Quick connection suits normal use: replying to customers who contact you. To protect the number, don't send mass messages to people who didn't ask for them. If you plan to send messages in bulk, choose the official connection."}}, {"@type": "Question", "name": "What happens when the bot doesn't know the answer?", "acceptedAnswer": {"@type": "Answer", "text": "The bot doesn't make things up. If the question isn't covered by your business info, it tells the customer someone will get back to them and sends you an alert with the details."}}, {"@type": "Question", "name": "How long until the bot is live?", "acceptedAnswer": {"@type": "Answer", "text": "Quick connection: minutes once your business info is ready. Official connection: usually a few days, mainly due to Meta's approval."}}, {"@type": "Question", "name": "Is there a commitment?", "acceptedAnswer": {"@type": "Answer", "text": "No. You pay month to month and can stop whenever you like."}}, {"@type": "Question", "name": "Why is there also a Meta fee with official connection?", "acceptedAnswer": {"@type": "Answer", "text": "Meta charges for some message types on the official connection according to its rate card. The payment goes directly from your business to Meta, with no markup from us. Quick connection has no such fee."}}]}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://mybot247.com/#org", "name": "MYBOT247", "legalName": "ריינט מדיה בע\"מ (RYNET MEDIA LTD)", "url": "https://mybot247.com/", "logo": "https://mybot247.com/icon-512.png", "contactPoint": {"@type": "ContactPoint", "telephone": "+972-55-947-3443", "contactType": "customer service", "availableLanguage": ["he", "en", "de"]}}, {"@type": "WebSite", "@id": "https://mybot247.com/#site", "url": "https://mybot247.com/", "name": "MYBOT247", "inLanguage": "en", "publisher": {"@id": "https://mybot247.com/#org"}}, {"@type": "SoftwareApplication", "name": "MYBOT247", "applicationCategory": "BusinessApplication", "operatingSystem": "WhatsApp, Web", "url": "https://mybot247.com/en/", "inLanguage": "en", "description": "A WhatsApp bot that answers your customers instantly, quotes prices, qualifies leads and books appointments, 24/7. Connects to your existing number in minutes. From $48 a month, no commitment.", "publisher": {"@id": "https://mybot247.com/#org"}, "offers": [{"@type": "Offer", "name": "Quick connection - regular bot (unofficial)", "price": "48", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing"}, {"@type": "Offer", "name": "Quick connection - bot with calendar and appointment booking (unofficial)", "price": "72", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing"}, {"@type": "Offer", "name": "Official connection - regular bot", "price": "96", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing", "description": "per month, plus a one-time setup of $242"}, {"@type": "Offer", "name": "Official connection - bot with calendar and appointment booking", "price": "145", "priceCurrency": "USD", "url": "https://mybot247.com/en/#pricing", "description": "per month, plus a one-time setup of $242"}]}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much does it cost?", "acceptedAnswer": {"@type": "Answer", "text": "Quick connection: $48 a month for a regular bot, $72 a month for a bot with calendar and appointment booking. Official connection: $96 a month for a regular bot, $145 a month with calendar, plus a $242 one-time setup. Prices exclude VAT/sales tax."}}, {"@type": "Question", "name": "What's the difference between a regular bot and a bot with calendar?", "acceptedAnswer": {"@type": "Answer", "text": "A regular bot answers questions, quotes prices and information, and qualifies enquiries. A bot with calendar is also connected to your calendar: it offers the customer free slots, books the appointment and sends a reminder."}}, {"@type": "Question", "name": "What's the difference between quick and official connection?", "acceptedAnswer": {"@type": "Answer", "text": "Quick connection links to your existing WhatsApp in minutes, and you can keep replying from your phone. Official connection goes through Meta approval and suits businesses with many enquiries, bulk messaging and in-chat buttons. Not sure? Message us and we'll recommend one."}}, {"@type": "Question", "name": "Can I message all my customers at once?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, with broadcast messages on the official connection. You send Meta-approved message templates, only to customers who agreed to hear from your business. Buy a prepaid message package with no expiry; Meta's per-message fee is separate."}}, {"@type": "Question", "name": "Do I need tech skills or a developer?", "acceptedAnswer": {"@type": "Answer", "text": "No. We guide the connection, and you enter your business info in plain language, the way you'd brief a new employee."}}, {"@type": "Question", "name": "Can I use my existing business number?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. With quick connection the number keeps working in the regular app. With official connection the number runs through the platform, and we'll walk you through that before starting."}}, {"@type": "Question", "name": "Can my number get blocked?", "acceptedAnswer": {"@type": "Answer", "text": "With official connection the number is approved by Meta, which is the safest route. Quick connection suits normal use: replying to customers who contact you. To protect the number, don't send mass messages to people who didn't ask for them. If you plan to send messages in bulk, choose the official connection."}}, {"@type": "Question", "name": "What happens when the bot doesn't know the answer?", "acceptedAnswer": {"@type": "Answer", "text": "The bot doesn't make things up. If the question isn't covered by your business info, it tells the customer someone will get back to them and sends you an alert with the details."}}, {"@type": "Question", "name": "How long until the bot is live?", "acceptedAnswer": {"@type": "Answer", "text": "Quick connection: minutes once your business info is ready. Official connection: usually a few days, mainly due to Meta's approval."}}, {"@type": "Question", "name": "Is there a commitment?", "acceptedAnswer": {"@type": "Answer", "text": "No. You pay month to month and can stop whenever you like."}}, {"@type": "Question", "name": "Why is there also a Meta fee with official connection?", "acceptedAnswer": {"@type": "Answer", "text": "Meta charges for some message types on the official connection according to its rate card. The payment goes directly from your business to Meta, with no markup from us. Quick connection has no such fee."}}]}]}</script>
 <!-- /seo-1 -->
 </head>
 <body>
@@ -328,7 +343,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20would%20like%20to%20hear%20about%20a%20WhatsApp%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Try the bot on WhatsApp</a>
         <a class="btn btn-ghost" href="#pricing">See plans &amp; pricing</a>
       </div>
-      <p class="price-note">From <strong>$35</strong> a month · No commitment</p>
+      <p class="price-note">From <strong>$48</strong> a month · No commitment</p>
       <ul class="ticks"><li>No tech skills needed</li><li>Live within minutes</li><li>Answers on Saturday night too</li></ul>
     </div>
 
@@ -405,20 +420,32 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
     <div class="sec-head"><span class="eyebrow">Pricing</span><h2>Clear pricing, no surprises</h2><p class="lead">Pick what your business needs today, upgrade as it grows.</p></div>
     <div class="plans">
       <div class="plan">
+        
         <h3>Quick connection</h3>
         <p class="sub">For most small businesses. Connects to your existing WhatsApp and starts working today.</p>
-        <div class="amount">$35 <small>/ month</small></div>
+        <div class="base"><span class="lbl">Regular bot</span><div class="amount">$48 <small>/ month</small></div></div>
         <ul><li>Live in minutes, no Meta approval</li><li>Keep replying from your phone as usual</li><li>No extra Meta per-message fees</li><li>Automated replies and AI</li><li>Send photos, price lists and links</li><li>Alert to you when a human is needed</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20quick%20connection%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get quick connection</a>
+        <div class="addon">
+          <div class="addon-head"><span class="addon-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span><div><strong>Want appointment booking too?</strong><span class="d">Add a calendar and the bot books appointments for you.</span></div></div>
+          <ul class="addon-list"><li>Google Calendar connection</li><li>Suggests free slots and books in the chat</li><li>Reminder to the customer before the appointment</li></ul>
+          <div class="addon-price"><div class="amount">$72 <small>/ month</small></div><em>+$24 a month vs. the regular bot</em></div>
+          <a class="btn btn-ghost" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20quick%20connection%20bot%20with%20calendar%20and%20appointment%20booking" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>I want it with calendar</a>
+        </div>
       </div>
       <div class="plan hot">
         <span class="tag">Official Meta connection</span>
         <h3>Official connection</h3>
         <p class="sub">For businesses with lots of enquiries, or who want a verified, stable channel for the long run.</p>
-        <div class="amount">$55 <small>/ month</small></div>
-        <p class="setup">+ $139 one-time setup</p>
+        <div class="base"><span class="lbl">Regular bot</span><div class="amount">$96 <small>/ month</small></div><p class="setup">+ $242 one-time setup</p></div>
         <ul><li>Everything in Quick connection</li><li>Business number approved and verified by Meta</li><li>Buttons and menus inside the chat</li><li>Built for high message volumes</li><li>Runs in the cloud, no phone needed</li><li>Full guidance through Meta approval</li></ul>
         <a class="btn btn-primary" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20official%20connection%20bot" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>Get official connection</a>
+        <div class="addon">
+          <div class="addon-head"><span class="addon-ico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span><div><strong>Want appointment booking too?</strong><span class="d">Add a calendar and the bot books appointments for you.</span></div></div>
+          <ul class="addon-list"><li>Google Calendar connection</li><li>Suggests free slots and books in the chat</li><li>Reminder to the customer before the appointment</li></ul>
+          <div class="addon-price"><div class="amount">$145 <small>/ month</small></div><em>+$49 a month vs. the regular bot</em></div>
+          <a class="btn btn-ghost" href="https://wa.me/972559473443?text=Hi%2C%20I%20am%20interested%20in%20the%20official%20connection%20bot%20with%20calendar%20and%20appointment%20booking" target="_blank" rel="noopener"><svg class="wa-ico"><use href="#wa"/></svg>I want it with calendar</a>
+        </div>
       </div>
     </div>
     <p class="fine">Prices exclude VAT/sales tax. With the official connection, Meta separately charges the business directly a small fee for some message types, according to its official rate card.</p>
@@ -457,7 +484,7 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
         </div>
         <div class="conds">
           <p><strong>Pay once, no expiry.</strong> Messages stay in your account until you use them.</p>
-          <p><strong>Official connection only</strong> ($55/month + $139 setup), so sending at volume never puts your number at risk.</p>
+          <p><strong>Official connection only</strong> ($96/month + $242 setup), so sending at volume never puts your number at risk.</p>
           <p><strong>Meta fees are separate</strong> and paid directly by the business, roughly 3.5–4¢ per marketing message, per Meta's official rate card.</p>
           <p>Prices exclude VAT/sales tax.</p>
         </div>
@@ -473,7 +500,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
       <table>
         <thead><tr><th scope="col"></th><th scope="col" class="us">Quick connection</th><th scope="col" class="us">Official connection</th></tr></thead>
         <tbody>
-          <tr><td>Monthly price</td><td>$35</td><td>$55 + $139 setup</td></tr>
+          <tr class="price"><td>Monthly price: regular bot</td><td>$48</td><td>$96 + $242 setup</td></tr>
+          <tr class="price cal"><td><span class="calico"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M8 3v4M16 3v4M3 10h18"/><path d="m9 15 2 2 4-4"/></svg></span>Monthly price: bot with calendar and appointment booking<small>Includes Google Calendar, bookings and reminders</small></td><td>$72</td><td>$145 + $242 setup</td></tr>
           <tr><td>Time to go live</td><td>Minutes</td><td>A few days (Meta approval)</td></tr>
           <tr><td>Keep replying from your phone</td><td>Yes, as usual</td><td>Through the platform</td></tr>
           <tr><td>Meta message fees</td><td>None</td><td>Per Meta's rate card</td></tr>
@@ -492,6 +520,8 @@ footer a{text-decoration:none}footer a:hover{color:var(--accent-text)}
   <div class="wrap">
     <div class="sec-head"><span class="eyebrow">FAQ</span><h2>What people ask us before starting</h2></div>
     <div class="faq">
+      <details><summary>How much does it cost?</summary><p>Quick connection: $48 a month for a regular bot, $72 a month for a bot with calendar and appointment booking. Official connection: $96 a month for a regular bot, $145 a month with calendar, plus a $242 one-time setup. Prices exclude VAT/sales tax.</p></details>
+      <details><summary>What's the difference between a regular bot and a bot with calendar?</summary><p>A regular bot answers questions, quotes prices and information, and qualifies enquiries. A bot with calendar is also connected to your calendar: it offers the customer free slots, books the appointment and sends a reminder.</p></details>
       <details><summary>What's the difference between quick and official connection?</summary><p>Quick connection links to your existing WhatsApp in minutes, and you can keep replying from your phone. Official connection goes through Meta approval and suits businesses with many enquiries, bulk messaging and in-chat buttons. Not sure? Message us and we'll recommend one.</p></details>
       <details><summary>Can I message all my customers at once?</summary><p>Yes, with broadcast messages on the official connection. You send Meta-approved message templates, only to customers who agreed to hear from your business. Buy a prepaid message package with no expiry; Meta's per-message fee is separate.</p></details>
       <details><summary>Do I need tech skills or a developer?</summary><p>No. We guide the connection, and you enter your business info in plain language, the way you'd brief a new employee.</p></details>

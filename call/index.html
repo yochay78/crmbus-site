@@ -42,6 +42,7 @@
   --f-body:'IBM Plex Sans Hebrew','Rubik',system-ui,sans-serif;
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html{-webkit-text-size-adjust:100%}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
 .screen{max-width:480px;margin:0 auto;min-height:100svh;background:var(--bg)}
@@ -113,7 +114,7 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
     <div class="known" id="known" hidden><span id="known-txt"></span><button type="button" class="link" id="change">שינוי</button></div>
     <div id="fields">
       <div class="field"><label for="f-name">איך קוראים לך</label><input id="f-name" type="text" autocomplete="name"></div>
-      <div class="field" style="margin-top:12px"><label for="f-phone">טלפון</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right"></div>
+      <div class="field" id="phone-wrap" style="margin-top:12px"><label for="f-phone">טלפון</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right"></div>
     </div>
     <input class="hp" type="text" id="f-web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
 
@@ -185,14 +186,15 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
   var known = document.getElementById("known"), fields = document.getElementById("fields"), titleEl = document.getElementById("title");
   var token = (qs.get("t") || "").trim().toLowerCase();
   if (!/^[0-9a-f]{14}$/.test(token)) { token = ""; }
-  var invited = false;
+  var invited = false, haveName = false;
   var pn = (qs.get("n") || "").trim().slice(0, 60), pp = (qs.get("p") || "").trim().slice(0, 20);
   if (token) {
     fields.hidden = true;                                   /* until we know whether the code is good */
     fetch(API + "/call/who?t=" + token, {credentials: "omit"}).then(function(r){ if (!r.ok) { throw 0; } return r.json(); }).then(function(j){
       if (j && j.phone) {
         invited = true;
-        if (j.name) { titleEl.textContent = j.name + ", מתי נוח שיוחאי יתקשר?"; }
+        if (j.name) { haveName = true; titleEl.textContent = j.name + ", מתי נוח שיוחאי יתקשר?"; }
+        else { fields.hidden = false; document.getElementById("phone-wrap").hidden = true; }   /* a lead without a name: ask only for the name */
       } else { token = ""; fields.hidden = false; if (j && j.name) { nameEl.value = j.name; } }
     }).catch(function(){ token = ""; fields.hidden = false; });
   } else {
@@ -243,8 +245,10 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
     e.preventDefault();
     var n = nameEl.value.trim(), ph = phoneEl.value;
     if (!selTime || selDay < 0) { err.textContent = "בחר יום ושעה."; return; }
-    if (!invited) {
+    if (!invited || !haveName) {
       if (!n) { known.hidden = true; fields.hidden = false; err.textContent = "כתוב איך קוראים לך."; return; }
+    }
+    if (!invited) {
       if (!phoneOk(ph)) { known.hidden = true; fields.hidden = false; err.textContent = "בדוק את מספר הטלפון."; return; }
     }
     err.textContent = ""; go.disabled = true;
@@ -260,7 +264,7 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
         show("done"); return;
       }
       if (r.status === 409) { err.textContent = "השעה הזו נתפסה. בחר שעה אחרת."; loadSlots(); return; }
-      if (r.status !== 200 || !r.data || !r.data.ok) { err.textContent = "משהו השתבש. נסה שוב בעוד רגע."; render(); return; }
+      if (r.status !== 200 || !r.data || !r.data.ok) { err.textContent = "משהו השתבש (" + ((r.data && r.data.error) || r.status) + "). נסה שוב בעוד רגע."; render(); return; }
       document.getElementById("when").textContent = r.data.when || whenText();
       track("call_booked", "Schedule", bookEvent);
       track("call_lead", "Lead", bookEvent + "-lead");

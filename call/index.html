@@ -180,19 +180,26 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
     window.scrollTo(0, 0);
   }
 
-  /* ---------- prefilled name and phone from the invite link ---------- */
+  /* ---------- the invite link: ?t=<code> (private, no name or phone in the address) or ?n=&p= ---------- */
   var nameEl = document.getElementById("f-name"), phoneEl = document.getElementById("f-phone");
-  var known = document.getElementById("known"), fields = document.getElementById("fields");
+  var known = document.getElementById("known"), fields = document.getElementById("fields"), titleEl = document.getElementById("title");
+  var token = (qs.get("t") || "").trim().toLowerCase();
+  if (!/^[0-9a-f]{14}$/.test(token)) { token = ""; }
+  var invited = false;
   var pn = (qs.get("n") || "").trim().slice(0, 60), pp = (qs.get("p") || "").trim().slice(0, 20);
-  if (pn) { nameEl.value = pn; document.getElementById("title").textContent = pn + ", מתי נוח שיוחאי יתקשר?"; }
-  if (pp) { phoneEl.value = pp; }
-  function useKnown(){
-    if (pn && phoneOk(pp)) {
-      document.getElementById("known-txt").textContent = pn + " · " + pp;
-      known.hidden = false; fields.hidden = true;
-    }
+  if (token) {
+    fields.hidden = true;                                   /* until we know whether the code is good */
+    fetch(API + "/call/who?t=" + token, {credentials: "omit"}).then(function(r){ if (!r.ok) { throw 0; } return r.json(); }).then(function(j){
+      if (j && j.phone) {
+        invited = true;
+        if (j.name) { titleEl.textContent = j.name + ", מתי נוח שיוחאי יתקשר?"; }
+      } else { token = ""; fields.hidden = false; if (j && j.name) { nameEl.value = j.name; } }
+    }).catch(function(){ token = ""; fields.hidden = false; });
+  } else {
+    if (pn) { nameEl.value = pn; titleEl.textContent = pn + ", מתי נוח שיוחאי יתקשר?"; }
+    if (pp) { phoneEl.value = pp; }
+    if (pn && phoneOk(pp)) { document.getElementById("known-txt").textContent = pn + " · " + pp; known.hidden = false; fields.hidden = true; }
   }
-  useKnown();
   document.getElementById("change").addEventListener("click", function(){ known.hidden = true; fields.hidden = false; nameEl.focus(); });
 
   /* ---------- calendar ---------- */
@@ -236,11 +243,13 @@ h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;m
     e.preventDefault();
     var n = nameEl.value.trim(), ph = phoneEl.value;
     if (!selTime || selDay < 0) { err.textContent = "בחר יום ושעה."; return; }
-    if (!n) { known.hidden = true; fields.hidden = false; err.textContent = "כתוב איך קוראים לך."; return; }
-    if (!phoneOk(ph)) { known.hidden = true; fields.hidden = false; err.textContent = "בדוק את מספר הטלפון."; return; }
+    if (!invited) {
+      if (!n) { known.hidden = true; fields.hidden = false; err.textContent = "כתוב איך קוראים לך."; return; }
+      if (!phoneOk(ph)) { known.hidden = true; fields.hidden = false; err.textContent = "בדוק את מספר הטלפון."; return; }
+    }
     err.textContent = ""; go.disabled = true;
     post("/call/book", {
-      name: n, phone: ph, consent: true, date: days[selDay].date, time: selTime,
+      t: invited ? token : undefined, name: n, phone: ph, consent: true, date: days[selDay].date, time: selTime,
       website: document.getElementById("f-web").value, event_id: bookEvent, attribution: attribution(), cookies: choice() === "no" ? 0 : 1
     }).then(function(r){
       go.disabled = false;

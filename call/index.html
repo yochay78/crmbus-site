@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MYBOT247 · שיחה עם יוחאי</title>
+<meta name="description" content="בוחרים שעה, ויוחאי מתקשר.">
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#0E0E0E">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<!-- Google tag (gtag.js) - Google Analytics 4, property mybot247.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MYSPBKZ6K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8MYSPBKZ6K');
+</script>
+<!-- Meta Pixel - dataset MYBOT247 (skipped when the visitor declined cookies) -->
+<script>
+(function(){
+  var declined = false;
+  try { declined = localStorage.getItem("mb_cookies") === "no"; } catch (e) {}
+  if (declined) { window["ga-disable-G-8MYSPBKZ6K"] = true; return; }
+  !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+  n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+  t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+  document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '3277712335763557');
+  fbq('track', 'PageView');
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;700&family=IBM+Plex+Sans+Hebrew:wght@400;500&display=swap">
+<style>
+:root{
+  --bg:#FBFBF8; --ink:#141414; --muted:#5B5B56; --line:#E2E2DB; --gray:#EFEFE8;
+  --green:#25D366; --green-ink:#06210F; --red:#B3261E; --dis-bg:#DDE1DE; --dis-ink:#6B706D;
+  --f-display:'Rubik','IBM Plex Sans Hebrew',system-ui,sans-serif;
+  --f-body:'IBM Plex Sans Hebrew','Rubik',system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.55}
+.screen{max-width:480px;margin:0 auto;min-height:100svh;background:var(--bg)}
+.screen[hidden]{display:none}
+.in{padding:18px 24px 36px;display:grid;gap:16px;align-content:start}
+h1{font-family:var(--f-display);font-weight:700;font-size:30px;line-height:1.2;margin:0;text-wrap:balance}
+.topbar{display:flex;align-items:center;gap:8px;font-family:var(--f-display);font-weight:700;font-size:18px;letter-spacing:.3px;direction:ltr;justify-content:flex-end}
+.why{margin:0;font-size:18px;line-height:1.5;color:var(--muted)}
+.who{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
+.who img{width:64px;height:64px;border-radius:16px;object-fit:cover;background:var(--gray)}
+.btn{display:flex;align-items:center;justify-content:center;width:100%;min-height:58px;border:0;border-radius:14px;background:var(--green);color:var(--green-ink);font-family:var(--f-display);font-weight:700;font-size:21px;cursor:pointer;padding:0 16px;text-decoration:none}
+.btn:focus-visible,.chip:focus-visible,.arr:focus-visible,input:focus-visible,a:focus-visible,.link:focus-visible{outline:3px solid #0B6BCB;outline-offset:2px}
+.btn[disabled]{background:var(--dis-bg);color:var(--dis-ink);cursor:not-allowed}
+.h3{margin:4px 0 0;font:700 21px var(--f-display)}
+.daynav{display:flex;gap:6px;align-items:stretch}
+.days{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;flex:1;min-width:0}
+.arr{flex:0 0 42px;min-height:56px;border-radius:12px;border:2px solid #BDBDB8;background:transparent;color:var(--ink);font-size:22px;cursor:pointer;padding:0}
+.chip{min-width:0;min-height:66px;border-radius:12px;border:2px solid #BDBDB8;background:#fff;color:#111;font:inherit;cursor:pointer;display:grid;place-items:center;padding:4px 2px;line-height:1.2}
+.chip b{font-family:var(--f-display);font-weight:700;font-size:18px}
+.chip span{font-size:15px}
+.chip[aria-pressed="true"]{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.slots{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.slots .chip{min-height:62px}
+.slots .chip b{font-size:22px}
+.nores{font-size:18px;color:var(--muted);margin:0;min-height:1.4em}
+.field{display:grid;gap:8px}
+.field label{font-weight:500;font-size:21px}
+.field input[type=text],.field input[type=tel]{font:inherit;font-size:22px;min-height:62px;padding:0 16px;border-radius:12px;border:2px solid #BDBDB8;background:#fff;color:#111;width:100%}
+.known{background:var(--gray);border-radius:12px;padding:12px 14px;font-size:19px;font-weight:500;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.link{background:none;border:0;padding:0;font:inherit;font-size:16px;color:#0B6BCB;text-decoration:underline;cursor:pointer;white-space:nowrap}
+.err{color:var(--red);font-size:18px;margin:0;min-height:1.4em}
+.small{font-size:15px;color:var(--muted);margin:0;text-align:center}
+.small a{color:inherit}
+.hp{position:absolute;inset-inline-start:-9999px;width:1px;height:1px;opacity:0}
+.done-mark{width:80px;height:80px;border-radius:50%;background:var(--green);display:grid;place-items:center;margin:12px auto 0}
+.done-mark::after{content:"";width:30px;height:16px;border-left:6px solid var(--green-ink);border-bottom:6px solid var(--green-ink);transform:rotate(-45deg) translate(2px,-2px)}
+.center{text-align:center}
+.big{font-size:24px;font-weight:500;margin:0}
+.cookie{position:fixed;inset-inline:8px;top:calc(8px + env(safe-area-inset-top,0px));z-index:40;max-width:440px;margin-inline:auto;background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 10px;display:flex;align-items:center;gap:8px;box-shadow:0 12px 30px -14px rgba(0,0,0,.45);font-size:12.5px;line-height:1.4}
+.cookie[hidden]{display:none}
+.cookie p{margin:0;flex:1;min-width:0;color:var(--muted)}
+.cookie a{color:#0B7F43}
+.cookie .row{display:flex;gap:6px;flex:none}
+.cookie button{font:inherit;font-weight:700;border-radius:999px;padding:6px 10px;white-space:nowrap;cursor:pointer;border:1.5px solid #0B7F43}
+.cookie .ok{background:var(--green);border-color:var(--green);color:var(--green-ink)}
+.cookie .no{background:transparent;color:var(--ink);border-color:var(--line)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <symbol id="logo" viewBox="0 0 26 26"><rect width="26" height="26" rx="7" fill="#25D366"/><path d="M6.5 8.5a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H12l-3.5 3v-3a2 2 0 0 1-2-2z" fill="#06210F"/><circle cx="10" cy="11.5" r="1.1" fill="#25D366"/><circle cx="13" cy="11.5" r="1.1" fill="#25D366"/><circle cx="16" cy="11.5" r="1.1" fill="#25D366"/></symbol>
+</defs></svg>
+
+<main>
+<section class="screen" id="s-pick" aria-label="בחירת שעה">
+  <form class="in" id="f" novalidate>
+    <div class="topbar"><svg width="26" height="26" aria-hidden="true"><use href="#logo"/></svg><span>MYBOT247</span></div>
+    <div class="who">
+      <img src="/assistant/call/me.jpg" width="64" height="64" alt="יוחאי" loading="lazy">
+      <div><h1 id="title">מתי נוח שיוחאי יתקשר?</h1></div>
+    </div>
+    <p class="why">שיחה קצרה בטלפון. בוחרים שעה, ויוחאי מתקשר אליך.</p>
+
+    <div class="daynav" id="daynav"><button type="button" class="arr" id="d-prev" aria-label="ימים קודמים" style="display:none">→</button><div class="days" id="days" role="group" aria-label="יום"></div><button type="button" class="arr" id="d-next" aria-label="ימים נוספים" style="display:none">←</button></div>
+    <div class="slots" id="slots" role="group" aria-label="שעה"></div>
+    <p class="nores" id="cal-msg" role="status">טוען שעות פנויות...</p>
+
+    <div class="known" id="known" hidden><span id="known-txt"></span><button type="button" class="link" id="change">שינוי</button></div>
+    <div id="fields">
+      <div class="field"><label for="f-name">איך קוראים לך</label><input id="f-name" type="text" autocomplete="name"></div>
+      <div class="field" style="margin-top:12px"><label for="f-phone">טלפון</label><input id="f-phone" type="tel" inputmode="tel" autocomplete="tel" dir="ltr" style="text-align:right"></div>
+    </div>
+    <input class="hp" type="text" id="f-web" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+    <p class="err" id="err" role="alert"></p>
+    <button class="btn" type="submit" id="go" disabled>לבחור שעה</button>
+    <p class="small">בלחיצה אתה מאשר שיוחאי ייצור איתך קשר לגבי השיחה. <a href="/privacy.html">פרטיות</a></p>
+  </form>
+</section>
+
+<section class="screen" id="s-done" aria-label="אישור" hidden>
+  <div class="in">
+    <div class="topbar"><svg width="26" height="26" aria-hidden="true"><use href="#logo"/></svg><span>MYBOT247</span></div>
+    <div class="done-mark" aria-hidden="true"></div>
+    <h1 class="center" id="done-h">קבענו!</h1>
+    <p class="big center" id="when"></p>
+    <p class="why center" style="font-size:20px" id="done-p">יוחאי יתקשר אליך בשעה הזו.</p>
+  </div>
+</section>
+</main>
+
+<div class="cookie" id="cookie" role="region" aria-label="עוגיות" hidden>
+  <p>האתר משתמש בעוגיות של Google ו־Meta למדידה. <a href="/privacy.html#cookies">פרטים</a></p>
+  <div class="row">
+    <button type="button" class="ok" id="cookie-ok">מאשר</button>
+    <button type="button" class="no" id="cookie-no">בלי</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  var API = "https://bot.mybot247.com";
+  var SRC_KEYS = ["utm_source","utm_medium","utm_campaign","utm_content","utm_term","utm_id","fbclid","gclid","ttclid"];
+  var DOW = ["ראשון","שני","שלישי","רביעי","חמישי","שישי","שבת"];
+
+  /* ---------- source: a direct invite unless a campaign says otherwise ---------- */
+  var src = {}, qs;
+  try { qs = new URLSearchParams(location.search); } catch (e) { qs = { get: function(){ return null; } }; }
+  SRC_KEYS.forEach(function(k){ var v = qs.get(k); if (v) { src[k] = v.slice(0,200); } });
+  if (!src.utm_source) { src.utm_source = "direct_link"; src.utm_medium = "invite"; }
+  function cookie(n){ var m = document.cookie.match(new RegExp("(?:^|; )" + n + "=([^;]*)")); return m ? decodeURIComponent(m[1]) : ""; }
+  function attribution(){
+    var a = {}; for (var k in src) { a[k] = src[k]; }
+    var fbp = cookie("_fbp"), fbc = cookie("_fbc");
+    if (fbp) { a.fbp = fbp; }
+    if (fbc) { a.fbc = fbc; }
+    a.page = location.pathname; a.referrer = document.referrer ? document.referrer.slice(0,300) : "";
+    a.ua = navigator.userAgent.slice(0,300);
+    return a;
+  }
+  function choice(){ var c = null; try { c = localStorage.getItem("mb_cookies"); } catch (e) {} return c; }
+  function uid(){ try { return crypto.randomUUID(); } catch (e) { return "e" + Date.now().toString(36) + Math.random().toString(36).slice(2,10); } }
+  function track(ga, fbName, eventId){
+    if (window.gtag) { gtag("event", ga, {}); }
+    if (window.fbq) { fbq("track", fbName, {}, {eventID: eventId}); }
+  }
+  function phoneOk(v){ var d = v.replace(/\D/g, ""); return d.length >= 9 && d.length <= 13; }
+  function post(path, body){
+    return fetch(API + path, {method: "POST", credentials: "omit", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)})
+      .then(function(r){ return r.json().then(function(j){ return {status: r.status, data: j}; }, function(){ return {status: r.status, data: {}}; }); });
+  }
+  function show(name){
+    document.getElementById("s-pick").hidden = (name !== "pick");
+    document.getElementById("s-done").hidden = (name !== "done");
+    window.scrollTo(0, 0);
+  }
+
+  /* ---------- prefilled name and phone from the invite link ---------- */
+  var nameEl = document.getElementById("f-name"), phoneEl = document.getElementById("f-phone");
+  var known = document.getElementById("known"), fields = document.getElementById("fields");
+  var pn = (qs.get("n") || "").trim().slice(0, 60), pp = (qs.get("p") || "").trim().slice(0, 20);
+  if (pn) { nameEl.value = pn; document.getElementById("title").textContent = pn + ", מתי נוח שיוחאי יתקשר?"; }
+  if (pp) { phoneEl.value = pp; }
+  function useKnown(){
+    if (pn && phoneOk(pp)) {
+      document.getElementById("known-txt").textContent = pn + " · " + pp;
+      known.hidden = false; fields.hidden = true;
+    }
+  }
+  useKnown();
+  document.getElementById("change").addEventListener("click", function(){ known.hidden = true; fields.hidden = false; nameEl.focus(); });
+
+  /* ---------- calendar ---------- */
+  var days = [], off = 0, selDay = -1, selTime = null;
+  var dayBox = document.getElementById("days"), slotBox = document.getElementById("slots"), go = document.getElementById("go");
+  var prevB = document.getElementById("d-prev"), nextB = document.getElementById("d-next"), calMsg = document.getElementById("cal-msg");
+  function chip(html, pressed, fn){ var b = document.createElement("button"); b.type = "button"; b.className = "chip"; b.innerHTML = html; b.setAttribute("aria-pressed", String(pressed)); b.addEventListener("click", fn); return b; }
+  function dayLabel(d){ var x = new Date(d.date + "T12:00:00"); return {dow: DOW[x.getDay()], md: x.getDate() + "." + (x.getMonth() + 1)}; }
+  function whenText(){ var l = dayLabel(days[selDay]); return "יום " + l.dow + ", " + l.md + ", " + selTime; }
+  function render(){
+    dayBox.innerHTML = ""; slotBox.innerHTML = "";
+    days.slice(off, off + 4).forEach(function(d, j){
+      var i = off + j, l = dayLabel(d);
+      dayBox.appendChild(chip("<span>" + l.dow + "</span><b>" + l.md + "</b>", i === selDay, function(){ selDay = i; selTime = null; render(); }));
+    });
+    prevB.style.display = off > 0 ? "" : "none";
+    nextB.style.display = off + 4 < days.length ? "" : "none";
+    if (selDay >= 0 && days[selDay]) {
+      days[selDay].slots.forEach(function(t){ slotBox.appendChild(chip("<b>" + t + "</b>", t === selTime, function(){ selTime = t; render(); })); });
+    }
+    go.disabled = !selTime;
+    go.textContent = selTime ? "לאשר: " + whenText() : "לבחור שעה";
+  }
+  function loadSlots(){
+    calMsg.textContent = "טוען שעות פנויות...";
+    fetch(API + "/call/slots", {credentials: "omit"}).then(function(r){ if (!r.ok) { throw 0; } return r.json(); }).then(function(j){
+      days = (j.days || []).filter(function(d){ return d.slots && d.slots.length; });
+      off = 0; selDay = days.length ? 0 : -1; selTime = null;
+      calMsg.textContent = days.length ? "" : "כרגע אין שעות פנויות. נסה שוב מאוחר יותר.";
+      render();
+    }).catch(function(){ calMsg.textContent = "לא הצלחנו לטעון את השעות. נסה לרענן את הדף."; });
+  }
+  prevB.addEventListener("click", function(){ off = Math.max(off - 4, 0); render(); });
+  nextB.addEventListener("click", function(){ off = Math.min(off + 4, Math.max(days.length - 4, 0)); render(); });
+  loadSlots();
+
+  /* ---------- book ---------- */
+  var form = document.getElementById("f"), err = document.getElementById("err");
+  var bookEvent = uid();
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    var n = nameEl.value.trim(), ph = phoneEl.value;
+    if (!selTime || selDay < 0) { err.textContent = "בחר יום ושעה."; return; }
+    if (!n) { known.hidden = true; fields.hidden = false; err.textContent = "כתוב איך קוראים לך."; return; }
+    if (!phoneOk(ph)) { known.hidden = true; fields.hidden = false; err.textContent = "בדוק את מספר הטלפון."; return; }
+    err.textContent = ""; go.disabled = true;
+    post("/call/book", {
+      name: n, phone: ph, consent: true, date: days[selDay].date, time: selTime,
+      website: document.getElementById("f-web").value, event_id: bookEvent, attribution: attribution(), cookies: choice() === "no" ? 0 : 1
+    }).then(function(r){
+      go.disabled = false;
+      if (r.status === 409 && r.data && r.data.error === "already_booked") {
+        document.getElementById("done-h").textContent = "כבר קבועה לך שיחה";
+        document.getElementById("when").textContent = r.data.when || "";
+        document.getElementById("done-p").textContent = "יוחאי יתקשר אליך בשעה הזו.";
+        show("done"); return;
+      }
+      if (r.status === 409) { err.textContent = "השעה הזו נתפסה. בחר שעה אחרת."; loadSlots(); return; }
+      if (r.status !== 200 || !r.data || !r.data.ok) { err.textContent = "משהו השתבש. נסה שוב בעוד רגע."; render(); return; }
+      document.getElementById("when").textContent = r.data.when || whenText();
+      track("call_booked", "Schedule", bookEvent);
+      track("call_lead", "Lead", bookEvent + "-lead");
+      show("done");
+    }).catch(function(){ go.disabled = false; err.textContent = "משהו השתבש. נסה שוב בעוד רגע."; });
+  });
+
+  /* ---------- cookie strip ---------- */
+  var ck = document.getElementById("cookie");
+  if (!choice()) { ck.hidden = false; }
+  function choose(v){
+    try { localStorage.setItem("mb_cookies", v); } catch (e) {}
+    ck.hidden = true;
+    if (v === "no") { window["ga-disable-G-8MYSPBKZ6K"] = true; if (window.fbq) { fbq("consent", "revoke"); } }
+  }
+  document.getElementById("cookie-ok").onclick = function(){ choose("yes"); };
+  document.getElementById("cookie-no").onclick = function(){ choose("no"); };
+})();
+</script>
+</body>
+</html>

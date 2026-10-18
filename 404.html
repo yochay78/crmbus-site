@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<!-- Google tag (gtag.js) - Google Analytics 4, property mybot247.com -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MYSPBKZ6K"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-8MYSPBKZ6K');
+</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>הדף לא נמצא | MYBOT247</title>
+<link rel="icon" href="/favicon.ico" sizes="32x32">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;700&family=Rubik:wght@700;800&display=swap">
+<style>
+:root{--ground:#F2FAF5;--surface:#FFFFFF;--ink:#0F271E;--muted:#4A6259;--line:#D3E7DA;--pop:#25D366;--pop-ink:#06281A;
+  --display:"Rubik","Arial Hebrew",system-ui,sans-serif;--body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif}
+@media (prefers-color-scheme:dark){:root{--ground:#0F221D;--surface:#143029;--ink:#E4EFEA;--muted:#9BB3AA;--line:#244A40}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--body);font-size:20px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column}
+.top{padding:16px;text-align:center}
+.logo{font-family:var(--display);font-weight:800;font-size:24px;color:var(--ink);text-decoration:none;direction:ltr;display:inline-block}
+main{flex:1;display:flex;align-items:center;justify-content:center;padding:16px}
+.box{width:100%;max-width:460px;text-align:center}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(2.2rem,9vw,3rem);line-height:1.15;margin:0 0 12px}
+p{margin:0 0 28px;color:var(--muted);font-size:1.15rem}
+.btn{display:flex;align-items:center;justify-content:center;min-height:60px;border-radius:999px;font-family:var(--display);font-weight:700;font-size:1.2rem;text-decoration:none;margin:0 0 14px;padding:0 20px}
+.btn.main{background:var(--pop);color:var(--pop-ink)}
+.btn.alt{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+</style>
+</head>
+<body>
+<div class="top"><a class="logo" href="/">MYBOT247</a></div>
+<main>
+  <div class="box" id="box">
+    <h1>הדף הזה לא נמצא</h1>
+    <p>אולי הקישור ישן. אפשר להמשיך מכאן:</p>
+    <a class="btn main" href="https://bot.mybot247.com/start" id="go-start">לבנות עוזר דיגיטלי</a>
+    <a class="btn alt" href="/">לדף הבית</a>
+    <a class="btn alt" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%94%D7%92%D7%A2%D7%AA%D7%99%20%D7%9C%D7%A2%D7%9E%D7%95%D7%93%20%D7%A9%D7%9C%D7%90%20%D7%A0%D7%9E%D7%A6%D7%90%20%D7%91%D7%90%D7%AA%D7%A8">לדבר איתנו בוואטסאפ</a>
+  </div>
+</main>
+<script>
+(function(){
+  var path = location.pathname, search = location.search, hash = location.hash;
+  // An old or mistyped sign-up link (for example mybot247.com/start?type=courier from an ad): the sign-up lives on bot.mybot247.com.
+  // The whole query string and hash travel with it, so the ad source (utm_*, fbclid) is not lost.
+  if (/^\/start(\/|$)/.test(path)) {
+    try { gtag('event', 'redirect_start_from_404', {page_path: path, transport_type: 'beacon'}); } catch (e) {}
+    location.replace('https://bot.mybot247.com' + path + search + hash);
+    return;
+  }
+  try { gtag('event', 'page_not_found', {page_path: path + search, page_referrer: document.referrer || '', transport_type: 'beacon'}); } catch (e) {}
+})();
+</script>
+</body>
+</html>

@@ -26,7 +26,7 @@
 </script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>MYBOT247 · גם כשאתה עסוק, לקוחות מקבלים תשובה</title>
+<title>MYBOT247 · לא מפספסים אף לקוח</title>
 <meta name="description" content="העוזר הדיגיטלי לווטסאפ של העסק עונה ללקוחות חדשים תוך שניות. חודש ראשון חינם, בלי כרטיס אשראי.">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -302,7 +302,7 @@ body{margin:0}
 
 <style>
 /* Opening v2 (Oct 19, 2026): chat-as-video, one headline, one button -> /start/v2 */
-.vplayer{position:relative;border-radius:20px;background:#E7DDD3;border:1px solid var(--line);padding:14px 12px 10px;display:flex;flex-direction:column;gap:10px;min-height:236px}
+.vplayer{position:relative;border-radius:20px;background:#E7DDD3;border:1px solid var(--line);padding:14px 12px 10px;display:flex;flex-direction:column;gap:10px;min-height:340px;justify-content:flex-start}
 .vplayer .tag{position:absolute;top:8px;inset-inline-start:10px;font-size:11px;color:var(--muted);background:rgba(255,255,255,.8);border-radius:999px;padding:1px 8px}
 .vchat{display:flex;flex-direction:column;gap:8px;padding-top:14px}
 .bub{max-width:82%;padding:8px 11px 6px;border-radius:12px;font-size:15px;line-height:1.35;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;box-shadow:0 1px 1px rgba(0,0,0,.08)}
@@ -310,12 +310,16 @@ body{margin:0}
 .bub small{display:block;font-size:10.5px;color:#667781;margin-top:2px;text-align:end}
 .bub.in{background:var(--b-in);align-self:flex-start}
 .bub.out{background:var(--b-out);align-self:flex-end}
+.bub.typing .txt,.bub.typing small{display:none}
+.bub .dots{display:none}.bub.typing .dots{display:inline-flex;gap:4px;padding:5px 2px}
+.dots i{width:7px;height:7px;border-radius:50%;background:#8696A0;animation:dt 1s infinite}.dots i:nth-child(2){animation-delay:.15s}.dots i:nth-child(3){animation-delay:.3s}
+@keyframes dt{0%,60%,100%{opacity:.35;transform:none}30%{opacity:1;transform:translateY(-3px)}}
 .vbar{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);direction:ltr}
 .vtrack{flex:1;height:3px;border-radius:99px;background:rgba(0,0,0,.12);overflow:hidden}.vtrack i{display:block;height:100%;width:0;background:var(--pop-deep)}
 .pts2{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px;font-size:16px}
 .pts2 li{display:flex;gap:8px;align-items:flex-start}.pts2 li:before{content:"✓";color:var(--pop-deep);font-weight:800}
 .scr{overflow-y:auto}
-@media (prefers-reduced-motion:reduce){.bub{transition:none}}
+@media (prefers-reduced-motion:reduce){.bub{transition:none}.dots i{animation:none}}
 </style>
 </head>
 <body>
@@ -323,18 +327,17 @@ body{margin:0}
 <main class="scr" id="s1" style="background:radial-gradient(90% 45% at 100% 0%,#D4F5DF 0%,var(--bg) 70%)">
   <div class="bar"><span class="logo" style="font-size:22px;display:inline-flex;align-items:center;gap:.35em"><span>MYBOT<b>247</b></span><img src="/favicon.svg" alt="" width="28" height="28"></span><span style="display:flex;align-items:center;gap:8px"><a class="talk" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A2%D7%96%D7%A8%D7%94%20%D7%A2%D7%9D%20%D7%94%D7%A2%D7%95%D7%96%D7%A8%20%D7%94%D7%93%D7%99%D7%92%D7%99%D7%98%D7%9C%D7%99" target="_blank" rel="noopener"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 11.5a8 8 0 0 1-11.8 7L4 19.5l1.1-4A8 8 0 1 1 20 11.5z"/></svg>דברו איתנו</a></span></div>
   <div style="display:flex;flex-direction:column;gap:12px">
-    <h1 class="hero-h" style="font-size:36px;line-height:1.1">גם כשאתה עסוק, <mark>לקוחות מקבלים תשובה</mark></h1>
+    <h1 class="hero-h" style="font-size:36px;line-height:1.1"><mark>לא מפספסים</mark> אף לקוח</h1>
     <div class="vplayer" role="img" aria-label="דוגמה: שיחת ווטסאפ שבה העוזר הדיגיטלי עונה ללקוח חדש">
       <span class="tag">דוגמה</span>
       <div class="vchat" id="vchat">
         <div class="bub in">היי, כמה עולה שיעור?<small>14:02</small></div>
-        <div class="bub out">היי, כאן העוזר הדיגיטלי של דנה. שיעור עולה 160 ₪. איזה יום נוח?<small>14:02</small></div>
+        <div class="bub out"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">היי, כאן העוזר הדיגיטלי של דנה. שיעור עולה 160 ₪. איזה יום נוח?</span><small>14:02</small></div>
         <div class="bub in">יום שלישי אחר הצהריים<small>14:03</small></div>
-        <div class="bub out">רשמתי. דנה תחזור אליך היום להשלים את הפרטים.<small>14:03</small></div>
+        <div class="bub out"><span class="dots" aria-hidden="true"><i></i><i></i><i></i></span><span class="txt">רשמתי. דנה תחזור אליך היום להשלים את הפרטים.</span><small>14:03</small></div>
       </div>
-      <div class="vbar"><span class="vtrack"><i id="vfill"></i></span></div>
     </div>
-    <ul class="pts2"><li>עונה תוך שניות, גם כשאתה באמצע עבודה</li><li>אתה מקבל שם, צורך וטלפון, מוכן לחזרה</li></ul>
+    <ul class="pts2"><li>עונה תוך שניות ושולח לך את הפרטים</li><li>חיבור מהיר - תוך דקות ספורות</li></ul>
   </div>
   <div class="foot">
     <p style="text-align:center;font-size:15px;color:var(--soft)"><b>חודש ראשון חינם</b> · אחר כך 99 ₪ לחודש</p>
@@ -382,13 +385,16 @@ body{margin:0}
   });
 
 
-  // chat-as-video loop
+  // chat-as-video loop: customer messages appear, the assistant shows a typing indicator first
   (function(){
-    var bubs=[].slice.call(document.querySelectorAll("#vchat .bub")), fill=document.getElementById("vfill");
-    var T=[600,2400,5200,7400], END=12000, t0=Date.now();
-    if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){bubs.forEach(function(b){b.classList.add("show")});fill.style.width="100%";return}
-    function tick(){var t=(Date.now()-t0)%END;bubs.forEach(function(b,i){b.classList.toggle("show",t>=T[i])});fill.style.width=(t/END*100)+"%"}
-    setInterval(tick,200);tick();
+    var bubs=[].slice.call(document.querySelectorAll("#vchat .bub"));
+    var T=[600,3000,5800,8200], TYPE=1500, END=13000, t0=Date.now();
+    if(window.matchMedia&&matchMedia("(prefers-reduced-motion:reduce)").matches){bubs.forEach(function(b){b.classList.add("show")});return}
+    function tick(){var t=(Date.now()-t0)%END;
+      bubs.forEach(function(b,i){var out=b.classList.contains("out");
+        b.classList.toggle("show",t>=T[i]||(out&&t>=T[i]-TYPE));
+        b.classList.toggle("typing",out&&t>=T[i]-TYPE&&t<T[i]);});}
+    setInterval(tick,150);tick();
   })();
   if (window.gtag) { gtag("event", "landing_v2_view", {}); }
 

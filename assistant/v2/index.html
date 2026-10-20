@@ -423,5 +423,57 @@ body{margin:0}
   fit(); window.addEventListener("resize", fit); if (window.visualViewport) { visualViewport.addEventListener("resize", fit); }
 })();
 </script>
+<script>
+/* Visitor tracking (landing -> sign-up): one small event per step to our own server, so we know where each visitor stops.
+   Nothing is sent if the visitor chose "no" in the cookie notice. The visitor id goes on in the button link (vid=), so /start can join the two halves. */
+(function(){
+  try {
+    var PG = "assistant-v2", URL_ = "https://bot.mybot247.com/solo-api/v2/event";
+    function rd(k){ try { return localStorage.getItem(k); } catch (e) { return null; } }
+    function wr(k, v){ try { localStorage.setItem(k, v); } catch (e) {} }
+    function allowed(){ return rd("mb_cookies") !== "no"; }
+    var VID = rd("mb-lp-vid");
+    if (!VID) { VID = (Math.random().toString(36).slice(2) + Date.now().toString(36)).replace(/[^a-z0-9]/g, "").slice(0, 24); wr("mb-lp-vid", VID); }
+    var Q = new URLSearchParams(location.search), UA = navigator.userAgent || "", INFO = {flow: "lp", pg: PG};
+    ["utm_source", "utm_medium", "utm_campaign", "utm_content"].forEach(function(k){ var v = Q.get(k); if (v) { INFO[k] = v.slice(0, 60); wr("mb-lp-" + k, v.slice(0, 60)); } else if (rd("mb-lp-" + k)) { INFO[k] = rd("mb-lp-" + k); } });
+    INFO.inapp = /FBAN|FBAV|FB_IAB/i.test(UA) ? "fb" : (/Instagram/i.test(UA) ? "ig" : "");
+    INFO.mobile = /Android|iPhone|iPad|Mobile/i.test(UA) ? 1 : 0;
+    INFO.w = window.innerWidth || 0;
+    var T0 = Date.now(), SENT = {};
+    function send(step, once){
+      try {
+        if (!allowed() || (once && SENT[step])) { return; }
+        SENT[step] = 1;
+        var i = {}, k; for (k in INFO) { i[k] = INFO[k]; }
+        i.t = Math.round((Date.now() - T0) / 1000);
+        var body = JSON.stringify({vid: VID, step: step, info: i});
+        if (navigator.sendBeacon && navigator.sendBeacon(URL_, new Blob([body], {type: "text/plain;charset=UTF-8"}))) { return; }
+        fetch(URL_, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=UTF-8"}, body: body, keepalive: true}).catch(function(){});
+      } catch (e) {}
+    }
+    send("lp:view", true);
+    setTimeout(function(){ if (document.visibilityState === "visible") { send("lp:s10", true); } }, 10000);
+    var scrollable = function(){ return document.documentElement.scrollHeight > window.innerHeight * 1.15; };
+    window.addEventListener("scroll", function(){
+      try {
+        if (!scrollable()) { return; }
+        var r = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+        if (r >= 0.5) { send("lp:scroll50", true); }
+        if (r >= 0.9) { send("lp:scroll90", true); }
+      } catch (e) {}
+    }, {passive: true});
+    Array.prototype.forEach.call(document.querySelectorAll(".js-start"), function(a){
+      a.addEventListener("click", function(){
+        try {
+          if (!allowed()) { return; }
+          send("lp:click", true);
+          if (a.href.indexOf("vid=") < 0) { a.href += (a.href.indexOf("?") < 0 ? "?" : "&") + "vid=" + VID; }
+        } catch (e) {}
+      });
+    });
+    document.addEventListener("visibilitychange", function(){ if (document.visibilityState === "hidden") { send("lp:leave", true); } });
+  } catch (e) {}
+})();
+</script>
 </body>
 </html>

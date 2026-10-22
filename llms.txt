@@ -1,6 +1,6 @@
 # MYBOT247
 
-> MYBOT247 היא מערכת ישראלית לבניית עוזר דיגיטלי (בוט) בווטסאפ לעסקים: עונה ללקוחות אוטומטית, אוסף פרטים וקובע תורים ביומן גוגל. 99 ₪ לחודש, בלי התחייבות.
+> MYBOT247 היא מערכת ישראלית לבניית עוזר דיגיטלי (בוט) בווטסאפ לעסקים: עונה ללקוחות אוטומטית, אוסף פרטים וקובע תורים ביומן גוגל. הקמה בחינם, חודש ראשון חינם ובלי כרטיס אשראי; אחר כך 99 ₪ לחודש (149 ₪ עם יומן), לא כולל מע"מ, בלי התחייבות. הצעת ההקמה חלה על החיבור המהיר (לא רשמי של מטא).
 
 ## מדריכים
 - [מהו עוזר דיגיטלי](https://mybot247.com/help/what-is/): מה הוא עושה, מה לא, ואיך שולטים בו
@@ -19,9 +19,18 @@
 - [עריכת הבוט](https://mybot247.com/help/bot-edit/): משנים הודעות ושאלות של הבוט במסך העריכה.
 
 ## בלוג
+- [בוט לוואטסאפ חינם: ארבע דרכים ומה כולל חודש ראשון חינם](https://mybot247.com/blog/whatsapp-free-bot/): השוואה בין וואטסאפ עסקי, פלטפורמות חינמיות, קוד פתוח וחיבור ישיר למטא
+- [בוט וואטסאפ חינם לקביעת תורים](https://mybot247.com/blog/whatsapp-free-bot-appointments/): מה אפשר בלי לשלם ומה חסר בלי יומן
+- [בוט וואטסאפ חינם או בתשלום](https://mybot247.com/blog/whatsapp-free-vs-paid-bot/): טבלת השוואה ושאלות לשאול כל ספק
+- [בוט לוואטסאפ בלי קוד](https://mybot247.com/blog/whatsapp-bot-no-code/): שלבי בניה ובדיקה
+- [כמה עולה בוט לוואטסאפ לעסק](https://mybot247.com/blog/whatsapp-bot-cost/): מחירים והעלויות הנוספות
+- [עלות WhatsApp Business API](https://mybot247.com/blog/whatsapp-business-api-cost/): חיוב לפי הודעה והשינויים באוקטובר 2026
+- [הודעות תפוצה בלי להיחסם](https://mybot247.com/blog/whatsapp-broadcast-without-block/)
+- [מספר וואטסאפ נחסם בעסק](https://mybot247.com/blog/whatsapp-number-blocked/)
 - [מענה אוטומטי בווטסאפ לעסקים](https://mybot247.com/blog/auto-reply-whatsapp-business/)
 - [מענה אוטומטי חינמי בווטסאפ](https://mybot247.com/blog/whatsapp-free-auto-reply/)
 - [בוט לקביעת תורים בווטסאפ](https://mybot247.com/blog/whatsapp-appointment-bot/)
+- [וואטסאפ עסקי: יתרונות וחסרונות](https://mybot247.com/blog/whatsapp-business-app-pros-cons/)
 
 ## משפטי
 - [מדיניות פרטיות](https://mybot247.com/privacy.html)

@@ -18,6 +18,9 @@
 - [בדיקה ויום־יום](https://mybot247.com/help/calendar-test/): בודקים שהכול עובד ומנהלים את התורים הקרובים.
 - [עריכת הבוט](https://mybot247.com/help/bot-edit/): משנים הודעות ושאלות של הבוט במסך העריכה.
 
+## ערוץ יוטיוב
+- [MYBOT247 ביוטיוב](https://www.youtube.com/channel/UCfKSHtOnMuXyxoBoRw9yApA): מדריכי וידאו קצרים על חיבור יומן, תורים ועריכת הבוט
+
 ## בלוג
 - [בוט לוואטסאפ חינם: ארבע דרכים ומה כולל חודש ראשון חינם](https://mybot247.com/blog/whatsapp-free-bot/): השוואה בין וואטסאפ עסקי, פלטפורמות חינמיות, קוד פתוח וחיבור ישיר למטא
 - [בוט וואטסאפ חינם לקביעת תורים](https://mybot247.com/blog/whatsapp-free-bot-appointments/): מה אפשר בלי לשלם ומה חסר בלי יומן

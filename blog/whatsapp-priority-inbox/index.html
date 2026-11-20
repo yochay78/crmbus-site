@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="he" dir="rtl" data-theme="light">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MYSPBKZ6K"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8MYSPBKZ6K');</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים | MYBOT247</title>
+<meta name="description" content="מערכת לניהול שיחות וואטסאפ לעסק שעובד עם פריוריטי: ההבדל בין תיבת שיחות לצוות לבין בוט, שש שאלות לבדוק, ומתי מספיק בוט שעונה ומעביר לאדם.">
+<link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Hebrew:wght@400;700&family=Secular+One&display=swap">
+<style>
+:root{--ground:#F0F5F2;--surface:#FFFFFF;--ink:#0F2A22;--muted:#4A6259;--line:#D5E2DC;--accent-text:#0B6E5F;--signal:#128C7E;--display:"Secular One","Rubik","Arial Hebrew",system-ui,sans-serif;--body:"IBM Plex Sans Hebrew","Arial Hebrew","Segoe UI",system-ui,sans-serif}
+*{box-sizing:border-box}body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;margin:0}
+a{color:var(--accent-text)}.wrap{max-width:900px;margin-inline:auto;padding-inline:16px}
+header{border-bottom:1px solid var(--line);background:var(--surface)}header .wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:14px}
+.logo{font-family:var(--display);font-size:1.6rem;text-decoration:none;color:var(--ink);direction:ltr;display:inline-flex;align-items:center;gap:.35em}.logo b{color:var(--signal);font-weight:400}.logo img{width:1.15em;height:1.15em}
+.back{font-size:.95rem;font-weight:700;text-decoration:none;color:var(--muted);padding:6px 14px;border:1px solid var(--line);border-radius:999px;background:#fff}
+main{padding-block:36px 64px}
+.eyebrow{font-weight:700;font-size:.85rem;letter-spacing:.04em;margin:0 0 6px}
+h1{font-family:var(--display);font-weight:400;font-size:clamp(1.9rem,5vw,2.7rem);line-height:1.2;margin:0 0 8px}
+.lead{color:var(--muted);margin:0 0 28px;max-width:34em}
+h2{font-family:var(--display);font-weight:400;font-size:1.3rem;margin:34px 0 12px;display:flex;align-items:center;gap:10px}
+h2 .n{background:var(--accent-soft,#E3F6EA);color:#0B7F43;font-family:var(--body);font-weight:700;font-size:.85rem;border-radius:999px;padding:2px 12px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;list-style:none;padding:0;margin:0}
+.g{display:flex;gap:14px;align-items:center;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:12px;text-decoration:none;color:var(--ink);box-shadow:0 8px 22px -18px rgba(15,39,30,.45);transition:transform .15s,border-color .15s}
+.g:hover{transform:translateY(-2px);border-color:#25D366}
+.th{position:relative;flex:none;width:64px;height:112px;border-radius:10px;overflow:hidden;background:#0F271E}.th img{width:100%;height:100%;object-fit:cover;display:block}
+.th::after{content:"";position:absolute;inset:0;margin:auto;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230B7F43' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/18px no-repeat}
+.g b{display:block;font-size:1.05rem;line-height:1.3}.g span{display:block;color:var(--muted);font-size:.92rem;line-height:1.4;margin-top:2px}
+.g small{display:inline-block;margin-top:6px;font-size:.8rem;font-weight:700;color:#0B7F43;background:#E3F6EA;border-radius:999px;padding:1px 10px;direction:ltr}
+.help{margin-top:40px;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);border-radius:18px;padding:20px 22px}
+.help p{margin:0;font-weight:700;font-size:1.1rem}.help p span{display:block;font-weight:400;font-size:.95rem;color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:10px 24px;border-radius:14px;background:#25D366;color:#06281A;font-weight:700;text-decoration:none;box-shadow:0 10px 22px -10px rgba(11,127,67,.6)}
+.btn.ghost{background:#fff;border:1.5px solid #25D366;color:#0B7F43;box-shadow:none}
+.player{display:flex;flex-direction:column;align-items:center;gap:18px}
+video{width:min(100%,calc((100svh - 190px)*9/16),380px);min-width:230px;aspect-ratio:9/16;border-radius:20px;background:#000;box-shadow:0 18px 40px -22px rgba(15,39,30,.6);display:block}
+.row{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;width:100%;max-width:420px}.row .btn{flex:1 1 170px}
+.crumb{font-size:.9rem;color:var(--muted);margin:0 0 14px}.crumb a{color:var(--muted)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.9rem}footer nav{display:flex;flex-wrap:wrap;gap:8px 20px;margin-bottom:8px}
+</style>
+<style>
+article h2{margin:34px 0 10px}article p,article li{max-width:40em}article ol,article ul{padding-inline-start:1.3em}
+.answer{background:#E3F6EA;border-inline-start:5px solid #25D366;border-radius:12px;padding:14px 18px;margin:0 0 26px;font-size:1.08rem;max-width:40em}
+.meta{color:var(--muted);font-size:.9rem;margin:0 0 20px}
+table{border-collapse:collapse;width:100%;margin:14px 0 22px;background:#fff;font-size:.95rem}th,td{border:1px solid var(--line);padding:8px 10px;text-align:right;vertical-align:top}th{background:#E3F6EA}
+.tblwrap{overflow-x:auto}details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:10px 16px;margin:10px 0;max-width:40em}summary{font-weight:700;cursor:pointer}
+.cta{margin:34px 0;display:flex;flex-wrap:wrap;gap:12px;align-items:center;background:linear-gradient(135deg,#FFE680 0%,#FFF6CF 100%);border-radius:18px;padding:20px 22px}.cta p{margin:0;font-weight:700;flex:1 1 260px}
+.related{margin-top:30px}.related a{display:block;margin:6px 0}
+</style>
+<link rel="canonical" href="https://mybot247.com/blog/whatsapp-priority-inbox/">
+<meta property="og:type" content="article"><meta property="og:site_name" content="MYBOT247"><meta property="og:locale" content="he_IL">
+<meta property="og:url" content="https://mybot247.com/blog/whatsapp-priority-inbox/"><meta property="og:title" content="מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים | MYBOT247"><meta property="og:description" content="מערכת לניהול שיחות וואטסאפ לעסק שעובד עם פריוריטי: ההבדל בין תיבת שיחות לצוות לבין בוט, שש שאלות לבדוק, ומתי מספיק בוט שעונה ומעביר לאדם.">
+<meta property="og:image" content="https://mybot247.com/og/og-he.jpg"><meta name="theme-color" content="#25D366">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים", "description": "מערכת לניהול שיחות וואטסאפ לעסק שעובד עם פריוריטי: ההבדל בין תיבת שיחות לצוות לבין בוט, שש שאלות לבדוק, ומתי מספיק בוט שעונה ומעביר לאדם.", "inLanguage": "he", "mainEntityOfPage": "https://mybot247.com/blog/whatsapp-priority-inbox/", "datePublished": "2026-11-20", "dateModified": "2026-11-20", "image": "https://mybot247.com/og/og-he.jpg", "author": {"@type": "Organization", "name": "MYBOT247", "url": "https://mybot247.com"}, "publisher": {"@type": "Organization", "name": "MYBOT247 (RYNET MEDIA LTD)", "url": "https://mybot247.com"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "MYBOT247 היא מערכת לניהול שיחות וואטסאפ?", "acceptedAnswer": {"@type": "Answer", "text": "לא. MYBOT247 היא בוט שעונה ללקוחות אוטומטית ומעביר לאדם כשצריך. אין בה תיבת שיחות משותפת לצוות."}}, {"@type": "Question", "name": "השיחות נשמרות בכרטיס הלקוח בפריוריטי?", "acceptedAnswer": {"@type": "Answer", "text": "לא. הבוט שלנו לא מתייק שיחות בפריוריטי. מי שצריך את זה צריך מערכת ייעודית לניהול שיחות."}}, {"@type": "Question", "name": "מה ההבדל בין בוט למערכת ניהול שיחות?", "acceptedAnswer": {"@type": "Answer", "text": "מערכת ניהול שיחות עוזרת לצוות לענות ביחד. בוט עונה במקום הצוות על השאלות החוזרות. עסקים גדולים משתמשים בשניהם."}}, {"@type": "Question", "name": "כמה זה עולה?", "acceptedAnswer": {"@type": "Answer", "text": "המנוי הרגיל של MYBOT247: ההקמה בחינם והחודש הראשון חינם, בלי כרטיס אשראי, ואחר כך 99 ₪ לחודש, או 149 ₪ עם יומן וקביעת תורים, לא כולל מע״מ, בלי התחייבות. תנאי הפיילוט של החיבור לפריוריטי נסגרים בשיחה אישית. ייתכן שיש עלות רישוי בצד של פריוריטי, ואותה בודקים מול פריוריטי או המיישם שלכם."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "MYBOT247", "item": "https://mybot247.com/"}, {"@type": "ListItem", "position": 2, "name": "מאמרים", "item": "https://mybot247.com/blog/"}, {"@type": "ListItem", "position": 3, "name": "מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים", "item": "https://mybot247.com/blog/whatsapp-priority-inbox/"}]}</script>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/"><span>MYBOT<b>247</b></span><img src="/favicon.svg" alt="" width="28" height="28"></a><a class="back" href="/">חזרה לאתר</a></div></header>
+<main><div class="wrap"><article>
+<p class="crumb"><a href="/blog/">מאמרים</a> › מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים</p>
+<h1>מערכת לניהול שיחות וואטסאפ עם פריוריטי: מה לבדוק לפני שבוחרים</h1>
+<p class="meta">מאת צוות MYBOT247 · עודכן ב-20.11.2026</p>
+<p class="answer">מערכת לניהול שיחות וואטסאפ עם פריוריטי היא תיבת שיחות משותפת לצוות, שמקשרת כל שיחה ללקוח במערכת. בוט הוא דבר אחר: הוא עונה לבד על מה שחוזר על עצמו, ומעביר לאדם את השאר. MYBOT247 הוא בוט ולא תיבת שיחות לצוות. הוא מתאים לעסק קטן שרוצה שהשאלות החוזרות ייענו לבד, עם שליפת סטטוס הזמנה מפריוריטי בשלב פיילוט.</p>
+<h2>שני דברים שונים שנקראים באותו שם</h2>
+<div class="tblwrap"><table><tr><th></th><th>תיבת שיחות לצוות</th><th>בוט</th></tr>
+<tr><td>מי עונה</td><td>נציגים, כמה במקביל</td><td>הבוט, ואדם רק כשצריך</td></tr>
+<tr><td>למי מתאים</td><td>צוות שירות או מכירות של כמה אנשים</td><td>עסק קטן, אדם אחד או שניים על הוואטסאפ</td></tr>
+<tr><td>הקשר לפריוריטי</td><td>השיחה מוצגת ליד כרטיס הלקוח ומתויקת בו</td><td>הבוט שולף נתון ועונה ללקוח</td></tr>
+<tr><td>עלות אופיינית</td><td>לפי מספר נציגים, ולרוב בערוץ הרשמי של וואטסאפ</td><td>מנוי חודשי קבוע</td></tr></table></div>
+<h2>מתי צריך תיבת שיחות</h2>
+<p>כשכמה אנשים עונים מאותו מספר, כשצריך לדעת מי טיפל במה, וכשרוצים שכל שיחה תישמר בכרטיס הלקוח. לצורך הזה יש פתרונות ייעודיים, חלקם בחנות האפליקציות של פריוריטי. זה לא מה שאנחנו עושים.</p>
+<h2>מתי מספיק בוט</h2>
+<p>כשרוב ההודעות הן אותן שאלות: שעות, מחירים, איפה ההזמנה, איך מזמינים. הבוט עונה עליהן לבד, אוסף פרטים כשמגיעה פנייה אמיתית, ומפסיק לענות ברגע שאתם נכנסים לשיחה. הצוות ממשיך לעבוד מהוואטסאפ הרגיל.</p>
+<h2>שש שאלות לבדוק לפני שבוחרים</h2>
+<ol><li>כמה אנשים עונים בוואטסאפ, וכמה הודעות מגיעות ביום?</li><li>איזה חלק מההודעות הוא שאלות חוזרות?</li><li>צריך שהשיחה תישמר בכרטיס הלקוח בפריוריטי, או שמספיק שהלקוח קיבל תשובה?</li><li>החיבור קורא בלבד, או גם כותב למערכת?</li><li>באיזה ערוץ וואטסאפ המערכת עובדת, ומה העלות לכל הודעה?</li><li>מה קורה כשהמערכת לא זמינה: הלקוח מקבל תשובה, או נשאר בלי כלום?</li></ol>
+<h2>מה MYBOT247 נותן</h2>
+<ul><li>מענה אוטומטי לשאלות חוזרות, איסוף פרטים וקביעת פגישות: זמין.</li><li>שליפת סטטוס הזמנה מפריוריטי: פיילוט.</li><li>מלאי ומחיר, פתיחת ליד או הזמנה בפריוריטי: נבנה בהתאמה לעסק שמבקש.</li><li>תיבת שיחות משותפת לצוות ותיוק שיחות בכרטיס הלקוח: לא קיים.</li></ul>
+<p>רשימת התהליכים המלאה ב<a href="/blog/whatsapp-priority-automations/">אוטומציות וואטסאפ לפריוריטי</a>, ועל לידים ב<a href="/blog/whatsapp-priority-leads/">ניהול לידים בוואטסאפ עם פריוריטי</a>.</p>
+<p><a class="btn" href="/priority/">לפרטים ולשיחה איתנו</a></p>
+<h2>שאלות ותשובות</h2>
+<details><summary>MYBOT247 היא מערכת לניהול שיחות וואטסאפ?</summary><p>לא. MYBOT247 היא בוט שעונה ללקוחות אוטומטית ומעביר לאדם כשצריך. אין בה תיבת שיחות משותפת לצוות.</p></details><details><summary>השיחות נשמרות בכרטיס הלקוח בפריוריטי?</summary><p>לא. הבוט שלנו לא מתייק שיחות בפריוריטי. מי שצריך את זה צריך מערכת ייעודית לניהול שיחות.</p></details><details><summary>מה ההבדל בין בוט למערכת ניהול שיחות?</summary><p>מערכת ניהול שיחות עוזרת לצוות לענות ביחד. בוט עונה במקום הצוות על השאלות החוזרות. עסקים גדולים משתמשים בשניהם.</p></details><details><summary>כמה זה עולה?</summary><p>המנוי הרגיל של MYBOT247: ההקמה בחינם והחודש הראשון חינם, בלי כרטיס אשראי, ואחר כך 99 ₪ לחודש, או 149 ₪ עם יומן וקביעת תורים, לא כולל מע״מ, בלי התחייבות. תנאי הפיילוט של החיבור לפריוריטי נסגרים בשיחה אישית. ייתכן שיש עלות רישוי בצד של פריוריטי, ואותה בודקים מול פריוריטי או המיישם שלכם.</p></details><p class="meta">MYBOT247 אינה שותפה רשמית של פריוריטי סופטוור. פריוריטי הוא סימן מסחרי של בעליו. החיבור בשלב פיילוט, נבדק בסביבת בדיקות ועדיין לא הופעל אצל לקוח. פרטי הרישוי וההרשאות תלויים בגרסה ובהתקנה שלכם, ולכן כדאי לבדוק אותם מול מי שמטפל אצלכם בפריוריטי.</p><div class="cta"><p>עובדים עם פריוריטי?<span style="display:block;font-weight:400;color:var(--muted)">החיבור בשלב פיילוט. אנחנו מחפשים עסקים ראשונים להפעיל אותו יחד.</span></p><a class="btn" href="/priority/">לפרטים על הפיילוט</a><a class="btn ghost" href="https://wa.me/972559473443?text=%D7%94%D7%99%D7%99%2C%20%D7%90%D7%A0%D7%99%20%D7%A2%D7%95%D7%91%D7%93%20%D7%A2%D7%9D%20%D7%A4%D7%A8%D7%99%D7%95%D7%A8%D7%99%D7%98%D7%99%20%D7%95%D7%A8%D7%95%D7%A6%D7%94%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A4%D7%99%D7%99%D7%9C%D7%95%D7%98">דברו איתנו בוואטסאפ</a></div>
+<div class="related"><strong>עוד מאמרים</strong><a href="/blog/whatsapp-bot-priority/">בוט וואטסאפ לפריוריטי: סטטוס הזמנה בוואטסאפ, ומה עוד אפשר</a><a href="/blog/whatsapp-priority-integration/">אינטגרציה בין וואטסאפ לפריוריטי: שלוש דרכים, ומה צריך בצד שלכם</a><a href="/blog/whatsapp-priority-automations/">אוטומציות וואטסאפ לפריוריטי: שישה תהליכים, ומה מהם כבר אפשר</a><a href="/blog/whatsapp-priority-order-status/">סטטוס הזמנה מפריוריטי בוואטסאפ: איך זה עובד שלב אחרי שלב</a><a href="/blog/whatsapp-priority-sales/">מכירות בוואטסאפ עם פריוריטי: מהשיחה עם הלקוח ועד הזמנה במערכת</a><a href="/blog/whatsapp-priority-leads/">ניהול לידים בוואטסאפ עם פריוריטי: איך ליד מהשיחה מגיע למערכת</a></div></article></div></main>
+<footer><div class="wrap"><nav><a href="/blog/">מאמרים</a><a href="/help/">מדריכים</a><a href="/privacy.html">מדיניות פרטיות</a><a href="/terms.html">תנאי שימוש</a><a href="/data-deletion.html">מחיקת נתונים</a><a href="/">חזרה לאתר</a></nav><div>© 2026 MYBOT247 · ריינט מדיה בע"מ (RYNET MEDIA LTD), ח.פ. 513973107, מצדה 7, תל אביב-יפו</div></div></footer>
+<script>document.addEventListener("click",function(e){var a=e.target.closest&&e.target.closest("a[href*='bot.mybot247.com/start'],a[href*='wa.me/'],a[href*='api.whatsapp.com']");if(!a||typeof gtag!=="function")return;var w=/wa\.me|whatsapp\.com/.test(a.href);gtag("event",w?"whatsapp_click":"start_builder_click",{link_url:a.href,page_path:location.pathname,transport_type:"beacon"});});</script>
+</body></html>
